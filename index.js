@@ -2,8 +2,6 @@ const express = require('express')
 const request = require('request')
 const morgan = require('morgan')
 
-
-
 const app = express()
 const port = 3000
 
@@ -22,9 +20,9 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', function (req, res) {
-    let email = req.body.email;
+    let email = req.body;
     console.log(email)
-    res.render("signup")
+    res.send(email)
 })
 
 app.get('/signup', (req, res) => {
@@ -32,5 +30,5 @@ app.get('/signup', (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log("server running")
+    console.log(`server running on port ${port}`)
 })
