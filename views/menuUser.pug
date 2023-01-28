@@ -1,0 +1,9 @@
+nav(class="burger")
+    a(href="#" class="burger_button" id="burger_button")
+        span(class="buger_button__icon")
+    div(class="burger-container")
+        div(class="content")
+            ul(class="menu")
+                each item in [['../dashboard', 'Dashboard'], ['../search', 'Search'], ['../movies','Movies'], ['../' , 'Logout']]
+                    li
+                        a(href=  item[0])= item[1]

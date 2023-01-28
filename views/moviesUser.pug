@@ -1,0 +1,28 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        //- link(rel="stylesheet", href="style.css")
+        title Favorites
+    include ./header.pug
+    body 
+        main
+            h3 What do you want?
+
+            section 
+                title #{film.Title}
+                img(src=film.Poster)
+                h1 Title: #{film.Title}
+                p Year: #{film.Year}
+                p Director: #{film.Director}
+                p Genre: #{film.Genre}
+                p Runtime: #{film.Runtime}
+                button Remove
+            
+            section 
+                a(class='button' href='/signup') Sign Up
+
+        include ./footer.pug
+        script(src="script.js") 
