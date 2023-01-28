@@ -3,6 +3,9 @@ const { API_KEY } = process.env
 const express = require('express');
 const request = require('request');
 const morgan = require('morgan');
+const mongoose = require("mongoose");
+require('./utils/mongoBase');
+require('./utils/pg_pool');
 
 const app = express();
 const port = 3000;
