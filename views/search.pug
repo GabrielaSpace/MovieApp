@@ -1,0 +1,39 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+    body 
+        include ./header.pug
+        main
+            h3 Search User
+            //- form(action="/search" method="post")
+            //-   label(for="title") title 
+            //-   input(name="title" id="title" placeholder="Title" required)
+            //-   input(type="submit" class="post_title" value="Search movie")
+            
+            form(action="/search" method="post" target="_blank" id="form1")
+                label(for="fname") Nombre de la pelicula : 
+                input(type="text" id="fname" name="title")
+                input(type="submit" value="Introducir Pelicula")
+
+
+            //-   section
+            //-     const movies = []
+            //-     each film in movies 
+            //-         img(src=film.Poster)
+            //-         h1 Title: #{film.Title}
+            //-         p Year: #{film.Year}
+            //-         p Director: #{film.Director}
+            //-         p Genre: #{film.Genre}
+            //-         p Runtime: #{film.Runtime}
+            //-         p Plot : #{film.Plot}
+            //-         p Actors : #{film.Actors}
+            //-         p Ratings: #{film.Ratings} 
+            //-         p Language : #{film.Language}
+            //-         button Add to favorites 
+            
+        include ./footer.pug
+        script(src="script.js") 
