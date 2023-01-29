@@ -1,5 +1,9 @@
 
 const queries = {
+    createUser:`
+    INSERT INTO users(email, password)
+    VALUES ($1,$2);
+    `
     // getEntriesByEmail: `
     // SELECT e.title,e.content,e.date,e.category,a.name,a.surname,a.image
     // FROM entries AS e
