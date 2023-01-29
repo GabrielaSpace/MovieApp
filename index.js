@@ -4,6 +4,7 @@ const express = require('express');
 const request = require('request');
 const morgan = require('morgan');
 const mongoose = require("mongoose");
+const path = require('path')
 const checkToken = require('./middleware/checkToken')
 require('./utils/mongoBase');
 require('./utils/pg_pool');
@@ -19,11 +20,11 @@ app.set('views', './views');
 // Middlewares
 app.use(express.json()); // Habilitar tipo de dato a recibir
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
+express.static(path.join(__dirname, '/public'));
 app.use(morgan('combined'));
 
-//Rutas
-app.use('/', usersRoutes); // Rutas users
+//Rutas // Rutas users
+app.use('/signup', usersRoutes)
 
 
 
@@ -88,11 +89,11 @@ app.get('/movies', (req, res) => {
 
 
 
-app.post('/', usersRoutes)
+
 
 app.post('/search', (req, res) => {
     const title = "/search/" + req.body.title
-    console.log("Hola SOY un POST")
+    console.log("Respuesta a la ruta POST SEARCH")
     res.redirect(title)
 })
 
