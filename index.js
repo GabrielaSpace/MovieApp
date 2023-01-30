@@ -4,10 +4,12 @@ const express = require('express');
 const request = require('request');
 const morgan = require('morgan');
 const mongoose = require("mongoose");
+const path = require('path')
 const checkToken = require('./middleware/checkToken')
 require('./utils/mongoBase');
 require('./utils/pg_pool');
 const usersRoutes = require('./routes/userRoutes')
+const adminRoutes =require('./routes/moviesAdminRoutes')
 
 const app = express();
 const port = 3000;
@@ -19,12 +21,13 @@ app.set('views', './views');
 // Middlewares
 app.use(express.json()); // Habilitar tipo de dato a recibir
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, '/public')));
 app.use(morgan('combined'));
 
-//Rutas
-app.use('/', usersRoutes); // Rutas users
-
+//Rutas // Rutas users
+app.use('/signup', usersRoutes)
+app.use('/',usersRoutes)
+app.use('/movies', adminRoutes)
 
 
 // const key = app.set('llave', CONFIG);
@@ -33,7 +36,7 @@ app.use('/', usersRoutes); // Rutas users
 // }
 
 // app.post('/', (req, res) => {
-//     if(req.body.usuario === "alex" && req.body.contrasena === "123456") {
+//     if(req.body.usuario === "alex") {
 // 		const payload = {
 // 			check:  true,
 //             user:"alex"
@@ -54,6 +57,9 @@ app.use('/', usersRoutes); // Rutas users
 app.get('/', (req, res) => {
     res.render('login');
 })
+
+
+
 
 app.get('/signup', (req, res) => {
     res.render('signup');
@@ -88,11 +94,11 @@ app.get('/movies', (req, res) => {
 
 
 
-app.post('/', usersRoutes)
+
 
 app.post('/search', (req, res) => {
     const title = "/search/" + req.body.title
-    console.log("Hola SOY un POST")
+    console.log("Respuesta a la ruta POST SEARCH")
     res.redirect(title)
 })
 

@@ -4,29 +4,31 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/styles.css")
         title Sign Up
     body 
         include ./header.pug
         main
             h3 Create User
             section 
+                h1(id="prueba")
                 fieldset
-                    form(action="/" method="post")
+                    form(class="signup" action="/signup" method="post")
                         legend  Email
-                        input(type="text" name ="email" required)
+                        input(type="text" name ="emailSignup" required)
                         |
                         |
                         legend Password
-                        input(type="text" name ="password" required)
+                        input(type="text" name ="passwordSignup" required)
                         |
                         |
                         legend Repeat Password
-                        input(type="text" name="password2" required)
+                        input(type="text" name="password2Signup" required)
                         br
-                        input(type="submit", value="Login")
+                        input(type="submit" id="signup" value="Sign Up")
             
             section 
                 a(class='button' href='/') Login
 
         include ./footer.pug
-        script(src="script.js") 
+        script(type="text/javascript" src="/scripts.js") 
