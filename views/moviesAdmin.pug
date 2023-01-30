@@ -5,24 +5,37 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         //- link(rel="stylesheet", href="style.css")
-        title Document
+        title Movies
     include ./header.pug
     body 
         main
             h3 What do you want?
-
-            section 
-                //- title #{param.Title}
-                //- img(src=param.Poster)
-                //- h1 Title: #{param.Title}
-                //- p Year: #{param.Year}
-                //- p Director: #{param.Director}
-                //- p Genre: #{param.Genre}
-                //- p Runtime: #{param.Runtime}
-                h1 hol
+            button Add New Movie
             
-            section 
-                a(class='button' href='/signup') Sign Up
+            section
+                          
+                each item, index in allMovies 
+                    article
+                        h3  Title: #{allMovies[index].title}
+                        img(src=allMovies[index].img)
+                        p Year: #{allMovies[index].year}
+                        p Director: #{allMovies[index].director}
+                        p Genre: #{allMovies[index].genre}
+                        p Runtime: #{allMovies[index].runtime}
+                        p Plot : #{allMovies[index].plot}
+                        p Actors : #{allMovies[index].actors}
+                        //- p Ratings: #{allMovies.ratings} 
+                        p Language : #{allMovies[index].language}
+                        form(class="signup" action="/movies" method="delete")
+                        legend
+                        input(type="submit" id="delete#{[i]}" value="delete")
+                        //- script
+                        //-     document.getElementById("delete#{[i]}").addEventListener("submit", (event) => {
+                                
+                        //-     })
+
+                        button EDIT
+
 
         include ./footer.pug
-        script(src="/script.js") 
+                script(type="text/javascript" src="/scripts.js")

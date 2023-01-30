@@ -8,7 +8,6 @@ const pool = new Pool({
     database: DB_DATABASE,
     password: DB_PASSWORD
   })
-
   
   pool.connect((err, client, release) => {
     if (err) {
