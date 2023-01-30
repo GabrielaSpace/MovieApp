@@ -1,87 +1,61 @@
 // const { getMaxListeners } = require("process");
-console.log("Probando")
-let burger = document.getElementById("burger-button");
+console.log("Probando");
 
-burger.addEventListener("click", (e) => {
-  e.preventDefault();
-  document.body.classList.toggle("open");
-  burger.classList.toggle("open");
+//despliegue del menu 'hambuguesa'
+let burger = document.getElementById("burger_button");
+
+burger.addEventListener("click", () => { 
+  let links = document.getElementById("links_menu");
+  if (links.style.display === "block") {
+    links.style.display = "none";
+  } else {
+    links.style.display = "block";
+  }
 });
 
-
-const prueba = document.getElementById("prueba")
-
-prueba.innerHTML = "SCRIPT LINKADO"
-
-
-
-/* document.querySelector("form.signup").addEventListener("submit", function (event) {
-
-  event.preventDefault(); //parar envío
-  
-  function verificarPasswords() {
-    pass1 = document.getElementById('password1');
-    pass2 = document.getElementById('password2');
-    if (pass1.value != pass2.value) {
-    document.getElementById("error").classList.add("mostrar");
-    return false;
-    } else {
-        document.getElementById("login").disabled = true;
-        return true;
-    }
-  
- */
-
-
-
-
-
-
-
+if(document.title === "singup") {
+  //validacion de la contraseña y el usuario cuando se registra:
 document.querySelector("form.signup").addEventListener("submit", (event) => {
+  event.preventDefault(); // parar envío
+  console.log("Validacion arrancando");
 
-  event.preventDefault();// parar envío
-  console.log("Validacion intentando funcionar")
-
-  const email = event.target.email.value;
-  const pass1 = event.target.password1.value;
-  const pass2 = event.target.password2.value;
+  const email = event.target.emailSignup.value;
+  const pass1 = event.target.passwordSignup.value;
+  const pass2 = event.target.password2Signup.value;
 
   console.log(email, pass1, pass2);
 
   let validated = true;
+  // Expresiones regulares para contreñir password, y user
+  const regexPassword = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,16}$/;
+  const regexEmail = /^[a-zA-Z0-9_.]+@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,3}/;
 
 
-
-  const regexPassword = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,16}$/
-  const regexEmail = /^[a-zA-Z0-9_.]+@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,3}/
-  if (!email.includes("@")) {
+  if (regexPassword.test(pass1) && pass1 !== pass2) {
     validated = false;
   }
 
-
-
-
-  if (!regexPassword.test(pass1) && (pass1 !== pass2)) {
+  if (regexEmail.test(email)) {
     validated = false;
   }
-
-  if (!regexEmail.test(email)) {
-    validated = false;
-  }
-
 
   if (validated == false) {
-    alert("Empty fields or fields not complete:" + "\n" +
-      "Invalid email format." + "\n" +
-      "The password must be between 6 and 16 characters." + "\n" +
-      "Passwords did not match."
+    alert(
+      "Empty fields or fields not complete:" +
+        "\n" +
+        "Invalid email format." +
+        "\n" +
+        "The password must be between 6 and 16 characters." +
+        "\n" +
+        "Passwords did not match."
     );
   }
   // Comprobación final - Todo validado
   if (validated) {
-    alert("Formulario enviado")
+    alert("Formulario enviado");
     event.target.submit();
-    console.log("Validacion funcionando correctamente")
+    console.log("Validacion funcionando correctamente");
   }
-})
+});
+}
+

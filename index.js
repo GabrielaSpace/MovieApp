@@ -9,6 +9,7 @@ const checkToken = require('./middleware/checkToken')
 require('./utils/mongoBase');
 require('./utils/pg_pool');
 const usersRoutes = require('./routes/userRoutes')
+const adminRoutes =require('./routes/moviesAdminRoutes')
 
 const app = express();
 const port = 3000;
@@ -20,12 +21,13 @@ app.set('views', './views');
 // Middlewares
 app.use(express.json()); // Habilitar tipo de dato a recibir
 app.use(express.urlencoded({ extended: true }));
-express.static(path.join(__dirname, '/public'));
+app.use(express.static(path.join(__dirname, '/public')));
 app.use(morgan('combined'));
 
 //Rutas // Rutas users
 app.use('/signup', usersRoutes)
-
+app.use('/',usersRoutes)
+app.use('/movies', adminRoutes)
 
 
 // const key = app.set('llave', CONFIG);
@@ -34,7 +36,7 @@ app.use('/signup', usersRoutes)
 // }
 
 // app.post('/', (req, res) => {
-//     if(req.body.usuario === "alex" && req.body.contrasena === "123456") {
+//     if(req.body.usuario === "alex") {
 // 		const payload = {
 // 			check:  true,
 //             user:"alex"
@@ -55,6 +57,9 @@ app.use('/signup', usersRoutes)
 app.get('/', (req, res) => {
     res.render('login');
 })
+
+
+
 
 app.get('/signup', (req, res) => {
     res.render('signup');

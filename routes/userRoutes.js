@@ -4,6 +4,7 @@ const userCrontrolers = require("../controllers/userControllers");
 const userRouter = express.Router();
 
 // entriesApiRouter.get('/', entriesApiController.getEntries);
+userRouter.post('/', userCrontrolers.validatedUser);
 userRouter.post('/', userCrontrolers.createUser);
 //userRouter.post('/signup', userCrontrolers.createUser);
 /* entriesApiRouter.delete('/', entriesApiController.deleteEntry);
