@@ -10,10 +10,9 @@ html(lang="en")
     body 
         main
             h3 What do you want?
-            button Add New Movie
+            a(href="./createMovie") Add New Movie
             
             section
-                          
                 each item, index in allMovies 
                     article
                         h3  Title: #{allMovies[index].title}
@@ -28,13 +27,15 @@ html(lang="en")
                         p Language : #{allMovies[index].language}
                         form(class="signup" action="/movies" method="delete")
                         legend
-                        input(type="submit" id="delete#{[i]}" value="delete")
+                        input(type="submit" id="deleteMovie#{[i]}" value="Delete movie")
+                        input(type="submit" id="editMovie#{[i]}" value="Edit movie")
                         //- script
                         //-     document.getElementById("delete#{[i]}").addEventListener("submit", (event) => {
                                 
                         //-     })
 
-                        button EDIT
+                       
+                      
 
 
         include ./footer.pug
