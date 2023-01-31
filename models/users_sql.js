@@ -35,12 +35,28 @@ const validatedUser = async (user) => {
     return result
 }
 
-
+const addFavorite = async (fav) =>{
+    const {user, movie} = fav;
+    let client, result;
+    try {
+        client = await pool.connect();
+        const data = await client.query(queries.addFavorite,[user, movie]);
+        result = data.rowCount;
+        console.log("POST FAVS");
+    }
+    catch (err) {
+        console.log(err);
+        throw err;
+    } finally {
+        client.release()
+    }
+    return result
+} 
 
 const users = {
     createUser,
-    validatedUser
-
+    validatedUser,
+    addFavorite
 }
 
 module.exports = users;

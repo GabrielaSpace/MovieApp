@@ -20,20 +20,20 @@ html(lang="en")
                 input(type="submit" value="Introducir Pelicula")
 
 
-            //-   section
-            //-     const movies = []
-            //-     each film in movies 
-            //-         img(src=film.Poster)
-            //-         h1 Title: #{film.Title}
-            //-         p Year: #{film.Year}
-            //-         p Director: #{film.Director}
-            //-         p Genre: #{film.Genre}
-            //-         p Runtime: #{film.Runtime}
-            //-         p Plot : #{film.Plot}
-            //-         p Actors : #{film.Actors}
-            //-         p Ratings: #{film.Ratings} 
-            //-         p Language : #{film.Language}
-            //-         button Add to favorites 
+            if movies
+                section
+                    each film, index in movies 
+                        img(src=film[index] .Poster)
+                        h1 Title: #{film[index].Title}
+                        p Year: #{film[index].Year}
+                        p Director: #{film[index].Director}
+                        p Genre: #{film[index].Genre}
+                        p Runtime: #{film[index].Runtime}
+                        p Plot : #{film[index].Plot}
+                        p Actors : #{film[index].Actors}
+                        p Ratings: #{film[index].Ratings} 
+                        p Language : #{film[index].Language}
+                        button(id=`addFav${index}`) Add to favorites 
             
         include ./footer.pug
         script(src="script.js") 
