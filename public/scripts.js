@@ -23,7 +23,9 @@ for (let i = 0; i < buttons.length; i++) {
   boton.addEventListener('click', () => {
     console.log(boton)
   })
+}
 
+if(document.title === "CreateMovie" ) {
 document.getElementById("createMovie").addEventListener("click", async (req, res) => {
   const newMovie = req.body; 
   try {
@@ -38,11 +40,12 @@ document.getElementById("createMovie").addEventListener("click", async (req, res
       res.status(400).json({ msj: err.message })
   }
 } )
+}
 
 
 
 }
-}
+
 
 if(document.title === "singup") {
   //validacion de la contraseña y el usuario cuando se registra:
