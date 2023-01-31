@@ -12,19 +12,9 @@ html(lang="en")
             h3 Welcome
             p Please login
 
-            section 
-                fieldset
-                    form(action="/login" method="post")
-                        legend  Email
-                        input(type="text" name ="email" required)
-                        |
-                        |
-                        legend Password
-                        input(type="text" name ="password" required)
-                        br
-                        input(type="submit" value="Login")
             
             section 
                 a(class='button' href='/signup') Sign Up
+                a(class='button' href='/login') Log In
 
         include ./footer.pug

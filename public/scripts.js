@@ -12,11 +12,19 @@ burger.addEventListener("click", () => {
     links.style.display = "block";
   }
 });
+if(document.title === "Movies") {
+const buttons = document.getElementsByTagName("button")
+console.log(buttons)
 
-document.getElementById("delete").addEventListener("click", (event) => {
-  
-  
-})
+
+for (let i = 0; i < buttons.length; i++) {
+  const boton = document.getElementById(`edit${i}`)
+  boton.addEventListener('click', () => {
+    console.log(boton)
+  })
+
+}
+}
 
 if(document.title === "singup") {
   //validacion de la contraseña y el usuario cuando se registra:

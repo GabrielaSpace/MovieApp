@@ -28,14 +28,13 @@ html(lang="en")
                         p Language : #{allMovies[index].language}
                         form(class="signup" action="/movies" method="delete")
                         legend
-                        input(type="submit" id="delete#{[i]}" value="delete")
-                        //- script
-                        //-     document.getElementById("delete#{[i]}").addEventListener("submit", (event) => {
-                                
-                        //-     })
+                        input(type="submit" class="delete" id="delete"+index value="Delete")
+                        form(class="signup" action="/movies" method="delete")
+                        legend
+                        button(class ="edit" id="edit"+index)
 
-                        button EDIT
+                        
 
 
-        include ./footer.pug
-                script(type="text/javascript" src="/scripts.js")
+    include ./footer.pug
+    script(type="text/javascript" src="/scripts.js")
