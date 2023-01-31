@@ -13,6 +13,11 @@ burger.addEventListener("click", () => {
   }
 });
 
+document.getElementById("delete").addEventListener("click", (event) => {
+  
+  
+})
+
 if(document.title === "singup") {
   //validacion de la contraseña y el usuario cuando se registra:
 document.querySelector("form.signup").addEventListener("submit", (event) => {
