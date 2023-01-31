@@ -1,4 +1,5 @@
-// const { getMaxListeners } = require("process");
+import { addFavorite } from './utils/data.js';
+
 console.log("Probando");
 
 //despliegue del menu 'hambuguesa'
@@ -22,6 +23,23 @@ for (let i = 0; i < buttons.length; i++) {
   boton.addEventListener('click', () => {
     console.log(boton)
   })
+
+document.getElementById("createMovie").addEventListener("click", async (req, res) => {
+  const newMovie = req.body; 
+  try {
+      let response = await new Movies(newMovie);
+      let answer = await response.save();
+      console.log("Respondiendo a la ruta POST MOVIES")
+      res.status(201).json({
+          msj: `New movie added to DB.`,
+          movie: answer
+      });
+  } catch (err) {
+      res.status(400).json({ msj: err.message })
+  }
+} )
+
+
 
 }
 }
@@ -72,3 +90,18 @@ document.querySelector("form.signup").addEventListener("submit", (event) => {
 });
 }
 
+if (document.getElementById("fav")){
+  let favButton = document.getElementById("fav");
+  favButton.addEventListener('click', async (e) => {
+    e.preventDefault;
+    let movie = document.getElementById("title").innerHTML;
+    
+    const data = {
+      user: 6,
+      movie: movie.slice(7, )
+    }
+    console.log("data recogida del formulario", data)
+    const postResponse = await addFavorite(data);
+    console.log(postResponse);
+  })
+}

@@ -8,6 +8,11 @@ const queries = {
     SELECT *
     FROM users
     WHERE email = $1 AND password = $2; 
+    `,
+    addFavorite:`
+    INSERT INTO favmovies
+    (id_user, movie)
+    VALUES ($1, $2)
     `
     // getEntriesByEmail: `
     // SELECT e.title,e.content,e.date,e.category,a.name,a.surname,a.image

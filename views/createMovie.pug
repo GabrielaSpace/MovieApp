@@ -1,0 +1,41 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        //- link(rel="stylesheet", href="style.css")
+        title Create Movie
+    include ./header.pug
+    body 
+        main
+            a(href="./moviesAdmin") Go back 
+            h3 Create new movie
+            section
+                fieldset
+                    form(action="movies/createMovie" method="post")
+                        legend Poster(url)
+                        input(type="text" name ="img" required)
+                        legend Title
+                        input(type="text" name ="title" required)
+                        legend Year
+                        input(type="number" name ="year" required)
+                        legend Director
+                        input(type="text" name ="director" required)
+                        legend Genre
+                        input(type="text" name ="genre" required)
+                        legend Runtime
+                        input(type="text" name ="runtime" required)
+                        legend Plot
+                        input(type="text" name ="plot" required)
+                        legend Actors
+                        input(type="text" name ="actors" required)
+                        //-legend Ratings 
+                        //-input(type="text" name ="ratings" required)
+                        legend Language
+                        input(type="text" name ="language" required)
+                        br
+                        input(type="submit" value="Create movie" id="createMovie")
+         
+        include ./footer.pug
+        script(type="text/javascript" src="/scripts.js")

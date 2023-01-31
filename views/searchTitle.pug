@@ -12,7 +12,7 @@ html(lang="en")
         main
             section(class="card")
                     img(src=param.Poster)
-                    h1 Title: #{param.Title}
+                    h1(id="title") Title: #{param.Title}
                     p Year: #{param.Year}
                     p Director: #{param.Director}
                     p Genre: #{param.Genre}
@@ -21,7 +21,8 @@ html(lang="en")
                     p Actors : #{param.Actors}
                     p Ratings: #{param.Ratings} 
                     p Language : #{param.Language}
-                    button(id='fav')
+                    button(id='fav' type="button") Add to Favorites
+                        
 
         include ./footer.pug
-        script(src="script.js") 
+        script(type="module" src="/scripts.js") 

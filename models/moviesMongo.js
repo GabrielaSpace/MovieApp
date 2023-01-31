@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const objectSchema = {
     title: { 
         type: String, 
-        required: true,
-        unique: true 
+        required: true, 
+        unique: true
     },
     img: {
         type: String,
@@ -34,10 +34,10 @@ const objectSchema = {
         required: true
       
     },
-    /* ratings:{
+    /*ratings:{
         type: Object, 
         required: true
-    }, */
+    },*/
     language:{
         type: String, 
         required: true

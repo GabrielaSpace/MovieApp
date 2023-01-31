@@ -10,10 +10,9 @@ html(lang="en")
     body 
         main
             h3 What do you want?
-            button Add New Movie
+            a(href="./createMovie") Add New Movie
             
             section
-                          
                 each item, index in allMovies 
                     article
                         h3  Title: #{allMovies[index].title}

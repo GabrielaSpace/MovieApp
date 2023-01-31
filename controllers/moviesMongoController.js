@@ -7,6 +7,10 @@ const getMovies = async (req, res) => {
         res.status(200).render("moviesAdmin", {allMovies: movies})//{Title: allMovies.title, img: allMovies.img, Year: allMovies.year, Director: allMovies.director, Genre: allMovies.genre, Runtime: allMovies.runtime, 
         //plot: allMovies.plot, Actors: allMovies.actors, language:allMovies.language})       
         
+        console.log(movies)
+        //Al renderizarlo el objeto movies se pasa con un valor de la propiedad allMovies, esta propiedad en pug funciona como un objeto.
+        res.status(200).render("moviesAdmin", {allMovies: movies})   
+        
     }
     catch (err) {
         res.status(400).json({ msj: err.message });
@@ -62,6 +66,8 @@ const updateMovie = async (req, res) => {
     }
 
 }
+
+
 
 module.exports = {
     getMovies,
