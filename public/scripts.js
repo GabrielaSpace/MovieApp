@@ -14,6 +14,23 @@ burger.addEventListener("click", () => {
   }
 });
 
+document.getElementById("createMovie").addEventListener("click", async (req, res) => {
+  const newMovie = req.body; 
+  try {
+      let response = await new Movies(newMovie);
+      let answer = await response.save();
+      console.log("Respondiendo a la ruta POST MOVIES")
+      res.status(201).json({
+          msj: `New movie added to DB.`,
+          movie: answer
+      });
+  } catch (err) {
+      res.status(400).json({ msj: err.message })
+  }
+} )
+
+
+
 if(document.title === "singup") {
   //validacion de la contraseña y el usuario cuando se registra:
 document.querySelector("form.signup").addEventListener("submit", (event) => {

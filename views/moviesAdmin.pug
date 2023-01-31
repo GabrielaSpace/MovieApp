@@ -10,10 +10,9 @@ html(lang="en")
     body 
         main
             h3 What do you want?
-            button Add New Movie
+            a(href="./createMovie") Add New Movie
             
             section
-                          
                 each item, index in allMovies 
                     article
                         h3  Title: #{allMovies[index].title}
@@ -26,9 +25,9 @@ html(lang="en")
                         p Actors : #{allMovies[index].actors}
                         //- p Ratings: #{allMovies.ratings} 
                         p Language : #{allMovies[index].language}
+                        
                         button DELETE
                         button EDIT
-
 
         include ./footer.pug
                 script(type="text/javascript" src="/scripts.js")
