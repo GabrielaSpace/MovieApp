@@ -13,6 +13,16 @@ burger.addEventListener("click", () => {
     links.style.display = "block";
   }
 });
+if(document.title === "Movies") {
+const buttons = document.getElementsByTagName("button")
+console.log(buttons)
+
+
+for (let i = 0; i < buttons.length; i++) {
+  const boton = document.getElementById(`edit${i}`)
+  boton.addEventListener('click', () => {
+    console.log(boton)
+  })
 
 document.getElementById("createMovie").addEventListener("click", async (req, res) => {
   const newMovie = req.body; 
@@ -30,6 +40,9 @@ document.getElementById("createMovie").addEventListener("click", async (req, res
 } )
 
 
+
+}
+}
 
 if(document.title === "singup") {
   //validacion de la contraseña y el usuario cuando se registra:
