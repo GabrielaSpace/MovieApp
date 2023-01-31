@@ -93,6 +93,12 @@ app.get('/movies', (req, res) => {
 })
 
 
+app.get('/createmovie', (req, res) => {
+    //if (authenticated) {
+    res.render('createMovie');
+    /*} else {
+        res.render('moviesUser')*/
+})
 
 
 
