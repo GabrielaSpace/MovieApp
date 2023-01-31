@@ -25,18 +25,9 @@ html(lang="en")
                         p Actors : #{allMovies[index].actors}
                         //- p Ratings: #{allMovies.ratings} 
                         p Language : #{allMovies[index].language}
-                        form(class="signup" action="/movies" method="delete")
-                        legend
-                        input(type="submit" id="deleteMovie#{[i]}" value="Delete movie")
-                        input(type="submit" id="editMovie#{[i]}" value="Edit movie")
-                        //- script
-                        //-     document.getElementById("delete#{[i]}").addEventListener("submit", (event) => {
-                                
-                        //-     })
-
-                       
-                      
-
+                        
+                        button DELETE
+                        button EDIT
 
         include ./footer.pug
                 script(type="text/javascript" src="/scripts.js")

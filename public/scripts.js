@@ -1,4 +1,5 @@
-// const { getMaxListeners } = require("process");
+import { addFavorite } from './utils/data.js';
+
 console.log("Probando");
 
 //despliegue del menu 'hambuguesa'
@@ -76,3 +77,18 @@ document.querySelector("form.signup").addEventListener("submit", (event) => {
 });
 }
 
+if (document.getElementById("fav")){
+  let favButton = document.getElementById("fav");
+  favButton.addEventListener('click', async (e) => {
+    e.preventDefault;
+    let movie = document.getElementById("title").innerHTML;
+    
+    const data = {
+      user: 6,
+      movie: movie.slice(7, )
+    }
+    console.log("data recogida del formulario", data)
+    const postResponse = await addFavorite(data);
+    console.log(postResponse);
+  })
+}

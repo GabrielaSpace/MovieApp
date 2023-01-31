@@ -9,7 +9,7 @@ userRouter.post('/', userCrontrolers.createUser);
 //userRouter.post('/signup', userCrontrolers.createUser);
 /* entriesApiRouter.delete('/', entriesApiController.deleteEntry);
 entriesApiRouter.put('/', entriesApiController.updateEntry); */
-
+userRouter.post('/search/:title', userCrontrolers.addFavorite)
 
 // entriesApiRouter.get('/', entriesApiController.getAllAuthors);
 

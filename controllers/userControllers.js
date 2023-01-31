@@ -25,6 +25,13 @@ const validatedUser = async (req, res) => {
 
 }
 
+const addFavorite = async (req, res) => {
+    let fav = req.body;
+    const response = await users.addFavorite(fav);
+    res.status(201).json({
+        msg: response
+    });
+};
 
 // app.post('/', (req, res) => {
 //     if(req.body.usuario === "alex") {
@@ -47,5 +54,6 @@ const validatedUser = async (req, res) => {
 
 module.exports = {
     createUser,
-    validatedUser
+    validatedUser,
+    addFavorite
 }
