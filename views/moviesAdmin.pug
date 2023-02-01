@@ -25,15 +25,11 @@ html(lang="en")
                         p Actors : #{allMovies[index].actors}
                         //- p Ratings: #{allMovies.ratings} 
                         p Language : #{allMovies[index].language}
-                        form(class="signup" action="/movies" method="delete")
-                        legend
-                        input(type="submit" class="delete" id="delete"+index value="Delete")
-                        form(class="signup" action="/movies" method="delete")
-                        legend
-                        button(class ="edit" id="edit"+index)
+                        button(class ="delete" id="delete"+index) Delete
+                        button(class ="edit" id="edit"+index) Edit
 
                         
 
 
     include ./footer.pug
-    script(type="text/javascript" src="/scripts.js")
+    script(type="module" src="/moviesAdminScripts.js")
