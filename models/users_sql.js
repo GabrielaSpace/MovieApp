@@ -51,7 +51,7 @@ const addFavorite = async (fav) =>{
         client.release()
     }
     return result
-} 
+}
 
 const users = {
     createUser,
