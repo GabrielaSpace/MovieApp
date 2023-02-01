@@ -3,23 +3,16 @@ const Movies = require('../models/moviesMongo')
 const getMovies = async (req, res) => {
     try {
         let movies = await Movies.find({Movies}, { _id: 0, __v: 0});
-        console.log("******",movies)
-        res.status(200).render("moviesAdmin", {allMovies: movies})//{Title: allMovies.title, img: allMovies.img, Year: allMovies.year, Director: allMovies.director, Genre: allMovies.genre, Runtime: allMovies.runtime, 
-        //plot: allMovies.plot, Actors: allMovies.actors, language:allMovies.language})       
-        
-        console.log(movies)
-        //Al renderizarlo el objeto movies se pasa con un valor de la propiedad allMovies, esta propiedad en pug funciona como un objeto.
-        res.status(200).render("moviesAdmin", {allMovies: movies})   
-        
+        res.status(200).render("moviesAdmin", {allMovies: movies})
+
     }
     catch (err) {
         res.status(400).json({ msj: err.message });
-        
     }
 }
 
 const createMovie = async (req, res) => {
-    const newMovie = req.body; 
+    const newMovie = req.body;
     try {
         let response = await new Movies(newMovie);
         let answer = await response.save();
@@ -66,8 +59,6 @@ const updateMovie = async (req, res) => {
     }
 
 }
-
-
 
 module.exports = {
     getMovies,

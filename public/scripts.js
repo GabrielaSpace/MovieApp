@@ -3,9 +3,9 @@ import { addFavorite } from './utils/data.js';
 console.log("Probando");
 
 //despliegue del menu 'hambuguesa'
-let burger = document.getElementById("burger_button");
+let burger = document.querySelector(".burger_menu");
 
-burger.addEventListener("click", () => { 
+burger.addEventListener("click", () => {
   let links = document.getElementById("links_menu");
   if (links.style.display === "block") {
     links.style.display = "none";
@@ -27,7 +27,7 @@ for (let i = 0; i < buttons.length; i++) {
 
 if(document.title === "CreateMovie" ) {
 document.getElementById("createMovie").addEventListener("click", async (req, res) => {
-  const newMovie = req.body; 
+  const newMovie = req.body;
   try {
       let response = await new Movies(newMovie);
       let answer = await response.save();
@@ -98,7 +98,7 @@ if (document.getElementById("fav")){
   favButton.addEventListener('click', async (e) => {
     e.preventDefault;
     let movie = document.getElementById("title").innerHTML;
-    
+
     const data = {
       user: 6,
       movie: movie.slice(7, )

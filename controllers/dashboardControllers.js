@@ -4,5 +4,4 @@ const getDashboard = (req, res) => {
 
 module.exports = {
     getDashboard
-    
 }
