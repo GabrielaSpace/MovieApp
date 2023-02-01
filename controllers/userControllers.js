@@ -13,7 +13,7 @@ const validatedUser = async (req, res) => {
     let credentials = req.body;
     const response = await users.validatedUser(credentials);
     if (response === 1) {
-        
+
         res.status(201).json({
             user_validated: response,
         })

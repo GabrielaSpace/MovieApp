@@ -36,11 +36,11 @@ const validatedUser = async (user) => {
 }
 
 const addFavorite = async (fav) =>{
-    const {user, movie} = fav;
+    const { user, title, year, director, genre, runtime, img } = fav;
     let client, result;
     try {
         client = await pool.connect();
-        const data = await client.query(queries.addFavorite,[user, movie]);
+        const data = await client.query(queries.addFavorite, [user, title, year, director, genre, runtime, img]);
         result = data.rowCount;
         console.log("POST FAVS");
     }

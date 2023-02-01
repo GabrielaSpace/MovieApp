@@ -7,20 +7,19 @@ html(lang="en")
         //- link(rel="stylesheet", href="style.css")
         title Favorites
     include ./header.pug
-    body 
+    body
         main
             h3 What do you want?
 
-            section 
-                title #{film.Title}
+            section
                 img(src=film.Poster)
-                h1 Title: #{film.Title}
-                p Year: #{film.Year}
+                h1(id="title") Title: #{film.Title}
+                p(id="year") Year: #{film.Year}
                 p Director: #{film.Director}
                 p Genre: #{film.Genre}
                 p Runtime: #{film.Runtime}
                 button Remove
-            
+
 
         include ./footer.pug
-        script(src="script.js") 
+        script(src="/scripts.js")
