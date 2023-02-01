@@ -6,7 +6,7 @@ const adminRouter = express.Router();
 // entriesApiRouter.get('/', entriesApiController.getEntries);
 adminRouter.post('/createMovie', moviesAdminControllers.createMovie);
 adminRouter.get('/', moviesAdminControllers.getMovies);
-adminRouter.delete('/deleteMovie', moviesAdminControllers.deleteMovie);
+adminRouter.delete('/deleteMovie?', moviesAdminControllers.deleteMovie);
 adminRouter.put('/updateMovie', moviesAdminControllers.updateMovie);
 
 
