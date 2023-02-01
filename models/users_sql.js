@@ -36,11 +36,11 @@ const validatedUser = async (user) => {
 }
 
 const addFavorite = async (fav) =>{
-    const {user, movie} = fav;
+    const {user, film} = fav;
     let client, result;
     try {
         client = await pool.connect();
-        const data = await client.query(queries.addFavorite,[user, movie]);
+        const data = await client.query(queries.addFavorite,[user, film]);
         result = data.rowCount;
         console.log("POST FAVS");
     }
@@ -51,12 +51,12 @@ const addFavorite = async (fav) =>{
         client.release()
     }
     return result
-} 
+}
 
 const users = {
     createUser,
     validatedUser,
-    addFavorite
+    //addFavorite
 }
 
 module.exports = users;
