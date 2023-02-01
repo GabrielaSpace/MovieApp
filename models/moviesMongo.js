@@ -33,11 +33,11 @@ const objectSchema = {
         type: String,
         required: true
 
-    },
+    }/*,
     ratings:{
         type: Object,
         required: true
-    },
+    }*/,
     language:{
         type: String,
         required: true
