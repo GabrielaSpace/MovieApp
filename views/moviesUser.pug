@@ -12,14 +12,16 @@ html(lang="en")
             h3 What do you want?
 
             section
-                img(src=film.Poster)
-                h1(id="title") Title: #{film.Title}
-                p(id="year") Year: #{film.Year}
-                p Director: #{film.Director}
-                p Genre: #{film.Genre}
-                p Runtime: #{film.Runtime}
-                button Remove
+                each film, index in favMovies
+                    article 
+                        h1 Title: #{favMovies[index].title}
+                        img(src=favMovies[index].img)
+                        p Year: #{favMovies[index].year}
+                        p Director: #{favMovies[index].director}
+                        p Genre: #{favMovies[index].genre}
+                        p Runtime: #{favMovies[index].runtime}
+                        button Remove
 
 
         include ./footer.pug
-        script(src="/scripts.js")
+        script(type="movies" src="/scripts.js")

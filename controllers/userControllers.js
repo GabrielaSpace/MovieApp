@@ -33,6 +33,12 @@ const addFavorite = async (req, res) => {
     });
 };
 
+const getFavorites = async (req, res) => {
+    let user = 6;
+    const userMovies = await users.getFavorites(6);
+    res.status(200).render("moviesUser", {favMovies: userMovies});
+};
+
 // app.post('/', (req, res) => {
 //     if(req.body.usuario === "alex") {
 // 		const payload = {
@@ -55,5 +61,6 @@ const addFavorite = async (req, res) => {
 module.exports = {
     createUser,
     validatedUser,
-    addFavorite
+    addFavorite, 
+    getFavorites
 }

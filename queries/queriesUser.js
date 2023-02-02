@@ -13,6 +13,11 @@ const queries = {
     INSERT INTO favmovies
     (id_user, title, year, director, genre, runtime, img)
     VALUES ($1, $2, $3, $4, $5, $6, $7);
+    `,
+    getFavorites:`
+    SELECT title, img, director, year, genre, runtime
+    FROM favmovies
+    WHERE id_user = $1;
     `
     // getEntriesByEmail: `
     // SELECT e.title,e.content,e.date,e.category,a.name,a.surname,a.image
