@@ -7,12 +7,17 @@ const queries = {
     validatedUser:`
     SELECT *
     FROM users
-    WHERE email = $1 AND password = $2; 
+    WHERE email = $1 AND password = $2;
     `,
     addFavorite:`
     INSERT INTO favmovies
-    (id_user, movie)
-    VALUES ($1, $2)
+    (id_user, title, year, director, genre, runtime, img)
+    VALUES ($1, $2, $3, $4, $5, $6, $7);
+    `,
+    getFavorites:`
+    SELECT title, img, director, year, genre, runtime
+    FROM favmovies
+    WHERE id_user = $1;
     `
     // getEntriesByEmail: `
     // SELECT e.title,e.content,e.date,e.category,a.name,a.surname,a.image
@@ -24,7 +29,7 @@ const queries = {
     // getAllEntries: `
     // SELECT e.title, e.content, e.date, e.category
     // FROM entries AS e;`,
-    // createEntry: `INSERT INTO entries(title,content,id_author,category) 
+    // createEntry: `INSERT INTO entries(title,content,id_author,category)
     // VALUES ($1,$2,
     // (SELECT id_author FROM authors WHERE email=$3),$4)`,
     // deleteEntry: `
@@ -44,7 +49,7 @@ const queries = {
     // WHERE a.email=$1
     // ORDER BY a.name;`,
     // createAuthor: `
-    // INSERT INTO authors(id_author,name,surname,email,image) 
+    // INSERT INTO authors(id_author,name,surname,email,image)
     // VALUES ($1,$2,$3,$4,$5)`,
     // updateAuthor: `
     // UPDATE authors

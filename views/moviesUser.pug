@@ -7,20 +7,23 @@ html(lang="en")
         //- link(rel="stylesheet", href="style.css")
         title Favorites
     include ./header.pug
-    body 
+    body
         main
             h3 What do you want?
 
-            section 
-                title #{film.Title}
-                img(src=film.Poster)
-                h1 Title: #{film.Title}
-                p Year: #{film.Year}
-                p Director: #{film.Director}
-                p Genre: #{film.Genre}
-                p Runtime: #{film.Runtime}
-                button Remove
-            
+            section
+                each film, index in favMovies
+                    article 
+                        h1 Title: #{favMovies[index].title}
+                        img(src=favMovies[index].img)
+                        p Year: #{favMovies[index].year}
+                        p Director: #{favMovies[index].director}
+                        p Genre: #{favMovies[index].genre}
+                        p Runtime: #{favMovies[index].runtime}
+                        button Remove
+
 
         include ./footer.pug
-        script(type="text/javascript" src="/scripts.js")
+
+        script(type="module" src="/scripts.js")
+

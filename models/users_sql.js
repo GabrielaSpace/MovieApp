@@ -36,11 +36,11 @@ const validatedUser = async (user) => {
 }
 
 const addFavorite = async (fav) =>{
-    const {user, movie} = fav;
+    const { user, title, year, director, genre, runtime, img } = fav;
     let client, result;
     try {
         client = await pool.connect();
-        const data = await client.query(queries.addFavorite,[user, movie]);
+        const data = await client.query(queries.addFavorite, [user, title, year, director, genre, runtime, img]);
         result = data.rowCount;
         console.log("POST FAVS");
     }
@@ -51,12 +51,31 @@ const addFavorite = async (fav) =>{
         client.release()
     }
     return result
-} 
+}
+
+const getFavorites = async (user) =>{
+    console.log(user);
+    let client, result;
+    try {
+        client = await pool.connect();
+        const data = await client.query(queries.getFavorites, [user]);
+        result = data.rows;
+        console.log(result);
+    }
+    catch (err) {
+        console.log(err);
+        throw err;
+    } finally {
+        client.release()
+    }
+    return result
+}
 
 const users = {
     createUser,
     validatedUser,
-    addFavorite
+    addFavorite,
+    getFavorites
 }
 
 module.exports = users;

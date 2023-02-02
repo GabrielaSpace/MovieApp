@@ -5,7 +5,7 @@ console.log("SCRIPT lINKADO");
 //PARA EL RESTO DE PAGINAS
 
 
-//despliegue del menu 'hambuguesa'
+//despliegue del menu 'hamburguesa'
 let burger = document.querySelector(".burger_menu");
 
 burger.addEventListener("click", () => {
@@ -18,7 +18,8 @@ burger.addEventListener("click", () => {
 });
 
 
-if (document.title === "CreateMovie") {
+if (document.getElementById("createMovie")) {
+
   document.getElementById("createMovie").addEventListener("click", async (req, res) => {
     const newMovie = req.body;
     try {
@@ -34,7 +35,6 @@ if (document.title === "CreateMovie") {
     }
   })
 }
-
 
 if (document.title === "singup") {
   //validacion de la contraseña y el usuario cuando se registra:
@@ -86,11 +86,20 @@ if (document.getElementById("fav")) {
   let favButton = document.getElementById("fav");
   favButton.addEventListener('click', async (e) => {
     e.preventDefault;
-    let movie = document.getElementById("title").innerHTML;
-
+    let title = document.getElementById("title").innerHTML;
+    let year = document.getElementById("year").innerHTML;
+    let director = document.getElementById("director").innerHTML;
+    let runtime = document.getElementById("runtime").innerHTML;
+    let genre = document.getElementById("genre").innerHTML;
+    let img = document.getElementById("img").src;
     const data = {
       user: 6,
-      movie: movie.slice(7,)
+      title: title,
+      year: year,
+      director: director,
+      genre: genre,
+      runtime: runtime,
+      img: img
     }
     console.log("data recogida del formulario", data)
     const postResponse = await addFavorite(data);
