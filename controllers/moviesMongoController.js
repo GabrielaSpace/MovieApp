@@ -28,7 +28,7 @@ const createMovie = async (req, res) => {
 
 const deleteMovie = async (req,res)=>{
     try {
-        let {title} = req.body
+        let {title} = req.query
         let answer = await Movies.findOneAndDelete({title})
 
         const msj = `Has eliminado la pelicula: ${answer.title}, de la base de datos` ;
