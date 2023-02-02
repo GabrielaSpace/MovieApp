@@ -11,6 +11,7 @@ const createUser = async (req, res) => {
 
 const validatedUser = async (req, res) => {
     let credentials = req.body;
+    console.log(req.body)
     const response = await users.validatedUser(credentials);
     if (response === 1) {
 
@@ -39,28 +40,20 @@ const getFavorites = async (req, res) => {
     res.status(200).render("moviesUser", {favMovies: userMovies});
 };
 
-// app.post('/', (req, res) => {
-//     if(req.body.usuario === "alex") {
-// 		const payload = {
-// 			check:  true,
-//             user:"alex"
-// 		};
-// 		const token = jwt.sign(payload, app.get('llave'), {
-// 			expiresIn: "1200000ms" // 1200 segundos para que expire
-// 		});
-// 		res.status(200).json({
-// 			mensaje: 'Autenticación correcta',
-// 			token: token
-// 		});
-//     } else {
-//         res.status(401).json({ mensaje: "Usuario o contraseña incorrectos"})
-//     }
-// })
 
+const getLogin = (req, res) => {
+    res.render('login');
+}
+
+const getSingup = (req, res) => {
+    res.render('signup');
+}
 
 module.exports = {
     createUser,
     validatedUser,
     addFavorite, 
-    getFavorites
+    getFavorites,
+    getLogin,
+    getSingup
 }

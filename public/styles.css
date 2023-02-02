@@ -1,7 +1,11 @@
 *{
-    color: red;
+    color: blueviolet;
 }
 
-.topmenu #links_menu {
+#links_menu {
     display: none;
+}
+
+.burger_menu{
+    max-width: 50px;
 }

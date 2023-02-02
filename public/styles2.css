@@ -5,3 +5,7 @@
 .topmenu #links_menu {
     display: none;
   }
+
+.burger_menu {
+      max-width: 100px;
+  }

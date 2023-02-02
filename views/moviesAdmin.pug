@@ -15,7 +15,7 @@ html(lang="en")
             section
                 each item, index in allMovies 
                     article
-                        h3  Title: #{allMovies[index].title}
+                        h3(id="title"+index)  Title: #{allMovies[index].title}
                         img(src=allMovies[index].img)
                         p Year: #{allMovies[index].year}
                         p Director: #{allMovies[index].director}
@@ -25,9 +25,11 @@ html(lang="en")
                         p Actors : #{allMovies[index].actors}
                         //- p Ratings: #{allMovies.ratings} 
                         p Language : #{allMovies[index].language}
-                        
-                        button DELETE
-                        button EDIT
+                        button(class ="delete" id="delete"+index) Delete
+                        button(class ="edit" id="edit"+index) Edit
 
-        include ./footer.pug
-                script(type="text/javascript" src="/scripts.js")
+                        
+
+
+    include ./footer.pug
+    script(type="module" src="/moviesAdminScripts.js")
