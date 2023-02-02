@@ -15,6 +15,7 @@ const homeRoutes = require('./routes/homeRoutes')
 const dashboardRoutes = require('./routes/dashboardRoutes')
 const searchRoutes = require('./routes/searchRoutes')
 const createMovie = require('./routes/createMovieRoutes')
+const updateMovie = require('./routes/updateMovieRoutes')
 const favmovies = require('./routes/userRoutes')
 
 const app = express();
@@ -39,6 +40,7 @@ app.use('/dashboard', dashboardRoutes)
 app.use('/search', searchRoutes)
 app.use('/createmovie',createMovie)
 app.use('/favmovies', favmovies)
+app.use('/updatemovie',updateMovie)
 
 app.listen(port, () => {
     console.log(`server running on http://localhost:${port}`)
