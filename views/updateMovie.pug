@@ -12,7 +12,9 @@ html(lang="en")
             a(href="./movies") Go back 
             h3 Update Movie
             section
-
+                fieldset
+                    form(action="movies/updateMovie/<post.title>?_method=PUT" method="post")
+                        input(type=" hidden", name="_method" value="put")
                         legend Poster(url)
                         input(type="text" name ="img" required)
                         legend Title

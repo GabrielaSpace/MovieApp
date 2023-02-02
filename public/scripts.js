@@ -1,3 +1,7 @@
+const express = require('express');
+express.use(express.json())
+app.use(express.bodyParser())
+app.use(express.methodOverride())
 console.log("SCRIPT lINKADO");
 
 //SI METES ALGO EN ESTE SCRIPT RECUERDA QUE DEBES PONERLO DENTRO DE UN IF
@@ -110,3 +114,79 @@ if (document.title === "CreateMovie" ) {
   })
 }
 
+
+if (document.title === "updateMovie" ) {
+
+  document.getElementById("updateMovie").addEventListener("click", async (req, res) => {
+    const {image,title,year,director,genre,runtime,plot,actors,ratings,language} = req.body;
+    // const movie = await Movie.findOne(req.query.title )
+    const updatMovie = await req.body;
+    try {
+      let response = await new Movies(updatMovie)
+      let answer = await response.save(image,title,year,director,genre,runtime,plot,actors,ratings,language);
+      console.log("Respondiendo a la ruta updates MOVIES")
+      res.status(201).json({
+        msj: `New movie added to DB.`,
+        movie: answer
+      });
+    } catch (err) {
+      res.status(400).json({ msj: err.message })
+    }
+  })
+}
+/* const imageInput = document.querySelector('#img')
+const titleInput = document.querySelector('#title')
+const yearInput = document.querySelector('#year')
+const directorInput = document.querySelector('#director')
+const genreInput = document.querySelector('#genre')
+const runtimeInput= document.querySelector('#runtime')
+const plotInput = document.querySelector('#plot')
+const actorsInput = document.querySelector('#actors')
+const ratingsInput = document.querySelector('#ratings')
+const languageInput = document.querySelector('#language')
+ */
+
+
+/* 
+if (document.title === "updateMovie" ) {
+const button =document.querySelector('#updateMovie')
+button.addEventListener('click', (e)=>{
+  const image = document.querySelector('#img').value
+  const title = document.querySelector('#title').value
+  const year = document.querySelector('#year').value
+  const director = document.querySelector('#director').value
+  const genre = document.querySelector('#genre').value
+  const runtime= document.querySelector('#runtime').value
+  const plot = document.querySelector('#plot').value
+  const actors = document.querySelector('#actors').value
+  const ratings = document.querySelector('#ratings').value
+  const language = document.querySelector('#language').value
+  
+
+  fetch('/updatemovie', {method:'PUT', headers:{
+    'Content-Type': 'application-json',
+  },
+  body: JSON.stringify({
+     image,title,year,director,genre,runtime,plot,actors,ratings,language
+  })
+})
+
+   console.log()
+  })} */
+
+/*   if (document.title === "updateMovie" ) {
+    const image = document.querySelector('#img').value
+      const title = document.querySelector('#title').value
+      const year = document.querySelector('#year').value
+      const director = document.querySelector('#director').value
+      const genre = document.querySelector('#genre').value
+      const runtime= document.querySelector('#runtime').value
+      const plot = document.querySelector('#plot').value
+      const actors = document.querySelector('#actors').value
+      const ratings = document.querySelector('#ratings').value
+      const language = document.querySelector('#language').value
+      const button =document.querySelector('#updateMovie')
+
+    async(id,image,title,year,director,genre,runtime,plot,actors,ratings,language)
+
+  } */
