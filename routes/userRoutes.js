@@ -10,7 +10,7 @@ userRouter.post('/', userCrontrolers.createUser);
 /* entriesApiRouter.delete('/', entriesApiController.deleteEntry);
 entriesApiRouter.put('/', entriesApiController.updateEntry); */
 userRouter.post('/search/:title', userCrontrolers.addFavorite)
-userRouter.get('/favmovies', userCrontrolers.getFavorites)
+userRouter.get('/', userCrontrolers.getFavorites)
 
 module.exports = userRouter
 
