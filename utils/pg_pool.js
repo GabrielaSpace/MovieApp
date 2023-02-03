@@ -22,5 +22,5 @@ const pool = new Pool({
       console.log(result.rows);
     })
 });
- 
+
 module.exports = pool;

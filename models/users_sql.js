@@ -18,7 +18,7 @@ const createUser = async (user) => {
     return result
 }
 
-const validatedUser = async (user) => {
+/* const validatedUser = async (user) => {
     const { email, password } = user;
     let client, result;
     try {
@@ -33,7 +33,41 @@ const validatedUser = async (user) => {
         client.release()
     }
     return result
-}
+} */
+
+function login (user, callback) {
+    //this example uses the "pg" library
+    //more info here: https://github.com/brianc/node-postgres
+    
+    const { email } = user
+
+    const bcrypt = require('bcrypt');
+    const pool = require('../utils/pg_pool');
+    
+    pool.connect( (err, client, done) => {
+      if (err) return callback(err);
+  
+      const query = 'SELECT user_id, email, password FROM users WHERE email = $1';
+      client.query(query, [email], (err, result) => {
+        // NOTE: always call `done()` here to close
+        // the connection to the database
+        done();
+  
+        if (err || result.rows.length === 0) return callback(err || new WrongUsernameOrPasswordError(email));
+  
+        const user = result.rows[0];
+  
+        bcrypt.compare(password, user.password, function (err, isValid) {
+          if (err || !isValid) return callback(err || new WrongUsernameOrPasswordError(email));
+  
+          return callback(null, {
+            user_id: user.id,
+            email: user.email
+          });
+        });
+      });
+    });
+  }
 
 const addFavorite = async (fav) =>{
     const { user, title, year, director, genre, runtime, img } = fav;
@@ -73,9 +107,10 @@ const getFavorites = async (user) =>{
 
 const users = {
     createUser,
-    validatedUser,
+    //validatedUser,
     addFavorite,
-    getFavorites
+    getFavorites,
+    login
 }
 
 module.exports = users;

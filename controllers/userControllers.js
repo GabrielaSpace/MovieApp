@@ -12,8 +12,8 @@ const createUser = async (req, res) => {
 const validatedUser = async (req, res) => {
     let credentials = req.body;
     console.log(req.body)
-    const response = await users.validatedUser(credentials);
-    if (response === 1) {
+    const response = await users.login(credentials);
+    if (response !== null) {
 
         res.status(201).json({
             user_validated: response,
@@ -23,7 +23,6 @@ const validatedUser = async (req, res) => {
             msj: "User not found, check if you write your user correctly"
         })
     }
-
 }
 
 const addFavorite = async (req, res) => {

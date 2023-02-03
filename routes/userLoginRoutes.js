@@ -1,9 +1,9 @@
 const express = require('express');
 const userCrontrolers = require('../controllers/userControllers');
+const loginmodel = require('../models/users_sql')
 const userLoginRouter = express.Router();
 
-userLoginRouter.post('/', userCrontrolers.validatedUser);
-userLoginRouter.get('/', userCrontrolers.getLogin);
 
+userLoginRouter.get('/', userCrontrolers.getLogin);
 
 module.exports = userLoginRouter

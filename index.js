@@ -1,5 +1,6 @@
-// require('dotenv').config()
-// const { API_KEY, CONFIG } = process.env
+require('dotenv').config()
+const {auth} = require('express-openid-connect');
+
 const express = require('express');
 const request = require('request');//¿Que ez ezto?
 const morgan = require('morgan');
@@ -16,7 +17,8 @@ const dashboardRoutes = require('./routes/dashboardRoutes')
 const searchRoutes = require('./routes/searchRoutes')
 const createMovie = require('./routes/createMovieRoutes')
 const updateMovie = require('./routes/updateMovieRoutes')
-const favmovies = require('./routes/userRoutes')
+const favmovies = require('./routes/favMoviesRoutes')
+const config = require('./utils/auth')
 
 const app = express();
 const port = 3000;
@@ -30,10 +32,12 @@ app.use(express.json()); // Habilitar tipo de dato a recibir
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(morgan('combined'));
+app.use(auth(config));
+
 
 //Rutas // Rutas users
 app.use('/signup', userSingupRoutes)
-app.use('/login', userLoginRoutes)
+app.use('/login1', userLoginRoutes)
 app.use('/movies', adminRoutes)
 app.use('/', homeRoutes)
 app.use('/dashboard', dashboardRoutes)
