@@ -1,26 +1,45 @@
 const express = require('express');
-const key = require('../index')
+jwt = require('jsonwebtoken');
+require('dotenv').config();
+const { SECRET } = process.env
+const user = require('../controllers/userControllers')
+// app.use(
+//     jwt(
+//         {
+//             secret: SECRET,
+//             algorithms: ['HS256'],
+//             getToken: req => req.cookies.token
+//         }));
 
 const rutasProtegidas = express.Router();
-rutasProtegidas.use((req, res, next) => {
-    const token = req.headers['access-token'];
+const token = rutasProtegidas.use((req, res, next) => {
+    // app.use(
+    //     jwt(
+    //     { 
+    //       secret: SECRET, 
+    //       algorithms: ['HS256'],
+    //       getToken: req => req.cookies.token
+    //     }));
+    const token = req.cookies.token
+    console.log("Soy el token:", token)
 
-    if (token) {
-        jwt.verify(token, key, (err, decoded) => {
+    if (token){
+        jwt.verify(token, SECRET, (err, decoded) => {
             if (err) {
-                return res.status(400).json({ mensaje: 'Token inválida' });
+                console.log(err, "TOKEN INVALIDO");
             } else {
                 req.decoded = decoded;
                 next();
             }
         });
     } else {
-        res.status(401).send({
-            mensaje: 'Token no proveída.'
+        res.status(401).send({ 
+            cliclk: 'https://www.youtube.com/watch?v=4MhzZsM-0kE' 
         });
+
     }
 });
 //Esto es el token que valida en cada ruta que es un usuario o un administrador el que accede
 module.exports = {
-    rutasProtegidas
+    token
 }

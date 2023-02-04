@@ -2,7 +2,7 @@ const process = require('process');
 const users = require('../models/users_sql')
 jwt = require('jsonwebtoken');
 require('dotenv').config();
-const {SECRET} = process.env
+const { SECRET } = process.env
 
 const createUser = async (req, res) => {
     let newUser = req.body
@@ -32,18 +32,9 @@ const createUser = async (req, res) => {
 const validatedUser = async (req, res) => {
     let credentials = req.body;
     const user = req.body.email
-    console.log(user)
-    console.log(req.body)
     const response = await users.validatedUser(credentials);
-    if (response !== null) {
+    if (response !== 0) {
 
-        // const key = app.set('llave', CONFIG);
-        // module.exports = {
-        //     key
-        // }
-
-        // app.post('/', (req, res) => {
-        // if (req.body.usuario) {
         const payload = {
             check: true,
             user: user
@@ -51,14 +42,26 @@ const validatedUser = async (req, res) => {
         const token = jwt.sign(payload, SECRET, {
             expiresIn: "12000000ms" // 1200 segundos para que expire
         });
-        res.status(200).json({
+        //Almacenamos el token en las cookies
+        res.cookie('token', token).status(200).json({
             user_validated: response,
             msj: 'Correctly autenticated',
             token: token
         });
+
+
     } else {
         res.status(401).json({ msj: "User not found, check if you write your user correctly" })
     }
+}
+
+
+const keepToken = (token) => {
+    const getToken = token
+    console.log("********************")
+    console.log(getToken)
+
+    return getToken
 }
 
 const addFavorite = async (req, res) => {

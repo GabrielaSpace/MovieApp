@@ -1,4 +1,5 @@
-require('dotenv').config()
+require('dotenv').config();
+const {SECRET} = process.env
 // const {auth} = require('express-openid-connect');
 
 const express = require('express');
@@ -18,6 +19,9 @@ const searchRoutes = require('./routes/searchRoutes')
 const createMovie = require('./routes/createMovieRoutes')
 const updateMovie = require('./routes/updateMovieRoutes')
 const favmovies = require('./routes/favMoviesRoutes')
+const cors = require('cors');
+const jwt = require('express-jwt');
+const cookieParser = require('cookie-parser')
 // const config = require('./utils/auth')
 
 const app = express();
@@ -32,45 +36,22 @@ app.use(express.json()); // Habilitar tipo de dato a recibir
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(morgan('combined'));
-// app.use(auth(config));
+app.use(cors());
+app.use(cookieParser());
+
 
 
 //Rutas // Rutas users
 app.use('/signup', userSingupRoutes)
 app.use('/login', userLoginRoutes)
-app.use('/movies', adminRoutes)
+app.use('/movies',checkToken.token, adminRoutes)
 app.use('/', homeRoutes)
-app.use('/dashboard', dashboardRoutes)
-app.use('/search', searchRoutes)
-app.use('/createmovie',createMovie)
-app.use('/favmovies', favmovies)
-app.use('/updatemovie',updateMovie)
+app.use('/dashboard',checkToken.token, dashboardRoutes)
+app.use('/search',checkToken.token, searchRoutes)
+app.use('/createmovie',checkToken.token, createMovie)
+app.use('/favmovies',checkToken.token, favmovies)
+app.use('/updatemovie',checkToken.token, updateMovie)
 
 app.listen(port, () => {
     console.log(`server running on http://localhost:${port}`)
 })
-
-
-
-// const key = app.set('llave', CONFIG);
-// module.exports = {
-//     key
-// }
-
-// app.post('/', (req, res) => {
-//     if(req.body.usuario === "alex") {
-// 		const payload = {
-// 			check:  true,
-//             user:"alex"
-// 		};
-// 		const token = jwt.sign(payload, app.get('llave'), {
-// 			expiresIn: "1200000ms" // 1200 segundos para que expire
-// 		});
-// 		res.status(200).json({
-// 			mensaje: 'Autenticación correcta',
-// 			token: token
-// 		});
-//     } else {
-//         res.status(401).json({ mensaje: "Usuario o contraseña incorrectos"})
-//     }
-// })
