@@ -1,3 +1,4 @@
+const { response } = require('express');
 const express = require('express');
 // Rutas de productos
 const userCrontrolers = require("../controllers/userControllers");
@@ -11,9 +12,11 @@ const userRouter = express.Router();
 entriesApiRouter.put('/', entriesApiController.updateEntry); */
 userRouter.post('/search/:title', userCrontrolers.addFavorite)
 userRouter.get('/', (req, res) => {
-    console.log(req.oidc.isAuthenticated())
-    res.render('index')
-}   )
+    let response = req.oidc.isAuthenticated()
+    console.log(response)
+    isAuth = req.oidc.isAuthenticated()
+    res.render('index', {isAuthenticated: req.oidc.isAuthenticated()})
+})
 // entriesApiRouter.get('/', entriesApiController.getAllAuthors);
 
 module.exports = userRouter

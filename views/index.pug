@@ -16,3 +16,7 @@ html(lang="en")
                         a(href="/logout") logout
                     li 
                         a(href="/singup") signup
+            if (isAuthenticated)
+                p User logged
+            else 
+                p Not logged
