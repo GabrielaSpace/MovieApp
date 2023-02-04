@@ -1,6 +1,7 @@
 require('dotenv').config()
 const { API_KEY, CONFIG } = process.env
 const express = require('express');
+const { auth } = require('express-openid-connect');
 const request = require('request');
 const morgan = require('morgan');
 const mongoose = require("mongoose");
@@ -14,6 +15,15 @@ const adminRoutes =require('./routes/moviesAdminRoutes')
 const app = express();
 const port = 3000;
 
+const config = {
+    authRequired: false,
+    auth0Logout: true,
+    secret: 'nd6pT5UriHxd_K4iJYWh3JpLrsdhyWtatbC3UcG5tkMW67AknzA_Ht1w_s92i0M5',
+    baseURL: 'http://localhost:3000',
+    clientID: 'N281HJug6yrYL0sD7rIXAli4HEmRCU2s',
+    issuerBaseURL: 'https://dev-822wdkmq14eefdle.eu.auth0.com'
+  };
+
 // Template engine
 app.set('view engine', 'pug');
 app.set('views', './views');
@@ -23,11 +33,16 @@ app.use(express.json()); // Habilitar tipo de dato a recibir
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(morgan('combined'));
+// auth router attaches /login, /logout, and / routes to the baseURL
+app.use(auth(config));
 
 //Rutas // Rutas users
 app.use('/signup', usersRoutes)
 app.use('/',usersRoutes)
 app.use('/movies', adminRoutes)
+app.get('/', (req, res) => {
+    res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
+  });
 
 
 // const key = app.set('llave', CONFIG);
