@@ -12,29 +12,28 @@ html(lang="en")
             a(href="./movies") Go back 
             h3 Update Movie
             section
-
+                form(id="updateForm"  method="post") 
                         legend Poster(url)
-                        input(type="text" name ="img" required)
+                        input(type="text" name ="img" value:movies.img)
                         legend Title
-                        input(type="text" name ="title" required)
+                        input(type="text" name ="title" value:movie.title )
                         legend Year
-                        input(type="number" name ="year" required)
+                        input(type="number" name ="year" )
                         legend Director
-                        input(type="text" name ="director" required)
+                        input(type="text" name ="director" )
                         legend Genre
-                        input(type="text" name ="genre" required)
+                        input(type="text" name ="genre" )
                         legend Runtime
-                        input(type="text" name ="runtime" required)
+                        input(type="text" name ="runtime" )
                         legend Plot
-                        input(type="text" name ="plot" required)
+                        input(type="text" name ="plot" )
                         legend Actors
-                        input(type="text" name ="actors" required)
+                        input(type="text" name ="actors" )
                         legend Ratings 
-                        input(type="text" name ="ratings" required)
+                        input(type="text" name ="ratings" )
                         legend Language
-                        input(type="text" name ="language" required)
+                        input(type="text" name ="language")
                         br
-                        button(id="updateMovie") Update movie
-         
+                        button(type="submit" id="updateMovie" name="updateButton" value="Update") Update
         include ./footer.pug
         script(type="text/javascript" src="/scripts.js")
