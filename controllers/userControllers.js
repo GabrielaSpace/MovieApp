@@ -6,28 +6,25 @@ const { SECRET } = process.env
 
 const createUser = async (req, res) => {
     let newUser = req.body
+    const user = req.body.emailSignup
     const response = await users.createUser(newUser);
-    res.status(201).json({
-        user_created: response,
-        data: newUser
-    })
+    // const response = await users.validatedUser(newUser);
+    if (response !== 0) {
+
+        const payload = {
+            check: true,
+            user: user
+        };
+        const token = jwt.sign(payload, SECRET, {
+            expiresIn: "12000000ms" // 1200 segundos para que expire
+        });
+        //Almacenamos el token en las cookies
+        res.cookie('token', token).status(200).redirect("/")
+
+
+    }
+
 }
-
-// const validatedUser = async (req, res) => {
-//     let credentials = req.body;
-//     console.log(req.body)
-//     const response = await users.validatedUser(credentials);
-//     if (response !== null) {
-
-//         res.status(201).json({
-//             user_validated: response,
-//         })
-//     } else {
-//         res.status(400).json({
-//             msj: "User not found, check if you write your user correctly"
-//         })
-//     }
-// }
 
 const validatedUser = async (req, res) => {
     let credentials = req.body;
@@ -43,25 +40,12 @@ const validatedUser = async (req, res) => {
             expiresIn: "12000000ms" // 1200 segundos para que expire
         });
         //Almacenamos el token en las cookies
-        res.cookie('token', token).status(200).json({
-            user_validated: response,
-            msj: 'Correctly autenticated',
-            token: token
-        });
+        res.cookie('token', token).status(200).redirect("/")
 
 
     } else {
         res.status(401).json({ msj: "User not found, check if you write your user correctly" })
     }
-}
-
-
-const keepToken = (token) => {
-    const getToken = token
-    console.log("********************")
-    console.log(getToken)
-
-    return getToken
 }
 
 const addFavorite = async (req, res) => {
@@ -95,36 +79,3 @@ module.exports = {
     getLogin,
     getSingup
 }
-
-
-// const validatedUser = async (req, res) => {
-//     let credentials = req.body;
-//     const user = req.body.email
-//     console.log(user)
-//     console.log(req.body)
-//     const response = await users.login(credentials);
-//     if (response !== null) {
-
-//         // const key = app.set('llave', CONFIG);
-//         // module.exports = {
-//         //     key
-//         // }
-
-//         // app.post('/', (req, res) => {
-//         // if (req.body.usuario) {
-//         const payload = {
-//             check: true,
-//             user: user
-//         };
-//         const token = jwt.sign(payload, SECRET, {
-//             expiresIn: "12000000ms" // 1200 segundos para que expire
-//         });
-//         res.status(200).json({
-//             user_validated: response,
-//             msj: 'Correctly autenticated',
-//             token: token
-//         });
-//     } else {
-//         res.status(401).json({ msj: "User not found, check if you write your user correctly" })
-//     }
-// }
