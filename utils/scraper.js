@@ -5,7 +5,7 @@ const extractFilmAffinityData = async (url,browser) => {
         const filmaffinityData = {}
         const page = await browser.newPage()
         await page.goto(url)
-        filmaffinityData['Critics'] = await page.$eval("#pro-reviews > li:nth-child(2) > div > div:nth-child(1)", critica => critica.innerHTML.slice(0,500))
+        filmaffinityData['Critics'] = await page.$eval("#pro-reviews > li:nth-child(2) > div > div:nth-child(1)", critica => critica.innerHTML.slice(0,250))
         filmaffinityData['Punctuation'] = await page.$eval("#movie-rat-avg", note => note.innerHTML)
         return filmaffinityData
     }
@@ -50,7 +50,7 @@ const extractSensaCineData = async (url,browser) => {
         const SensaCineData = {}
         const page = await browser.newPage()
         await page.goto(url)
-        SensaCineData['Critics'] = await page.$eval("div.editorial-content.cf", critica => critica.innerHTML.slice(0,500))
+        SensaCineData['Critics'] = await page.$eval("div.editorial-content.cf", critica => critica.innerHTML.slice(0,250))
         SensaCineData['Punctuation'] = await page.$eval(".note", note => note.innerHTML)
         return SensaCineData
     }
