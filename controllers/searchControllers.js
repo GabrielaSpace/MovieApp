@@ -18,6 +18,7 @@ const getSearchForTitleInMongo = async (req, res) => {
         const title = "/search/" + req.params.title
         res.redirect(title)
     }
+
 }
 
 const getSearchForTitle = async (req, res) => {
@@ -34,26 +35,11 @@ const getSearchForTitle = async (req, res) => {
 }
 
 const postFilmForm = async (req, res) => {
-    // console.log("Respuesta a la ruta POST SEARCH")
-    // const vocals = ["a", "e", "i", "o", "u", "y"]
-    // let stringTitle = req.body.title
-    // stringTitle = stringTitle
-    // const l1 = stringTitle.charAt(0)
-    // const l2 = stringTitle.charAt(1)
-    // const l3 = stringTitle.charAt(2)
-    // const l4 = stringTitle.charAt(3)
-    // console.log(typeof(stringTitle))
-    // if (!vocals.includes(l1) === !vocals.includes(l2) && !vocals.includes(l3) === !vocals.includes(l4)) {
-    //     // if(stringTitle.length <= 4 && typeof(stringTitle) !== number) {
-    //     res.render("badRequest")
-    //     // }
-    // } else {
-        const title = "/search/local/" + req.body.title.toLowerCase()
-        res.redirect(title)
-    // }
 
-
+    const title = "/search/local/" + req.body.title.toLowerCase()
+    res.redirect(title)
 }
+
 
 
 module.exports = {
