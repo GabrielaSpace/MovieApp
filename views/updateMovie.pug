@@ -14,26 +14,26 @@ html(lang="en")
             section
                 form(id="updateForm"  method="post") 
                         legend Poster(url)
-                        input(type="text" name ="img" value:movies.img)
+                        input(type="text" name ="img" value:movies.img placeholder="Poster (url)")
                         legend Title
-                        input(type="text" name ="title" value:movie.title )
+                        input(type="text" name ="title" value:movie.title placeholder="Title")
                         legend Year
-                        input(type="number" name ="year" )
+                        input(type="number" name ="year" value:movie.year placeholder="Year")
                         legend Director
-                        input(type="text" name ="director" )
+                        input(type="text" name ="director" value:movie.director placeholder="Director")
                         legend Genre
-                        input(type="text" name ="genre" )
+                        input(type="text" name ="genre" value:movie.genre placeholder="Genre")
                         legend Runtime
-                        input(type="text" name ="runtime" )
+                        input(type="text" name ="runtime" value:movie.runtime placeholder="Runtime")
                         legend Plot
-                        input(type="text" name ="plot" )
+                        input(type="text" name ="plot" value:movie.plot placeholder="Plot")
                         legend Actors
-                        input(type="text" name ="actors" )
+                        input(type="text" name ="actors" value:movie.actors placeholder="Actors")
                         legend Ratings 
-                        input(type="text" name ="ratings" )
+                        input(type="text" name ="ratings" value:movie.ratings placeholder="Ratings")
                         legend Language
-                        input(type="text" name ="language")
+                        input(type="text" name ="language" value:movie.language placeholder="Language")
                         br
-                        button(type="submit" id="updateMovie" name="updateButton" value="Update") Update
+                        button(type="submit" id="updateMovie" name="updateButton" value="Update") Accept 
         include ./footer.pug
         script(type="text/javascript" src="/scripts.js")
