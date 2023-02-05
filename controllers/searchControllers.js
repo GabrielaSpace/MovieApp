@@ -1,5 +1,6 @@
 require('dotenv').config();
 const Movies = require('../models/moviesMongo');
+const scraper = require('../utils/scraper');
 const { API_KEY } = process.env
 
 
@@ -7,13 +8,31 @@ const getSearch = (req, res) => {
     res.render('search');
 }
 
+const startScraping = async (title) => {
+    try {
+        // ---Descomenta las 2 siguientes líneas para hacer scraping---
+        const products = await scraper.scrap("https://www.filmaffinity.com/es/search.php?stype=title&stext=" + title);
+        // console.log(products)
+        return products /*.json({ Critics: products[0].Critics, Puntuacion: products[0].Punctuation });*/
+        // res.status(200).json({"mensaje":"Aquí irán los productos"}); // ---Comenta esta línea---
+    } catch (error) {
+        console.log("Error Scraping")
+    }
+
+}
+
 
 const getSearchForTitleInMongo = async (req, res) => {
     const title = req.params.title
     let param = await Movies.find({ title }, { _id: 0, __v: 0 });
     param = param[0]
-    if(param !== undefined) {
-    res.status(200).render("searchInMongoForTitle", { param })
+    console.log(param)
+    if (param !== undefined) {
+        const critics = await startScraping(title)
+        console.log("ENTRE EN SEARCH SEARCH MONGO")
+        console.log(critics)
+        res.status(200).render("searchInMongoForTitle", { param, critics: critics })
+
     } else {
         const title = "/search/" + req.params.title
         res.redirect(title)
@@ -26,8 +45,13 @@ const getSearchForTitle = async (req, res) => {
 
     const resp = await fetch(`http://www.omdbapi.com/?t=${req.params.title}&apikey=` + API_KEY);
     let param = await resp.json();
+    console.log(param)
+    const title = req.params.title
     if (param.Response !== 'False') {
-        res.render("searchTitle", { param });
+        const critics = await startScraping(title)
+        console.log("ENTRE EN SEARCH SEARCH TITLE")
+        // console.log(critics)
+        res.status(200).render("searchTitle", { param, critics: critics })
     } else {
         console.log("ENTRE EN EL ELSE")
         res.render("noMovie")
@@ -46,7 +70,8 @@ module.exports = {
     getSearch,
     getSearchForTitle,
     postFilmForm,
-    getSearchForTitleInMongo
+    getSearchForTitleInMongo,
+    startScraping
 
 
 }
