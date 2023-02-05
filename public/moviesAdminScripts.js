@@ -14,7 +14,6 @@ for (let i = 0; i < buttons.length; i++) {
         console.log("Este es valor de h3:"+movie)
         const cleanTitle = movie.slice(7,)
         const titleMovie = cleanTitle.trim()
-        console.log(titleMovie)
         console.log("Este es el valor que se le pasa a la query", titleMovie)
         if (movie) {
             const deleteResponse = await deleteFavorite(titleMovie);

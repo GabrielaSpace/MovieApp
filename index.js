@@ -32,7 +32,7 @@ const port = 3000;
 
 // Template engine
 app.set('view engine', 'pug');
-app.set('views', './views');
+app.set('views', __dirname + '/views');
 
 // Middlewares
 app.use(express.json()); // Habilitar tipo de dato a recibir

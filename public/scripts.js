@@ -33,7 +33,7 @@ if (document.title === "singup") {
     console.log(email, pass1, pass2);
 
     let validated = true;
-    // Expresiones regulares para contreñir password, y user
+    // Expresiones regulares para constreñir password, y user
     const regexPassword = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6,16}$/;
     const regexEmail = /^[a-zA-Z0-9_.]+@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,3}/;
 
