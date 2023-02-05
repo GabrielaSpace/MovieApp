@@ -21,9 +21,9 @@ const token = rutasProtegidas.use((req, res, next) => {
             }
         });
     } else {
-        res.status(401).send({ 
-            cliclk: 'https://www.youtube.com/watch?v=4MhzZsM-0kE' 
-        });
+        res.status(401).send( 
+            'You cant navegete if you dont register. Register Now: <a href="/signup">Authenticate</a> ' 
+        );
 
     }
 });
