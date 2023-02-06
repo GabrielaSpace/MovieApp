@@ -1,12 +1,10 @@
 require('dotenv').config()
-const { API_KEY, CONFIG } = process.env
+const { API_KEY } = process.env
 const express = require('express');
 const { auth } = require('express-openid-connect');
 const request = require('request');
 const morgan = require('morgan');
-const mongoose = require("mongoose");
 const path = require('path')
-const checkToken = require('./middleware/checkToken')
 require('./utils/mongoBase');
 require('./utils/pg_pool');
 const usersRoutes = require('./routes/userRoutes')
@@ -40,9 +38,9 @@ app.use(auth(config));
 app.use('/signup', usersRoutes)
 app.use('/',usersRoutes)
 app.use('/movies', adminRoutes)
-app.get('/', (req, res) => {
+/*app.get('/', (req, res) => {
     res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
-  });
+  });*/
 
 
 // const key = app.set('llave', CONFIG);
@@ -95,7 +93,9 @@ app.get('/search/:title', async (req, res) => {
         console.log("*********************")
         console.log(param.Title)
         console.log("*********************")
-        res.render("searchTitle", { param }); // Pinta datos en el pug   
+        let userData = req.oidc.user
+        let userId = userData.sub
+        res.render("searchTitle", { param, userId }); // Pinta datos en el pug
     }
 })
 

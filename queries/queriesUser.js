@@ -10,8 +10,8 @@ const queries = {
     WHERE email = $1 AND password = $2;
     `,
     addFavorite:`
-    INSERT INTO favmovies
-    (id_user, title, year, director, genre, runtime, img)
+    INSERT INTO favorites
+    (id, title, year, director, genre, runtime, img)
     VALUES ($1, $2, $3, $4, $5, $6, $7);
     `
     // getEntriesByEmail: `

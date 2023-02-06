@@ -82,14 +82,17 @@ if (document.getElementById("fav")){
   let favButton = document.getElementById("fav");
   favButton.addEventListener('click', async (e) => {
     e.preventDefault;
+    let id = document.getElementById("userId").innerHTML;
+    let slicedId = id.slice(6,)
     let title = document.getElementById("title").innerHTML;
     let year = document.getElementById("year").innerHTML;
     let director = document.getElementById("director").innerHTML;
     let runtime = document.getElementById("runtime").innerHTML;
     let genre = document.getElementById("genre").innerHTML;
     let img = document.getElementById("img").src;
+    console.log(id)
     const data = {
-      user: 6,
+      id: id,
       title: title,
       year: year,
       director: director,

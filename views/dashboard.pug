@@ -6,17 +6,22 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="stylesheet", href="/styles2.css")
         title Dashboard
-    body 
+    body
         include ./header.pug
         main
             h3 What do you want?
-    
-            section 
+
+            section
                 fieldset
-                  button 
+                  button
                     a(href='/search' class = 'icon') Search a Movie
-                  button 
+                  button
                     a(href='/movies' class = 'icon' value = 'Look your Movies') Look your Movie
 
+            if (isAuthenticated)
+                p User logged
+            else
+                p Not logged
+
         include ./footer.pug
-        script(type="text/javascript" src="/scripts.js") 
+        script(type="text/javascript" src="/scripts.js")

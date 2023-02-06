@@ -1,4 +1,4 @@
-export const addFavorite = async(product) => {
+export const addFavorite = async (product) => {
     try {
         const options = {
             method: 'POST',

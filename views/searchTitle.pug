@@ -23,6 +23,7 @@ html(lang="en")
                     p Language : #{param.Language}
                     button(id='fav' type="button") Add to Favorites
 
-
+            p Currently logged:
+            p(id="userId") #{userId}
         include ./footer.pug
         script(type="module" src="/scripts.js")

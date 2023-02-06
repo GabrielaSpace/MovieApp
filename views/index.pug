@@ -5,18 +5,18 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Document
-    body 
-        main 
-            h1 HELLO 
+    body
+        main
+            h1 HELLO
             nav
                 ul
-                    li 
-                        a(href="/login") login
-                    li 
+                    li
+                        a(href="/login") login / signup
+                    li
                         a(href="/logout") logout
-                    li 
-                        a(href="/singup") signup
+                    li
+                        a(href="/dashboard") dashboard
             if (isAuthenticated)
                 p User logged
-            else 
+            else
                 p Not logged

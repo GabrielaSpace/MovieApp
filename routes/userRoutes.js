@@ -14,8 +14,16 @@ userRouter.post('/search/:title', userCrontrolers.addFavorite)
 userRouter.get('/', (req, res) => {
     let response = req.oidc.isAuthenticated()
     console.log(response)
-    isAuth = req.oidc.isAuthenticated()
+    let userData = req.oidc.user
+    console.log(userData)
     res.render('index', {isAuthenticated: req.oidc.isAuthenticated()})
+})
+userRouter.get('/dashboard', (req, res) => {
+    let response = req.oidc.isAuthenticated()
+    console.log(response)
+    let userData = req.oidc.user
+    console.log(userData.sub)
+    res.render('dashboard', { isAuthenticated: req.oidc.isAuthenticated() })
 })
 // entriesApiRouter.get('/', entriesApiController.getAllAuthors);
 
