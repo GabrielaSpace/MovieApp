@@ -1,13 +1,13 @@
 const process = require('process');
 const users = require('../models/users_sql')
-const { SECRET, BASE_URL, CLIENT_ID, ISSUER } = process.env
-const addFavorite = async (req, res) => {
+
+ const addFavorite = async (req, res) => {
     let fav = req.body;
     const response = await users.addFavorite(fav);
     res.status(201).json({
         msg: response
     });
-};
+}; 
 
 const getFavorites = async (req, res) => {
     let user = 6;
@@ -17,5 +17,5 @@ const getFavorites = async (req, res) => {
 
 module.exports = {
     addFavorite,
-    getFavorites,
+    getFavorites
 }

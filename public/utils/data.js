@@ -1,5 +1,3 @@
-
-
 export const addFavorite = async (product) => {
     try {
         const options = {

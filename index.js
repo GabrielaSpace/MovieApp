@@ -12,6 +12,7 @@ require('./utils/mongoBase');
 require('./utils/pg_pool');
 const { auth } = require('express-openid-connect');
 
+
 const config = {
     authRequired: false,
     auth0Logout: true,
@@ -46,10 +47,10 @@ app.use(morgan('combined'));
 app.use(cors());
 app.use(cookieParser());
 app.use(auth(config));
+const isAuth = require('./middleware/checkAuth')
 
 
-
-//Rutas // Rutas users
+// Rutas users
 app.get('/', (req, res) => {
     let response = req.oidc.isAuthenticated()
     console.log(response)
@@ -58,12 +59,12 @@ app.get('/', (req, res) => {
     res.render('home', { isAuthenticated: req.oidc.isAuthenticated() })
 })
 
-app.use('/movies', adminRoutes)
-app.use('/dashboard', dashboardRoutes)
-app.use('/search', searchRoutes)
-app.use('/createmovie', createMovieRoutes)
-app.use('/favmovies', favMoviesRoutes)
-app.use('/updatemovie', updateMovieRoutes)
+app.use('/movies', isAuth.isAuth, adminRoutes)
+app.use('/dashboard', isAuth.isAuth, dashboardRoutes)
+app.use('/search', isAuth.isAuth, searchRoutes)
+app.use('/createmovie', isAuth.isAuth, createMovieRoutes)
+//app.use('/favmovies', isAuth.isAuth, favMoviesRoutes)
+app.use('/updatemovie', isAuth.isAuth, updateMovieRoutes)
 
 app.listen(port, () => {
     console.log(`server running on http://localhost:${port}`)
