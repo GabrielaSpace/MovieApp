@@ -13,7 +13,7 @@ const updateMovie = async (req, res) => {
     try {
         const movieUpdate = await Movies.findOneAndUpdate({ title }, { img, year, director, genre, runtime, plot, actors, language })
         console.log(req.body)
-        // await movieUpdate.save()
+        await movieUpdate.save()
         console.log("Respondiendo a la ruta PUT MOVIES")
         res.status(201).json({
             msj: `La pelicula ${title} ha sido actualizado.`,
