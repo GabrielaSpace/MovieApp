@@ -1,6 +1,5 @@
 require('dotenv').config();
-const {SECRET} = process.env
-// const {auth} = require('express-openid-connect');
+const {SECRET, BASE_URL, CLIENT_ID, ISSUER} = process.env
 
 const express = require('express');
 const request = require('request');//¿Que ez ezto?
@@ -8,14 +7,21 @@ const morgan = require('morgan');
 const mongoose = require("mongoose");
 const path = require('path');
 const cors = require('cors');
-const jwt = require('express-jwt');
 const cookieParser = require('cookie-parser');
 require('./utils/mongoBase');
 require('./utils/pg_pool');
+const { auth } = require('express-openid-connect');
+
+const config = {
+    authRequired: false,
+    auth0Logout: true,
+    secret: SECRET,
+    baseURL: BASE_URL,
+    clientID: CLIENT_ID,
+    issuerBaseURL: ISSUER
+};
 
 //Exportacion de las rutas
-const userSingupRoutes = require('./routes/userSingupRoutes');
-const userLoginRoutes = require('./routes/userLoginRoutes');
 const adminRoutes = require('./routes/moviesAdminRoutes');
 const homeRoutes = require('./routes/homeRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
@@ -23,8 +29,6 @@ const searchRoutes = require('./routes/searchRoutes');
 const createMovieRoutes = require('./routes/createMovieRoutes');
 const updateMovieRoutes = require('./routes/updateMovieRoutes');
 const favMoviesRoutes = require('./routes/favMoviesRoutes');
-const logoutRoutes = require('./routes/logoutRoutes');
-
 // const config = require('./utils/auth')
 
 const app = express();
@@ -41,21 +45,25 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.use(morgan('combined'));
 app.use(cors());
 app.use(cookieParser());
-const checkToken = require('./middleware/checkToken');
+app.use(auth(config));
 
 
 
 //Rutas // Rutas users
-app.use('/signup', userSingupRoutes)
-app.use('/login', userLoginRoutes)
-app.use('/movies',checkToken.token, adminRoutes)
-app.use('/', homeRoutes)
-app.use('/dashboard',checkToken.token, dashboardRoutes)
-app.use('/search',checkToken.token, searchRoutes)
-app.use('/createmovie',checkToken.token, createMovieRoutes)
-app.use('/favmovies',checkToken.token, favMoviesRoutes)
-app.use('/updatemovie',checkToken.token, updateMovieRoutes)
-app.use('/logout', logoutRoutes)
+app.get('/', (req, res) => {
+    let response = req.oidc.isAuthenticated()
+    console.log(response)
+    let userData = req.oidc.user
+    console.log(userData)
+    res.render('home', { isAuthenticated: req.oidc.isAuthenticated() })
+})
+
+app.use('/movies', adminRoutes)
+app.use('/dashboard', dashboardRoutes)
+app.use('/search', searchRoutes)
+app.use('/createmovie', createMovieRoutes)
+app.use('/favmovies', favMoviesRoutes)
+app.use('/updatemovie', updateMovieRoutes)
 
 app.listen(port, () => {
     console.log(`server running on http://localhost:${port}`)
