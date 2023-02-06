@@ -11,8 +11,13 @@ const queries = {
     `,
     addFavorite:`
     INSERT INTO favmovies
-    (id_user, title)
-    VALUES ($1, $2)
+    (id_user, title, year, director, genre, runtime, img)
+    VALUES ($1, $2, $3, $4, $5, $6, $7);
+    `,
+    getFavorites:`
+    SELECT title, img, director, year, genre, runtime
+    FROM favmovies
+    WHERE id_user = $1;
     `
     // getEntriesByEmail: `
     // SELECT e.title,e.content,e.date,e.category,a.name,a.surname,a.image
@@ -24,6 +29,7 @@ const queries = {
     // getAllEntries: `
     // SELECT e.title, e.content, e.date, e.category
     // FROM entries AS e;`,
+    // createEntry: `INSERT INTO entries(title,content,id_author,category)
     // createEntry: `INSERT INTO entries(title,content,id_author,category)
     // VALUES ($1,$2,
     // (SELECT id_author FROM authors WHERE email=$3),$4)`,

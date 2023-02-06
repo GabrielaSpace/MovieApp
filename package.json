@@ -19,20 +19,27 @@
   },
   "homepage": "https://github.com/GabrielaSpace/MovieApp#readme",
   "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "express-jwt": "^8.4.0",
+    "express-openid-connect": "^2.12.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.9.0",
     "morgan": "^1.10.0",
     "node": "^18.13.0",
     "node-fetch": "^3.3.0",
+    "openssl": "^2.0.0",
     "pg": "^8.9.0",
     "pug": "^3.0.2",
+    "puppeteer": "^19.6.3",
     "request": "^2.88.2",
     "swagger-ui-express": "^4.6.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20",
-    "jsdoc": "^4.0.0"
+    "jsdoc": "^4.0.0",
+    "nodemon": "^2.0.20"
   }
 }

@@ -1,4 +1,3 @@
-//Render de la descripcion especifica de la pelicula seleccionada en search.pug ==(evento de click)==> .post('./search') ==(resredirect)==> /search/:title
 doctype html
 html(lang="en")
     head
@@ -7,22 +6,21 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="stylesheet", href="/styles.css")
         title #{param.Title}
-        link(rel="stylesheet", href="/styles.css")
     body
         include ./header.pug
         main
             section(class="card")
-                    h1(id="title") Title: #{param.Title}
-                    img(id="img" src=param.Poster)
+                    h1(id="title") Title: #{param.title}
+                    img(id="img" src=param.img)
                     //- h1(id="title") Title: #{param.Title}
-                    p(id="year") Year: #{param.Year}
-                    p(id="director") Director: #{param.Director}
-                    p(id="genre") Genre: #{param.Genre}
-                    p(id="runtime") Runtime: #{param.Runtime}
-                    p Plot : #{param.Plot}
-                    p Actors : #{param.Actors}
+                    p(id="year") Year: #{param.year}
+                    p(id="director") Director: #{param.director}
+                    p(id="genre") Genre: #{param.genre}
+                    p(id="runtime") Runtime: #{param.runtime}
+                    p Plot : #{param.plot}
+                    p Actors : #{param.actors}
                     //- p Ratings: #{param.Ratings}
-                    p Language : #{param.Language}
+                    p Language : #{param.language} 
                     each item , i in critics 
                         p Critics: #{critics[i].Critics}
                         p Punctuation: #{critics[i].Punctuation}

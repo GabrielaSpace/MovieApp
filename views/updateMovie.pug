@@ -4,7 +4,7 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        //- link(rel="stylesheet", href="style.css")
+        link(rel="stylesheet", href="/styles.css")
         title Update Movie
     include ./header.pug
     body 
@@ -12,8 +12,7 @@ html(lang="en")
             a(href="./movies") Go back 
             h3 Update Movie
             section
-                fieldset
-                    form(action="movies/updateMovie" method="post")
+
                         legend Poster(url)
                         input(type="text" name ="img" required)
                         legend Title
@@ -30,12 +29,12 @@ html(lang="en")
                         input(type="text" name ="plot" required)
                         legend Actors
                         input(type="text" name ="actors" required)
-                        //-legend Ratings 
-                        //-input(type="text" name ="ratings" required)
+                        legend Ratings 
+                        input(type="text" name ="ratings" required)
                         legend Language
                         input(type="text" name ="language" required)
                         br
-                        input(type="submit" value="Update movie" id="updateMovie")
+                        button(id="updateMovie") Update movie
          
         include ./footer.pug
         script(type="text/javascript" src="/scripts.js")

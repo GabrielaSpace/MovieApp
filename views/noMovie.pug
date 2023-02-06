@@ -5,17 +5,15 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="stylesheet", href="/styles.css")
-        title Home
+        title Document
     body 
         include ./header.pug
         main
-            h3 Welcome
-            p Please login
+            h3 The movie you request is not in the databases. Check that you have spelled the title correctly.
+
 
             
-            section 
-                a(class='button' href='/signup') Sign Up
-                a(class='button' href='/login') Log In
-
+            
+            
         include ./footer.pug
         script(type="text/javascript" src="/scripts.js")

@@ -4,12 +4,12 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        //- link(rel="stylesheet", href="style.css")
+        link(rel="stylesheet", href="/styles.css")
         title CreateMovie
     include ./header.pug
     body 
         main
-            a(href="./moviesAdmin") Go back 
+            a(href="./movies") Go back 
             h3 Create new movie
             section
                 fieldset
@@ -19,7 +19,7 @@ html(lang="en")
                         legend Title
                         input(type="text" name ="title" required)
                         legend Year
-                        input(type="number" name ="year" required)
+                        input(type="number" name ="year" min = "1902" required)
                         legend Director
                         input(type="text" name ="director" required)
                         legend Genre

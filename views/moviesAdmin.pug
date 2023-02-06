@@ -4,7 +4,7 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        //- link(rel="stylesheet", href="style.css")
+        link(rel="stylesheet", href="/styles.css")
         title Movies
     include ./header.pug
     body 
@@ -15,7 +15,7 @@ html(lang="en")
             section
                 each item, index in allMovies 
                     article
-                        h3  Title: #{allMovies[index].title}
+                        h3(id="title"+index)  Title: #{allMovies[index].title}
                         img(src=allMovies[index].img)
                         p Year: #{allMovies[index].year}
                         p Director: #{allMovies[index].director}
@@ -25,15 +25,12 @@ html(lang="en")
                         p Actors : #{allMovies[index].actors}
                         //- p Ratings: #{allMovies.ratings} 
                         p Language : #{allMovies[index].language}
-                        form(class="signup" action="/movies" method="delete")
-                        legend
-                        input(type="submit" class="delete" id="delete"+index value="Delete")
-                        form(class="signup" action="/movies" method="delete")
-                        legend
-                        button(class ="edit" id="edit"+index)
+                        button(class ="delete" id="delete"+index) Delete
+                        a(href="./updateMovie") Update 
+                    
 
                         
 
 
     include ./footer.pug
-    script(type="text/javascript" src="/scripts.js")
+    script(type="module" src="/moviesAdminScripts.js")
