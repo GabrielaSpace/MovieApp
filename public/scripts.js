@@ -83,7 +83,6 @@ if (document.getElementById("fav")){
   favButton.addEventListener('click', async (e) => {
     e.preventDefault;
     let id = document.getElementById("userId").innerHTML;
-    let slicedId = id.slice(6,)
     let title = document.getElementById("title").innerHTML;
     let year = document.getElementById("year").innerHTML;
     let director = document.getElementById("director").innerHTML;
