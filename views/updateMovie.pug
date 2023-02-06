@@ -5,35 +5,35 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="stylesheet", href="/styles.css")
-        title Update Movie
+        title updateMovie 
     include ./header.pug
     body 
         main
             a(href="./movies") Go back 
             h3 Update Movie
             section
-                form(id="updateForm"  method="post") 
-                        legend Poster(url)
-                        input(type="text" name ="img" value:movies.img placeholder="Poster (url)")
-                        legend Title
-                        input(type="text" name ="title" value:movie.title placeholder="Title")
-                        legend Year
-                        input(type="number" name ="year" value:movie.year placeholder="Year")
-                        legend Director
-                        input(type="text" name ="director" value:movie.director placeholder="Director")
-                        legend Genre
-                        input(type="text" name ="genre" value:movie.genre placeholder="Genre")
-                        legend Runtime
-                        input(type="text" name ="runtime" value:movie.runtime placeholder="Runtime")
-                        legend Plot
-                        input(type="text" name ="plot" value:movie.plot placeholder="Plot")
-                        legend Actors
-                        input(type="text" name ="actors" value:movie.actors placeholder="Actors")
-                        legend Ratings 
-                        input(type="text" name ="ratings" value:movie.ratings placeholder="Ratings")
-                        legend Language
-                        input(type="text" name ="language" value:movie.language placeholder="Language")
-                        br
-                        button(type="submit" id="updateMovie" name="updateButton" value="Update") Accept 
+                form(class="updateMovie")
+                    legend Poster(url)
+                    input(type="text" name="img" placeholder="Poster (url)")
+                    legend Title
+                    input(type="text" name="title" placeholder="Title")
+                    legend Year
+                    input(type="number" name="year" placeholder="Year")
+                    legend Director
+                    input(type="text" name="director" placeholder="Director")
+                    legend Genre
+                    input(type="text" name="genre" placeholder="Genre")
+                    legend Runtime
+                    input(type="text" name="runtime" placeholder="Runtime")
+                    legend Plot
+                    input(type="text" name="plot" placeholder="Plot")
+                    legend Actors
+                    input(type="text" name="actors" placeholder="Actors")
+                                    //-legend Ratings 
+                                    //-input(type="text" name ="ratings" value:movie.ratings placeholder="Ratings")
+                    legend Language
+                    input(type="text" name ="language" placeholder="Language")
+                    br
+                    input(type="submit" id="updateMovie" value="Send")
         include ./footer.pug
-        script(type="text/javascript" src="/scripts.js")
+        script(type="module" src="/put.js")

@@ -40,7 +40,7 @@ app.use('/dashboard', dashboardRoutes)
 app.use('/search', searchRoutes)
 app.use('/createmovie',createMovie)
 app.use('/favmovies', favmovies)
-app.use('/updatemovie',updateMovie)
+app.use('/updateMovie',updateMovie)
 
 app.listen(port, () => {
     console.log(`server running on http://localhost:${port}`)

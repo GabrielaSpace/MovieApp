@@ -92,7 +92,7 @@ if (document.getElementById("fav")) {
 }
 
 
-if (document.title === "CreateMovie" ) {
+if (document.title === "CreateMovie") {
 
   document.getElementById("createMovie").addEventListener("click", async (req, res) => {
     const newMovie = req.body;
@@ -110,45 +110,46 @@ if (document.title === "CreateMovie" ) {
   })
 }
 
-if (document.title === "updateMovie" ) {
+// if (document.title === "updateMovie") {
 
 
-  form.addEventListener('click', (e)=>{
-    e.preventDefault();
-    const image = document.querySelector('#img').value
-    const title = document.querySelector('#title').value
-    const year = document.querySelector('#year').value
-    const director = document.querySelector('#director').value
-    const genre = document.querySelector('#genre').value
-    const runtime= document.querySelector('#runtime').value
-    const plot = document.querySelector('#plot').value
-    const actors = document.querySelector('#actors').value
-    const ratings = document.querySelector('#ratings').value
-    const language = document.querySelector('#language').value
-    const button =document.querySelector('#updateMovie')
-    const formUpdate= document.querySelector(('#updateForm'))
-    console.log(button)
-    console.log(formUpdate)
-  
-  
-    fetch(`https://localhost:3000/updateMovie/${title}`,
-   
-    {method:'PUT',
-    headers:{
-      'Content-Type': 'application-json',
-    },
-    body: JSON.stringify({
-       image,title,year,director,genre,runtime,plot,actors,ratings,language
-    })
-  })
-  
-  
-     console.log('ya estoy conecto con el front')
-    })}
-  
-  
-  
-  
-  
-  
-  
+//   form.addEventListener('click', (e) => {
+    // e.preventDefault();
+    // const image = document.querySelector('#img').value
+    // const title = document.querySelector('#title').value
+    // const year = document.querySelector('#year').value
+    // const director = document.querySelector('#director').value
+    // const genre = document.querySelector('#genre').value
+    // const runtime = document.querySelector('#runtime').value
+    // const plot = document.querySelector('#plot').value
+    // const actors = document.querySelector('#actors').value
+    // const ratings = document.querySelector('#ratings').value
+    // const language = document.querySelector('#language').value
+    // const button = document.querySelector('#updateMovie')
+    // const formUpdate = document.querySelector(('#updateForm'))
+    // console.log(button)
+    // console.log(formUpdate)
+
+
+//     fetch(`https://localhost:3000/updateMovie/${title}`,
+
+//       {
+//         method: 'PUT',
+//         headers: {
+//           'Content-Type': 'application-json',
+//         },
+//         body: JSON.stringify({
+//           image, title, year, director, genre, runtime, plot, actors, ratings, language
+//         })
+//       })
+
+
+//     console.log('ya estoy conecto con el front')
+//   })
+// }
+
+
+
+
+
+
