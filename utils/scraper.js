@@ -1,12 +1,14 @@
 const puppeteer = require("puppeteer");
 
-const extractFilmAffinityData = async (url,browser) => {
+const title = 'titanic'
+
+/* const extractFilmAffinityData = async (url,browser) => {
     try{
         const filmaffinityData = {}
         const page = await browser.newPage()
         await page.goto(url)
-        filmaffinityData['Critics'] = await page.$eval("#pro-reviews > li:nth-child(2) > div > div:nth-child(1)", critica => critica.innerHTML.slice(0,250))
-        filmaffinityData['Punctuation'] = await page.$eval("#movie-rat-avg", note => note.innerHTML)
+        filmaffinityData['FilmAffinity critics '] = await page.$eval("#pro-reviews > li:nth-child(2) > div > div:nth-child(1)", critica => critica.innerHTML.slice(0,250))
+        filmaffinityData['FilmAffinity punctuation'] = await page.$eval("#movie-rat-avg", note => note.innerHTML)
         return filmaffinityData
     }
     catch(err){
@@ -14,7 +16,6 @@ const extractFilmAffinityData = async (url,browser) => {
     }
 }
 
-const title = 'titanic'
 const infoFilmAffinity = async (title) => {
    
     try {
@@ -42,7 +43,7 @@ exports. infoFilmAffinity=  infoFilmAffinity;
 
 infoFilmAffinity(`https://www.filmaffinity.com/es/search.php?stype=title&stext=${title}`).then(data =>console.log(data))
 
-
+ */
 //Sensacine
 
 const extractSensaCineData = async (url,browser) => {
@@ -50,8 +51,8 @@ const extractSensaCineData = async (url,browser) => {
         const SensaCineData = {}
         const page = await browser.newPage()
         await page.goto(url)
-        SensaCineData['Critics'] = await page.$eval("div.editorial-content.cf", critica => critica.innerHTML.slice(0,250))
-        SensaCineData['Punctuation'] = await page.$eval(".note", note => note.innerHTML)
+        SensaCineData['Sensacine critics '] = await page.$eval("div.editorial-content.cf", critica => critica.innerHTML.slice(0,250))
+        SensaCineData['Sensacine punctuation'] = await page.$eval(".note", note => note.innerHTML)
         return SensaCineData
     }
     catch(err){
