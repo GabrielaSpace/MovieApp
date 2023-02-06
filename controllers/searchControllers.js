@@ -11,7 +11,7 @@ const getSearch = (req, res) => {
 const startScraping = async (title) => {
     try {
         // ---Descomenta las 2 siguientes líneas para hacer scraping---
-        const products = await scraper.scrap("https://www.filmaffinity.com/es/search.php?stype=title&stext=" + title);
+        const products = await scraper.scrap("https://www.filmaffinity.com/en/search.php?stype=title&stext=" + title);
         // console.log(products)
         return products /*.json({ Critics: products[0].Critics, Puntuacion: products[0].Punctuation });*/
         // res.status(200).json({"mensaje":"Aquí irán los productos"}); // ---Comenta esta línea---
