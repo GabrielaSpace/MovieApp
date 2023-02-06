@@ -26,8 +26,8 @@ export const deleteFavorite = async (product) => {
         const method = {
             method: 'DELETE'
         }
-        console.log("Este es el parametro product:",product)
-        const BASE_URL = 'http://localhost:3000/movies/deleteMovie?title='+ product
+        console.log("Este es el parametro product:", product)
+        const BASE_URL = 'http://localhost:3000/movies/deleteMovie?title=' + product
         const response = await fetch(BASE_URL, method)
 
     } catch (error) {
@@ -37,21 +37,31 @@ export const deleteFavorite = async (product) => {
 
 }
 
-// export const updateMovie = async(title,updateCamps) => {
-//     try {
-//         const options = {
-//             method: 'PUT',
-//             headers:{
-//             'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify(product)
-//         }
-//         const response = await fetch(`http://localhost:3000/movies/updateMovie/:${title}`, options)
-//         const result = await response.json()
-//             return result
+export const updateMovie = async (data) => {
+    try {
+        const options = {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }
 
-//     } catch (error) {
-//         alert(error)
-//     }
-//     console.log(result)
-// }
+        console.log("options");
+        console.log(options);
+        console.log("BODY:");
+        console.log(options.body)
+
+        const BASE_URL = 'http://localhost:3000/updateMovie'
+        console.log(BASE_URL)
+        const response = await fetch(BASE_URL, options)
+        // let result = await response.json();
+        // console.log(response)
+        // return result
+
+    } catch (error) {
+        alert(error)
+        console.log(error)
+    }
+
+}

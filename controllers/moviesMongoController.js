@@ -39,30 +39,10 @@ const deleteMovie = async (req,res)=>{
     }
 }
 
-const updateMovie = async (req, res) => {
-
-    const { title, year, director, genre, runtime, plot, actors, language  } = req.body
-
-
-    try {
-        const movieUpdate = await Movies.findOneAndUpdate({ title }, { year, director, genre, runtime, plot, actors, language })
-        console.log("Respondiendo a la ruta PUT MOVIES")
-        res.status(201).json({
-            msj: `La pelicula ${title} ha sido actualizado.`,
-            movie: movieUpdate
-        })
-
-    } catch (err) {
-
-        res.status(400).json({ msj: err.message })
-
-    }
-
-}
+//ruta put en updatemovieControllers
 
 module.exports = {
     getMovies,
     createMovie,
-    deleteMovie,
-    updateMovie
+    deleteMovie
 }
