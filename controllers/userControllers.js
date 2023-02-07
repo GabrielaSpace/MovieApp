@@ -10,8 +10,11 @@ const users = require('../models/users_sql')
 };
 
 const getFavorites = async (req, res) => {
-    let user = 6;
-    const userMovies = await users.getFavorites(6);
+    let userData = req.oidc.user
+    let userId = userData.sub
+    // console.log("Este es el console.log de userData:"+userData)
+    console.log("Este es el console.log de userId:"+userId)
+    const userMovies = await users.getFavorites(userId);
     res.status(200).render("moviesUser", { favMovies: userMovies });
 };
 

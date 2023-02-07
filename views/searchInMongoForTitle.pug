@@ -25,6 +25,9 @@ html(lang="en")
                         p Critics: #{critics[i].Critics}
                         p Punctuation: #{critics[i].Punctuation}
                     button(id='fav' type="button") Add to Favorites
+            p Currently logged:
+            p(id="userId") #{userId}    
+
 
 
         include ./footer.pug

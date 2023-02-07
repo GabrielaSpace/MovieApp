@@ -15,6 +15,8 @@ if (document.getElementById("fav")) {
   let favButton = document.getElementById("fav");
   favButton.addEventListener('click', async (e) => {
     e.preventDefault;
+    let id = document.getElementById("userId").innerHTML;
+    console.log(id)
     let title = document.getElementById("title").innerHTML;
     console.log(title)
     let year = document.getElementById("year").innerHTML;
@@ -28,7 +30,7 @@ if (document.getElementById("fav")) {
     let img = document.getElementById("img").src;
     console.log(img)
     const data = {
-      user: "id_prueba",
+      user: id,
       title: title.slice(7,),
       year: year,
       director: director,
