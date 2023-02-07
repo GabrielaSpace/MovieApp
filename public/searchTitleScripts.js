@@ -11,18 +11,27 @@ burger.addEventListener("click", () => {
   }
 });
 
-if (document.getElementById("fav")){
-    let favButton = document.getElementById("fav");
-    favButton.addEventListener('click', async (e) => {
-      e.preventDefault;
-      let movie = document.getElementById("title").innerHTML;
-      
-      const data = {
-        user: 6,
-        movie: movie.slice(7, )
-      }
-      console.log("data recogida del formulario", data)
-      const postResponse = await addFavorite(data);
-      console.log(postResponse);
-    })
-  }
+if (document.getElementById("fav")) {
+  let favButton = document.getElementById("fav");
+  favButton.addEventListener('click', async (e) => {
+    e.preventDefault;
+    let id = document.getElementById("userId").innerHTML;
+    let title = document.getElementById("title").innerHTML;
+    let year = document.getElementById("year").innerHTML;
+    let director = document.getElementById("director").innerHTML;
+    let runtime = document.getElementById("runtime").innerHTML;
+    let genre = document.getElementById("genre").innerHTML;
+    let img = document.getElementById("img").src;
+    const data = {
+      id: id,
+      title: title,
+      year: year,
+      director: director,
+      genre: genre,
+      runtime: runtime,
+      img: img
+    }
+    const postResponse = await addFavorite(data);
+    console.log(postResponse);
+  })
+}

@@ -51,7 +51,9 @@ const getSearchForTitle = async (req, res) => {
         const critics = await startScraping(title)
         console.log("ENTRE EN SEARCH SEARCH TITLE")
         // console.log(critics)
-        res.status(200).render("searchTitle", { param, critics: critics })
+        let userData = req.oidc.user
+        let userId = userData.sub
+        res.status(200).render("searchTitle", { param, critics: critics, userId })
     } else {
         console.log("ENTRE EN EL ELSE")
         res.render("noMovie")

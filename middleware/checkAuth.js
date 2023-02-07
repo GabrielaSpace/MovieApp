@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+
 const { auth } = require('express-openid-connect');
 const { SECRET, BASE_URL, CLIENT_ID, ISSUER } = process.env
 const config = {
@@ -13,13 +14,22 @@ const config = {
 
 app.use(auth(config))
 
-const getDashboard = (req, res) => {
-    if (req.oidc.isAuthenticated()) {
-        res.render('dashboard');
+
+const authRoutes = express.Router();
+const isAuth = authRoutes.use((req, res, next) => {
+
+    const auth = req.oidc.isAuthenticated();
+
+    if (auth){
+        next()
     } else {
-        res.send("Log In First")
+        res.status(403).send( 
+            res.send("Forbidden") 
+        );
+
     }
-}
+});
+
 module.exports = {
-    getDashboard
+    isAuth
 }

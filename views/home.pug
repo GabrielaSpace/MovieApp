@@ -6,16 +6,26 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="stylesheet", href="/styles.css")
         title Home
-    body 
+    body
         include ./header.pug
         main
             h3 Welcome
             p Please login
 
-            
-            section 
-                a(class='button' href='/signup') Sign Up
-                a(class='button' href='/login') Log In
+
+            section
+                ul
+                    li
+                        a(class='login' href='/login') Log In / Sign Up
+                    li
+                        a(class='logout' href="/logout") Log Out
+
+
+            if isAuthenticated
+                p User logged
+            else
+                p No user
+
 
         include ./footer.pug
         script(type="text/javascript" src="/scripts.js")
