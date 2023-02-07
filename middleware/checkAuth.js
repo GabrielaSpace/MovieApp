@@ -16,6 +16,10 @@ app.use(auth(config))
 
 
 const authRoutes = express.Router();
+
+
+
+
 const isAuth = authRoutes.use((req, res, next) => {
 
     const auth = req.oidc.isAuthenticated();
