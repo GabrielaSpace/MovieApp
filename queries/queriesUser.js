@@ -16,8 +16,8 @@ const queries = {
     `,
     getFavorites:`
     SELECT title, img, director, year, genre, runtime
-    FROM favmovies
-    WHERE id_user = $1;
+    FROM favorites
+    WHERE id = $1;
     `
     // getEntriesByEmail: `
     // SELECT e.title,e.content,e.date,e.category,a.name,a.surname,a.image

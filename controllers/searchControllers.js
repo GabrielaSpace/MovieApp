@@ -31,7 +31,9 @@ const getSearchForTitleInMongo = async (req, res) => {
         const critics = await startScraping(title)
         console.log("ENTRE EN SEARCH SEARCH MONGO")
         console.log(critics)
-        res.status(200).render("searchInMongoForTitle", { param, critics: critics })
+        let userData = req.oidc.user
+        let userId = userData.sub
+        res.status(200).render("searchInMongoForTitle", { param, critics: critics, userId })
 
     } else {
         const title = "/search/" + req.params.title
