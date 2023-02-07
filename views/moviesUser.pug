@@ -12,6 +12,7 @@ html(lang="en")
             h3 What do you want?
 
             section
+            if favMoviesApi
                 each film, i in favMoviesApi 
                     article 
                         h1 Title: #{favMoviesApi[i].title}
@@ -22,6 +23,8 @@ html(lang="en")
                         p Runtime: #{favMoviesApi[i].runtime}
                         button Remove
             section
+
+            if favMongoMovies 
                 each film, i in favMongoMovies
                     article 
                         h1 Title: #{favMongoMovies[i].title}

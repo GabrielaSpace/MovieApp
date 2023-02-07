@@ -52,7 +52,7 @@ const getSearchForTitle = async (req, res) => {
     if (param.Response !== 'False') {
         const critics = await startScraping(title)
         console.log("ENTRE EN SEARCH SEARCH TITLE")
-        // console.log(critics)
+        console.log(critics)
         let userData = req.oidc.user
         let userId = userData.sub
         res.status(200).render("searchTitle", { param, critics: critics, userId })

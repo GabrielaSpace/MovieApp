@@ -10,10 +10,6 @@ html(lang="en")
         include ./header.pug
         main
             h3 Search User
-            //- form(action="/search" method="post")
-            //-   label(for="title") title 
-            //-   input(name="title" id="title" placeholder="Title" required)
-            //-   input(type="submit" class="post_title" value="Search movie")
             
             form(action="/search" method="post" target="_blank" id="form1")
                 label(for="fname") Nombre de la pelicula : 
