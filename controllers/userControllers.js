@@ -7,7 +7,7 @@ const users = require('../models/users_sql')
     res.status(201).json({
         msg: response
     });
-}; 
+};
 
 const getFavorites = async (req, res) => {
     let user = 6;

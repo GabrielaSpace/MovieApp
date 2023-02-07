@@ -8,14 +8,14 @@ export const addFavorite = async (product) => {
             body: JSON.stringify(product)
         }
         console.log(options)
-        const response = await fetch(window.location.href, options)
-        const result = await response.json()
-        return result
+        const BASE_URL = 'http://localhost:3000/favMovies'
+        console.log(BASE_URL)
+        const response = await fetch(BASE_URL, options)
+        console.log(response)
 
     } catch (error) {
         alert(error)
     }
-    console.log(result)
 }
 
 

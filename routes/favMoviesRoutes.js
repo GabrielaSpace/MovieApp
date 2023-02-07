@@ -5,7 +5,7 @@ const userRouter = express.Router();
 
 
 
-userRouter.post('/search/:title', userCrontrolers.addFavorite)
+userRouter.post('/', userCrontrolers.addFavorite)
 userRouter.get('/', userCrontrolers.getFavorites)
 
 module.exports = userRouter
