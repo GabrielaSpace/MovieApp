@@ -12,15 +12,26 @@ html(lang="en")
             h3 What do you want?
 
             section
-                each film, index in favMovies
+                each film, i in favMoviesApi 
                     article 
-                        h1 Title: #{favMovies[index].title}
-                        img(src=favMovies[index].img)
-                        p Year: #{favMovies[index].year}
-                        p Director: #{favMovies[index].director}
-                        p Genre: #{favMovies[index].genre}
-                        p Runtime: #{favMovies[index].runtime}
+                        h1 Title: #{favMoviesApi[i].title}
+                        img(src=favMoviesApi[i].img)
+                        p Year: #{favMoviesApi[i].year}
+                        p Director: #{favMoviesApi[i].director}
+                        p Genre: #{favMoviesApi[i].genre}
+                        p Runtime: #{favMoviesApi[i].runtime}
                         button Remove
+            section
+                each film, i in favMongoMovies
+                    article 
+                        h1 Title: #{favMongoMovies[i].title}
+                        img(src=favMongoMovies[i].img)
+                        p Year: #{favMongoMovies[i].year}
+                        p Director: #{favMongoMovies[i].director}
+                        p Genre: #{favMongoMovies[i].genre}
+                        p Runtime: #{favMongoMovies[i].runtime}
+                        button Remove            
+                        
 
 
         include ./footer.pug

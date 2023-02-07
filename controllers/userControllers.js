@@ -13,10 +13,12 @@ const getFavorites = async (req, res) => {
     let userData = req.oidc.user
     let userId = userData.sub
     const padding = "        "
+    const padding2 ="    "
     // console.log("Este es el console.log de userData:"+userData)
     console.log("Este es el console.log de userId:"+userId)
-    const userMovies = await users.getFavorites(userId+padding);
-    res.status(200).render("moviesUser", { favMovies: userMovies });
+    const userMoviesApi = await users.getFavorites(userId+padding);
+    const userMoviesMongo = await users.getFavorites(userId+padding2);
+    res.status(200).render("moviesUser", { favMoviesApi: userMoviesApi, favMongoMovies: userMoviesMongo });
 };
 
 module.exports = {
