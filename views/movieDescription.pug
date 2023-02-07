@@ -1,0 +1,18 @@
+
+title #{film.Title}
+link(rel="stylesheet", href="style.css")
+body
+    include ./header.pug
+    main
+        img(src=film.Poster)
+        h1 Title: #{film.Title}
+        p Year: #{film.Year}
+        p Director: #{film.Director}
+        p Genre: #{film.Genre}
+        p Runtime: #{film.Runtime}
+        p Plot : #{film.Plot}
+        p Actors : #{film.Actors}
+        p Ratings: #{film.Ratings} 
+        p Language : #{film.Language}
+
+    include ./footer.pug

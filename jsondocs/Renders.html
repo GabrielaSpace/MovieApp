@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Namespace: MongoControllers</title>
+    <title>JSDoc: Namespace: Renders</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Namespace: MongoControllers</h1>
+    <h1 class="page-title">Namespace: Renders</h1>
 
     
 
@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2>MongoControllers</h2>
+        <h2>Renders</h2>
         
     
 </header>
@@ -77,7 +77,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllers_moviesMongoController.js.html">controllers/moviesMongoController.js</a>, <a href="controllers_moviesMongoController.js.html#line1">line 1</a>
+        <a href="controllers_createMovieControllers.js.html">controllers/createMovieControllers.js</a>, <a href="controllers_createMovieControllers.js.html#line1">line 1</a>
     </li></ul></dd>
     
 
@@ -116,7 +116,7 @@
     
 
     
-    <h4 class="name" id=".createMovie"><span class="type-signature">(async, static) </span>createMovie<span class="signature">(req, res)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id=".createMovie"><span class="type-signature">(async, static) </span>createMovie<span class="signature">(req, res)</span><span class="type-signature"></span></h4>
     
 
     
@@ -124,7 +124,7 @@
 
 
 <div class="description">
-    Description: This function creates a movie in the database.
+    Description: This function renders the create movie view
 </div>
 
 
@@ -240,7 +240,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllers_moviesMongoController.js.html">controllers/moviesMongoController.js</a>, <a href="controllers_moviesMongoController.js.html#line32">line 32</a>
+        <a href="controllers_createMovieControllers.js.html">controllers/createMovieControllers.js</a>, <a href="controllers_createMovieControllers.js.html#line7">line 7</a>
     </li></ul></dd>
     
 
@@ -263,59 +263,8 @@
 
 
 
-<h5>Throws:</h5>
-
-        
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        message with the error.
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type">Error</span>
 
 
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-
-    
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    JSON, message indicating that the movie was successfully added to the database.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Object</span>
-
-
-    </dd>
-</dl>
-
-    
 
 
 
@@ -327,7 +276,7 @@
     
 
     
-    <h4 class="name" id=".deleteMovie"><span class="type-signature">(async, static) </span>deleteMovie<span class="signature">(req, res)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id=".getDashboard"><span class="type-signature">(async, static) </span>getDashboard<span class="signature">(req, res)</span><span class="type-signature"></span></h4>
     
 
     
@@ -335,7 +284,7 @@
 
 
 <div class="description">
-    Description: This function deletes a movie in the database.
+    Description: This function renders the dashboard view
 </div>
 
 
@@ -451,7 +400,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllers_moviesMongoController.js.html">controllers/moviesMongoController.js</a>, <a href="controllers_moviesMongoController.js.html#line59">line 59</a>
+        <a href="controllers_dashboardControllers.js.html">controllers/dashboardControllers.js</a>, <a href="controllers_dashboardControllers.js.html#line2">line 2</a>
     </li></ul></dd>
     
 
@@ -474,59 +423,8 @@
 
 
 
-<h5>Throws:</h5>
-
-        
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        message with the error.
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type">Error</span>
 
 
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-
-    
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    JSON, message indicating that the movie was successfully deleted to the database.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Object</span>
-
-
-    </dd>
-</dl>
-
-    
 
 
 
@@ -538,7 +436,7 @@
     
 
     
-    <h4 class="name" id=".getMovies"><span class="type-signature">(async, static) </span>getMovies<span class="signature">(req, res)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id=".getHome"><span class="type-signature">(async, static) </span>getHome<span class="signature">(req, res)</span><span class="type-signature"></span></h4>
     
 
     
@@ -546,7 +444,7 @@
 
 
 <div class="description">
-    Description: This function gets all the movies in the database.
+    Description: This function renders the home view
 </div>
 
 
@@ -662,7 +560,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllers_moviesMongoController.js.html">controllers/moviesMongoController.js</a>, <a href="controllers_moviesMongoController.js.html#line9">line 9</a>
+        <a href="controllers_homeControllers.js.html">controllers/homeControllers.js</a>, <a href="controllers_homeControllers.js.html#line1">line 1</a>
     </li></ul></dd>
     
 
@@ -685,59 +583,8 @@
 
 
 
-<h5>Throws:</h5>
-
-        
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        message with the error.
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type">Error</span>
 
 
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-
-    
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    movies in the database
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Object</span>
-
-
-    </dd>
-</dl>
-
-    
 
 
 
@@ -749,7 +596,7 @@
     
 
     
-    <h4 class="name" id=".updateMovie"><span class="type-signature">(async, static) </span>updateMovie<span class="signature">(req, res)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id=".getSearch"><span class="type-signature">(async, static) </span>getSearch<span class="signature">(req, res)</span><span class="type-signature"></span></h4>
     
 
     
@@ -757,7 +604,7 @@
 
 
 <div class="description">
-    Description: This function updates a movie in the database.
+    Description: This function renders the search view
 </div>
 
 
@@ -873,7 +720,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="controllers_moviesMongoController.js.html">controllers/moviesMongoController.js</a>, <a href="controllers_moviesMongoController.js.html#line84">line 84</a>
+        <a href="controllers_searchControllers.js.html">controllers/searchControllers.js</a>, <a href="controllers_searchControllers.js.html#line13">line 13</a>
     </li></ul></dd>
     
 
@@ -896,59 +743,168 @@
 
 
 
-<h5>Throws:</h5>
+
+
+
+
+
+
 
         
+            
 
-<dl>
-    <dt>
-        <div class="param-desc">
-        message with the error.
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type">Error</span>
+    
 
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
+    
+    <h4 class="name" id=".updateMovie"><span class="type-signature">(async, static) </span>updateMovie<span class="signature">(req, res)</span><span class="type-signature"></span></h4>
+    
 
     
 
 
-<h5>Returns:</h5>
 
-        
-<div class="param-desc">
-    JSON, message indicating that the movie was successfully updated to the database.
+<div class="description">
+    Description: This function renders the update movie view
 </div>
 
 
 
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
         
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>req</code></td>
+            
+
+            <td class="type">
+            
+                
 <span class="param-type">Object</span>
 
 
-    </dd>
-</dl>
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">HTTP request object</td>
+        </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>res</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">HTTP response object</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="controllers_updateMovieControllers.js.html">controllers/updateMovieControllers.js</a>, <a href="controllers_updateMovieControllers.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

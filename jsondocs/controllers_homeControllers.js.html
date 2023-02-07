@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: controllers/homeControllers.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,34 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: controllers/homeControllers.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Description: This function renders the home view
+ * @memberof Renders
+ * @method  getHome
+ * @async 
+ * @param {Object} req HTTP request object
+ * @param {Object} res HTTP response object
+ */
 
+const getHome = (req, res) => {
 
-    <h3> </h3>
+    res.render('home');
+}
 
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+module.exports = {
+    getHome
+}</code></pre>
+        </article>
+    </section>
 
 
 
