@@ -47,7 +47,7 @@ app.use(morgan('combined'));
 app.use(cors());
 app.use(cookieParser());
 app.use(auth(config));
-const isAuth = require('./middleware/checkAuth')
+const check = require('./middleware/checkAuth')
 
 
 // Rutas users
@@ -59,12 +59,12 @@ app.get('/', (req, res) => {
     res.render('home', { isAuthenticated: req.oidc.isAuthenticated() })
 })
 
-app.use('/movies', isAuth.isAuth, adminRoutes)
-app.use('/dashboard', isAuth.isAuth, dashboardRoutes)
-app.use('/search', isAuth.isAuth, searchRoutes)
-app.use('/createmovie', isAuth.isAuth, createMovieRoutes)
-//app.use('/favmovies', isAuth.isAuth, favMoviesRoutes)
-app.use('/updatemovie', isAuth.isAuth, updateMovieRoutes)
+app.use('/movies', check.isAuth, adminRoutes)
+app.use('/dashboard', check.isAuth, dashboardRoutes)
+app.use('/search', check.isAuth, searchRoutes)
+app.use('/createmovie', check.isAuth, createMovieRoutes)
+app.use('/favmovies', check.isAuth, favMoviesRoutes)
+app.use('/updatemovie', check.isAuth, updateMovieRoutes)
 
 app.listen(port, () => {
     console.log(`server running on http://localhost:${port}`)
