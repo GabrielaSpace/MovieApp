@@ -3,7 +3,6 @@
  * @exports userControllers
  * @namespace userControllers
  */
-const process = require('process');
 const users = require('../models/users_sql')
 
 
@@ -17,7 +16,7 @@ const users = require('../models/users_sql')
  * @return {Object} - an object containing the scraped info.
  * @throws {Error} message with the error during save process.
  */
- const addFavorite = async (req, res) => {
+const addFavorite = async (req, res) => {
     let fav = req.body;
     const response = await users.addFavorite(fav);
     res.status(201).json({
@@ -40,17 +39,33 @@ const users = require('../models/users_sql')
 const getFavorites = async (req, res) => {
     let userData = req.oidc.user
     let userId = userData.sub
-    const padding = "        "
-    const padding2 = "    "
-    console.log("Este es el console.log de userId:"+userId)
-    const userMoviesApi = await users.getFavorites(userId+padding);
-    const userMoviesMongo = await users.getFavorites(userId+padding2);
-    res.status(200).render("moviesUser", { favMoviesApi: userMoviesApi, favMongoMovies: userMoviesMongo });
+    if (userId.startsWith('auth0|')) {
+        console.log(userId.slice(userId.indexOf('|') + 1))
+        userId = userId.slice(userId.indexOf('|') + 1)
+    }
+    const userMoviesApi = await users.getFavorites(userId);
+
+    res.status(200).render("moviesUser", { favMoviesApi: userMoviesApi, userId });
+};
+
+
+const deleteFavoriteMovie = async (req, res) => {
+
+    const { user, title } = req.body
+    const answer = await users.deleteFavorite(user, title);
+    if (answer.title !== undefined) {
+        const msj = `Has eliminado la pelicula: ${answer.title} de la tabla de favoritos`;
+        console.log("Respondiendo a la ruta DELETE FAV MOVIE")
+        res.status(200).json({ "message": msj })
+    } else {
+        res.status(400).json({ msj: "La pelicula que quieres eliminar no existe" });
+    }
 };
 
 
 
 module.exports = {
     addFavorite,
-    getFavorites
+    getFavorites,
+    deleteFavoriteMovie
 }

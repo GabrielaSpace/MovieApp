@@ -65,9 +65,28 @@ const getFavorites = async (user) => {
     return result
 }
 
+const deleteFavorite = async (userId, title) => {
+    console.log(userId, title);
+    let client, result;
+    try {
+        client = await pool.connect();
+        const data = await client.query(queries.deleteFavorite, [userId, title]);
+        result = data.rows;
+        console.log(result);
+    }
+    catch (err) {
+        console.log(err);
+        throw err;
+    } finally {
+        client.release()
+    }
+    return result
+}
+
 const users = {
     addFavorite,
-    getFavorites
+    getFavorites,
+    deleteFavorite
 }
 
 module.exports = users;
