@@ -1,4 +1,4 @@
-console.log("SCRIPT lINKADO");
+console.log("SCRIPT LINKADO");
 
 //despliegue del menu 'hamburguesa'
 let burger = document.querySelector(".burger_menu");
@@ -190,7 +190,7 @@ if (document.title === "singup") {
   });
 }
 
-// actualizar/ eliminar /añadir pelicula a lista de mongo a traves de admin
+//Evento para capturar los datos y llamar a la funcion para actualizar pelicula a lista de mongo a traves de admin:
 if (document.title === "updateMovie") {
   console.log("hola")
 
@@ -208,7 +208,7 @@ if (document.title === "updateMovie") {
 
   })
 }
-
+//Evento para capturar los datos y llamar a la funcion para eliminar pelicula a lista de mongo a traves de admin:
 if (document.title === "Movies") {
   const buttons = document.getElementsByClassName("delete")
   console.log(buttons)
@@ -228,7 +228,7 @@ if (document.title === "Movies") {
     })
   }
 }
-
+//Evento para capturar los datos y llamar a la funcion para crear pelicula a lista de mongo a traves de admin:
 if (document.title === "CreateMovie") {
 
   console.log("hola")
@@ -248,7 +248,7 @@ if (document.title === "CreateMovie") {
   })
 
 }
-//añadir/eliminar pelicula favorita de la lista de un usuario:
+//Evento para capturar los datos y llamar a la funcion para añadir pelicula favorita de la lista de un usuario:
 
 if (document.title === "searchTitle") {
   let favButton = document.getElementById("fav");
@@ -283,6 +283,8 @@ if (document.title === "searchTitle") {
   })
 }
 
+//Evento para capturar los datos y llamar a la funcion para eliminar pelicula favorita de la lista de un usuario:
+
 if (document.title === "Favorites") {
   const buttons = document.getElementsByClassName("delete")
   console.log(buttons.length)
@@ -305,43 +307,3 @@ if (document.title === "Favorites") {
     })
   }
 }
-
-
-
-
-// if (document.title === "CreateMovie" ) {
-
-
-
-//   console.log("hola")
-
-//   document.getElementById("createMovie").addEventListener("click", async (e) => {
-//       console.log("Validacion arrancando");
-//       e.preventDefault();
-//       const form = document.querySelector(".createMovie").elements
-//       const data = {}
-//       for (let input of form) {
-//           data[input.name] = input.value
-//       }
-//       console.log("data recogida del formulario", data)
-//       //const postResponse = await editMovies(data);
-//       await createMovie(data);
-
-//   })
-
-//   // document.getElementById("createMovie").addEventListener("click", async (req, res) => {
-//   //   const newMovie = req.body;
-//   //   try {
-//   //     let response = await new Movies(newMovie);
-//   //     let answer = await response.save();
-//   //     console.log("Respondiendo a la ruta POST MOVIES")
-//   //     res.status(201).json({
-//   //       msj: `New movie added to DB.`,
-//   //       movie: answer
-//   //     });
-//   //   } catch (err) {
-//   //     res.status(400).json({ msj: err.message })
-//   //   }
-//   // })
-// }
-
