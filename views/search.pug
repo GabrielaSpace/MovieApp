@@ -17,7 +17,7 @@ html(lang="en")
                 input(type="text" id="fname" name="title")
                 |
                 |
-                input(type="submit" value="SEARCH")
+                input(type="submit" value="SEARCH" class='css-button-arrow--red')
 
 
             if movies
@@ -33,7 +33,7 @@ html(lang="en")
                         p Actors : #{film[index].Actors}
                         p Ratings: #{film[index].Ratings} 
                         p Language : #{film[index].Language}
-                        button(id=`addFav${index}`) Add to favorites 
+                        button(class ="css-button-arrow--red"  id=`addFav${index}`) Add to favorites 
             
         include ./footer.pug
         script(type="text/javascript" src="/scripts.js")

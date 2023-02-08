@@ -25,7 +25,7 @@ html(lang="en")
                         each item , i in critics 
                             p Critics: #{critics[i].Critics}
                             p Punctuation: #{critics[i].Punctuation}
-                    button(id='fav' type="button") Add to Favorites
+                    button(id='fav' type="button" class ="css-button-arrow--red" ) Add to Favorites
 
             p(id="userId" hidden=true) #{userId}    
 
