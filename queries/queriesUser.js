@@ -17,7 +17,11 @@ const queries = {
     SELECT title, img, director, year, genre, runtime
     FROM favorites
     WHERE id = $1;
-    `
+    `,
+    deleteFavorite:`
+    DELETE
+    FROM favorites AS e
+    WHERE e.id = $1 AND e.title = $2`
 
 }
 module.exports = queries;

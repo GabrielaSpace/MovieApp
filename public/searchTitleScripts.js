@@ -30,7 +30,7 @@ if (document.getElementById("fav")) {
     let img = document.getElementById("img").src;
     console.log(img)
     const data = {
-      user: id,
+      user: id.trim(),
       title: title.slice(7,),
       year: year,
       director: director,

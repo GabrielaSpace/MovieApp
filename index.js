@@ -63,7 +63,7 @@ app.use('/movies', check.isAuth, adminRoutes)
 app.use('/dashboard', check.isAuth, dashboardRoutes)
 app.use('/search', check.isAuth, searchRoutes)
 app.use('/createmovie', check.isAuth, createMovieRoutes)
-app.use('/favmovies', check.isAuth, favMoviesRoutes)
+app.use('/favmovies', favMoviesRoutes)
 app.use('/updatemovie', check.isAuth, updateMovieRoutes)
 
 app.listen(port, () => {
