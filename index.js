@@ -56,7 +56,7 @@ app.use('/search', check.isAuth, searchRoutes);
 //Rutas para administrador:
 app.use('/movies', check.isAuth, adminRoutes);
 
-app.use('/favmovies', check.isAuth, favMoviesRoutes)
+app.use('/favmovies', check.isAuth, favMoviesRoutes);
 
 app.listen(port, () => {
     console.log(`server running on http://localhost:${port}`)

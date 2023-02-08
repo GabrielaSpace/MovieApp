@@ -23,7 +23,6 @@ html(lang="en")
                         p Runtime: #{allMovies[index].runtime}
                         p Plot : #{allMovies[index].plot}
                         p Actors : #{allMovies[index].actors}
-                        //- p Ratings: #{allMovies.ratings} 
                         p Language : #{allMovies[index].language}
                         button(class ="delete" id="delete"+index) Delete
                         a(href="../movies/updateMovie") Update 
@@ -32,5 +31,5 @@ html(lang="en")
                         
 
 
-    include ./footer.pug
-    script(type="module" src="/moviesAdminScripts.js")
+        include ./footer.pug
+        script(type="module" src="/scripts.js")
