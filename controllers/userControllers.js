@@ -48,6 +48,8 @@ const getFavorites = async (req, res) => {
     res.status(200).render("moviesUser", { favMoviesApi: userMoviesApi, favMongoMovies: userMoviesMongo });
 };
 
+
+
 module.exports = {
     addFavorite,
     getFavorites

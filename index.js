@@ -28,7 +28,7 @@ const homeRoutes = require('./routes/homeRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
 const searchRoutes = require('./routes/searchRoutes');
 const createMovieRoutes = require('./routes/createMovieRoutes');
-const updateMovieRoutes = require('./routes/updateMovieRoutes');
+// const updateMovieRoutes = require('./routes/updateMovieRoutes');
 const favMoviesRoutes = require('./routes/favMoviesRoutes');
 // const config = require('./utils/auth')
 
@@ -59,12 +59,12 @@ app.get('/', (req, res) => {
     res.render('home', { isAuthenticated: req.oidc.isAuthenticated() })
 })
 
-app.use('/movies', check.isAuth, adminRoutes)
+app.use('/movies', adminRoutes)
 app.use('/dashboard', check.isAuth, dashboardRoutes)
 app.use('/search', check.isAuth, searchRoutes)
 app.use('/createmovie', check.isAuth, createMovieRoutes)
 app.use('/favmovies', check.isAuth, favMoviesRoutes)
-app.use('/updatemovie', check.isAuth, updateMovieRoutes)
+// app.use('/updatemovie', check.isAuth, updateMovieRoutes)
 
 app.listen(port, () => {
     console.log(`server running on http://localhost:${port}`)

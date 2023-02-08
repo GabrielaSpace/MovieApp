@@ -19,14 +19,21 @@ export const addFavorite = async (product) => {
 }
 
 
-export const deleteFavorite = async (product) => {
+export const deleteFavorite = async (title) => {
     try {
         const method = {
             method: 'DELETE'
         }
-        console.log("Este es el parametro product:", product)
-        const BASE_URL = 'http://localhost:3000/movies/deleteMovie?title=' + product
+        console.log("Este es el parametro product:", title)
+        const BASE_URL = 'http://localhost:3000/movies/deleteMovie?title=' + title
         const response = await fetch(BASE_URL, method)
+
+        console.log(response)
+        if (response.status === 200) {
+            alert("La pelicula " + title + " ha sido eliminada");
+        } else {
+            alert("La pelicula " + title + " no ha podido ser eliminada. Comprueba que hayas escrito bien el titulo.");
+        }
 
     } catch (error) {
         alert(error)
@@ -50,9 +57,15 @@ export const updateMovie = async (data) => {
         console.log("BODY:");
         console.log(options.body)
 
-        const BASE_URL = 'http://localhost:3000/updateMovie'
+        const BASE_URL = 'http://localhost:3000/movies/updateMovie'
         console.log(BASE_URL)
         const response = await fetch(BASE_URL, options)
+        console.log(response)
+        if (response.status === 201) {
+            alert("La pelicula " + data.title + " ha sido actualizada");
+        } else {
+            alert("La pelicula " + data.title + " no ha podido ser actualizada. Comprueba que hayas escrito bien el titulo.");
+        }
         // let result = await response.json();
         // console.log(response)
         // return result
