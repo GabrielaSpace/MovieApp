@@ -56,8 +56,8 @@ const deleteFavoriteMovie = async (req, res) => {
 
     const { user, title } = req.body
     const answer = await users.deleteFavorite(user, title);
-    if (answer.title !== undefined) {
-        const msj = `Has eliminado la pelicula: ${answer.title} de la tabla de favoritos`;
+    if (answer) {
+        const msj = `Has eliminado la pelicula: ${title} de la tabla de favoritos`;
         console.log("Respondiendo a la ruta DELETE FAV MOVIE")
         res.status(200).json({ "message": msj })
     } else {

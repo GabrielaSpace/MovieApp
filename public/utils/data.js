@@ -108,6 +108,11 @@ export const deleteFavMovie = async (data) => {
         console.log(BASE_URL)
         const response = await fetch(BASE_URL,options)
         console.log(response)
+        if (response.status === 200) {
+            alert("La pelicula " + data.title + " ha sido eliminada de tu lista de favoritos");
+        } else {
+            alert("La pelicula " + data.title + " no ha podido ser eliminada. Es probable que ya la hayas eliminado refresca tu pagina.");
+        }
 
 
     } catch (error) {
