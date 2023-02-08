@@ -110,6 +110,7 @@ const getSearchForTitle = async (req, res) => {
 
         }
         res.status(200).render("searchTitle", { param, critics: critics, userId })
+
     } else {
         console.log("ENTRE EN EL ELSE")
         res.render("noMovie")

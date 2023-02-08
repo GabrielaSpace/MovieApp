@@ -1,3 +1,20 @@
+
+/**
+ * @author Javier Fuertes, Gabriela García y Pablo Mateos 
+ * @exports utils/data
+ * @namespace data.handlers
+ */
+
+/**
+ * Description: This function adds a new favorite movie to the database.
+ * @memberof data.handlers
+ * @method addFavorite
+ * @function
+ * @param {Object} product - The movie to add as a favorite.
+ * @throws {Error} message with the error during add process.
+ */
+
+
 export const addFavorite = async (product) => {
     try {
         const options = {
@@ -19,6 +36,14 @@ export const addFavorite = async (product) => {
     }
 }
 
+/**
+ * Description: This function delete a favorite movie to the database.
+ * @memberof data.handlers
+ * @method deleteFavorite
+ * @function
+ * @param {Object} product - The movie to delete of favorites.
+ * @throws {Error} message with the error during delete process.
+ */
 
 export const deleteFavorite = async (product) => {
     try {
@@ -35,7 +60,14 @@ export const deleteFavorite = async (product) => {
     }
 
 }
-
+/**
+ * Description: This function update a favorite movie to the database.
+ * @memberof data.handlers
+ * @method updateFavorite
+ * @function
+ * @param {Object} data - The movie to update of favorites.
+ * @throws {Error} message with the error during update process.
+ */
 export const updateMovie = async (data) => {
     try {
         const options = {

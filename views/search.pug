@@ -10,11 +10,14 @@ html(lang="en")
         include ./header.pug
         main
             h3 Search User
+
             
             form(action="/search" method="post" target="_blank" id="form1")
-                label(for="fname") Nombre de la pelicula : 
+                label(for="fname") TITLE: 
                 input(type="text" id="fname" name="title")
-                input(type="submit" value="Introducir Pelicula")
+                |
+                |
+                input(type="submit" value="SEARCH")
 
 
             if movies
