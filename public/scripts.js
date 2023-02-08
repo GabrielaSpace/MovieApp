@@ -142,7 +142,7 @@ const deleteFavMovie = async (data) => {
 }
 
 
-
+//Eventos para capturar los datos de los formularios
 
 if (document.title === "singup") {
   //validacion de la contraseña y el usuario cuando se registra:
@@ -190,7 +190,7 @@ if (document.title === "singup") {
   });
 }
 
-
+// actualizar/ eliminar /añadir pelicula a lista de mongo a traves de admin
 if (document.title === "updateMovie") {
   console.log("hola")
 
@@ -209,10 +209,52 @@ if (document.title === "updateMovie") {
   })
 }
 
-if (document.tittle === "searchTitle") {
+if (document.title === "Movies") {
+  const buttons = document.getElementsByClassName("delete")
+  console.log(buttons)
+  for (let i = 0; i < buttons.length; i++) {
+
+    document.getElementById(`delete${i}`).addEventListener('click', async (e) => {
+      e.preventDefault;
+      let movie = document.getElementById(`title${i}`).innerHTML;
+      console.log("Este es valor de h3:" + movie)
+      const cleanTitle = movie.slice(7,)
+      const titleMovie = cleanTitle.trim()
+      console.log("Este es el valor que se le pasa a la query", titleMovie)
+      if (movie) {
+        const deleteResponse = await deleteFavorite(titleMovie);
+        console.log(deleteResponse)
+      }
+    })
+  }
+}
+
+if (document.title === "CreateMovie") {
+
+  console.log("hola")
+
+  document.getElementById("createMovie").addEventListener("click", async (e) => {
+    console.log("Validacion arrancando");
+    e.preventDefault();
+    const form = document.querySelector(".createMovie").elements
+    const data = {}
+    for (let input of form) {
+      data[input.name] = input.value
+    }
+    console.log("data recogida del formulario", data)
+    //const postResponse = await editMovies(data);
+    await createMovie(data);
+
+  })
+
+}
+//añadir/eliminar pelicula favorita de la lista de un usuario:
+
+if (document.title === "searchTitle") {
   let favButton = document.getElementById("fav");
   favButton.addEventListener('click', async (e) => {
-    e.preventDefault;
+    console.log("evento arrancando")
+    e.preventDefault();
     let id = document.getElementById("userId").innerHTML;
     console.log(id)
     let title = document.getElementById("title").innerHTML;
@@ -241,26 +283,6 @@ if (document.tittle === "searchTitle") {
   })
 }
 
-if (document.title === "Movies") {
-  const buttons = document.getElementsByClassName("delete")
-  console.log(buttons)
-  for (let i = 0; i < buttons.length; i++) {
-
-    document.getElementById(`delete${i}`).addEventListener('click', async (e) => {
-      e.preventDefault;
-      let movie = document.getElementById(`title${i}`).innerHTML;
-      console.log("Este es valor de h3:" + movie)
-      const cleanTitle = movie.slice(7,)
-      const titleMovie = cleanTitle.trim()
-      console.log("Este es el valor que se le pasa a la query", titleMovie)
-      if (movie) {
-        const deleteResponse = await deleteFavorite(titleMovie);
-        console.log(deleteResponse)
-      }
-    })
-  }
-}
-
 if (document.title === "Favorites") {
   const buttons = document.getElementsByClassName("delete")
   console.log(buttons.length)
@@ -282,42 +304,6 @@ if (document.title === "Favorites") {
       const postResponse = await deleteFavMovie(data);
     })
   }
-}
-
-if (document.title === "CreateMovie") {
-
-
-
-  console.log("hola")
-
-  document.getElementById("createMovie").addEventListener("click", async (e) => {
-    console.log("Validacion arrancando");
-    e.preventDefault();
-    const form = document.querySelector(".createMovie").elements
-    const data = {}
-    for (let input of form) {
-      data[input.name] = input.value
-    }
-    console.log("data recogida del formulario", data)
-    //const postResponse = await editMovies(data);
-    await createMovie(data);
-
-  })
-
-  // document.getElementById("createMovie").addEventListener("click", async (req, res) => {
-  //   const newMovie = req.body;
-  //   try {
-  //     let response = await new Movies(newMovie);
-  //     let answer = await response.save();
-  //     console.log("Respondiendo a la ruta POST MOVIES")
-  //     res.status(201).json({
-  //       msj: `New movie added to DB.`,
-  //       movie: answer
-  //     });
-  //   } catch (err) {
-  //     res.status(400).json({ msj: err.message })
-  //   }
-  // })
 }
 
 

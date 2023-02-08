@@ -48,7 +48,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.use(morgan('combined'));
 app.use(cors());
 app.use(cookieParser());
-app.use(auth(config));
+app.use(auth(Config));
 app.use('/api-docs-swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));//Endpoint que servirá la documentación en el navegador, se le pasa la variable que apunta al .json que contiene la documentación
 const check = require('./middleware/checkAuth')
 
