@@ -84,11 +84,11 @@ To install and run this project in your local environment, follow these steps:
 		
  -   Edit movie
 
-	     http://localhost:3000/updateMovie/:id
+	     http://localhost:3000/updateMovie
 
  -   Delete movie
 
-	     http://localhost:3000/deleteMovie
+	     http://localhost:3000/movies/deleteMovie?
 
 
  -  Movies 
@@ -108,7 +108,7 @@ To install and run this project in your local environment, follow these steps:
 
 In this project we have used the [OMDB API](https://www.omdbapi.com/) and the pages [FilmAffinity](https://www.filmaffinity.com/es/main.html) and [SensaCine](https://www.sensacine.com/peliculas/criticas-sensacine/) to get the reviews.
 
-We also invite you to visit our website [MovieApp](https://github.com/GabrielaSpace/MovieApp.github.io) and so you can interact with the application.
+We also invite you to visit our website [MovieApp](https://movie-app-zmanak.vercel.app/) and so you can interact with the application.
 
 Here are some views of our app :sparkles:
 
@@ -124,7 +124,10 @@ This project is open to contributions. If you would like to collaborate, please 
 ## This project was done by:
 
 [Javier Fuertes](https://github.com/ZManak)
+
 [Gabriela García](https://github.com/GabrielaSpace)
+
+
 [Pablo Mateos](https://github.com/PabloMatMar)
 
  

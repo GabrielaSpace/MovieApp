@@ -168,7 +168,7 @@
           }
         }
       },
-      "/deleteMovie/id": {
+      "/deleteMovie?": {
         "delete": {
           "tags": [
             "MoviesAdmin"
@@ -177,7 +177,7 @@
           "description": "Delete a movie",
           "parameters": [
             {
-              "name": "MoviesAdmin",
+              "name": "Movies",
               "in": "query",
               "required": true,
               "schema": {
@@ -195,7 +195,7 @@
           }
         }
       },
-      "/updatemovie/id": {
+      "/updatemovie": {
         "put": {
           "tags": [
             "MoviesAdmin"
