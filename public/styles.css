@@ -1,7 +1,47 @@
-*{
-    color: blueviolet;
-}
-
+:root {
+    --darkRed: #7e130d;
+  }
+  
+  * {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  html {
+    min-height: 100vh;
+  }
+  
+  html, body {
+    margin: 0px;
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px;
+    color: whitesmoke;
+    background-color: black;
+    min-height: 75vh;
+  }
+  
+  header {
+    position: sticky;
+    top: 0;
+    margin: 0px;
+    padding: 15px;
+    text-align: center;
+    background-color: var(--darkRed);
+  }
+  
+  footer {
+    margin: 0px;
+    padding: 5px;
+    background-color: var(--darkRed);
+    text-align: center;
+    position: relative;
+    width: 100%;
+    bottom: 0px;
+  }
+  
 #links_menu {
     display: none;
 }

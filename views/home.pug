@@ -10,14 +10,12 @@ html(lang="en")
         include ./header.pug
         main
             h3 Welcome
-            p Please login
-
-
             section
-                ul
-                    li
-                        a(class='login' href='/login') Log In / Sign Up
-                    li
+                if !isAuthenticated
+                        button  
+                            a(class='login' href='/login') Log In / Sign Up
+                else 
+                    button 
                         a(class='logout' href="/logout") Log Out
 
 
