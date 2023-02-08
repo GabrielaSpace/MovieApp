@@ -115,11 +115,12 @@ Here are some views of our app :sparkles:
  ![Control panel ](https://github.com/GabrielaSpace/MovieApp/blob/develop/public/assets/viewControl.png)
  ![Search by title](https://github.com/GabrielaSpace/MovieApp/blob/develop/public/assets/viewTitle.png)
 
+ ![Control panel ](https://github.com/GabrielaSpace/MovieApp/blob/develop/public/assets/viewControl.png)
+ ![Search by title](https://github.com/GabrielaSpace/MovieApp/blob/develop/public/assets/viewTitle.png)
+
  ![View admin mobile version](https://github.com/GabrielaSpace/MovieApp/blob/develop/public/assets/viewadminC.png)
  
  ![View search by title mobile version](https://github.com/GabrielaSpace/MovieApp/blob/develop/public/assets/viewAdmin2.png)
-  
-  
 
 
 

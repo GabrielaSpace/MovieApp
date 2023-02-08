@@ -10,13 +10,13 @@ html(lang="en")
     body 
         main
             h3 What do you want?
-            a(href="./createMovie") Add New Movie
+            a(href="./createMovie" class='css-button-arrow--red') Add New Movie
             
-            section
+            section(class="cardSection")
                 each item, index in allMovies 
-                    article
-                        h3(id="title"+index)  Title: #{allMovies[index].title}
-                        img(src=allMovies[index].img)
+                    article(class="card")
+                        h3(id="title"+index )  Title: #{allMovies[index].title}
+                        img(src=allMovies[index].img  class="imgMongo")
                         p Year: #{allMovies[index].year}
                         p Director: #{allMovies[index].director}
                         p Genre: #{allMovies[index].genre}
@@ -25,8 +25,8 @@ html(lang="en")
                         p Actors : #{allMovies[index].actors}
                         //- p Ratings: #{allMovies.ratings} 
                         p Language : #{allMovies[index].language}
-                        button(class ="delete" id="delete"+index) Delete
-                        a(href="./updateMovie") Update 
+                        button(class ="css-button-arrow--red" id="delete"+index) Delete
+                        a(href="./updateMovie" class="css-button-arrow--red") Update 
                     
 
                         
