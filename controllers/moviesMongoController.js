@@ -28,6 +28,20 @@ const getMovies = async (req, res) => {
 }
 
 /**
+ * Description: This function renders the create movie view
+ * @memberof Renders
+ * @method  createMovie
+ * @async 
+ * @param {Object} req HTTP request object
+ * @param {Object} res HTTP response object
+ */
+
+const getFormMovie = (req, res) => {
+    res.render('createMovie');
+  
+}
+
+/**
  * Description: This function creates a movie in the database.
  * @memberof MongoControllers
  * @method createMovie
@@ -130,5 +144,6 @@ module.exports = {
     createMovie,
     deleteMovie,
     formUpdateMovie,
-    updateMovie
+    updateMovie,
+    getFormMovie
 }

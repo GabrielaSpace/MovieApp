@@ -13,7 +13,7 @@ html(lang="en")
             h3 Create new movie
             section
                 fieldset
-                    form(action="movies/createMovie" method="post")
+                    form(action="movies/createMovie" method="post" class="createMovie")
                         legend Poster(url)
                         input(type="text" name ="img" required)
                         legend Title
@@ -38,4 +38,4 @@ html(lang="en")
                         input(type="submit" value="Create movie" id="createMovie")
          
         include ./footer.pug
-        script(type="text/javascript" src="/scripts.js")
+        script(type="module" src="/createMovie.js")

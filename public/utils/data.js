@@ -1,17 +1,46 @@
-export const addFavorite = async (product) => {
+export const addFavorite = async (movie) => {
     try {
         const options = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(product)
+            body: JSON.stringify(movie)
         }
         console.log(options)
         const BASE_URL = 'http://localhost:3000/favMovies'
         console.log(BASE_URL)
         const response = await fetch(BASE_URL, options)
-        console.log(response)
+        if (response.status === 201) {
+            alert("La pelicula " + movie.title + " ha sido añadida a favoritos");
+        } else {
+            alert("La pelicula " + movie.title + " no ha podido ser añadida. Comprueba que el titulo no este ya en la coleccion de peliculas en /favmovies");
+        }
+
+    } catch (error) {
+        alert(error)
+    }
+}
+
+
+export const createMovie = async (movie) => {
+    try {
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(movie)
+        }
+        console.log(options)
+        const BASE_URL = 'http://localhost:3000/movies/createMovie'
+        const response = await fetch(BASE_URL, options)
+        if (response.status === 201) {
+            alert("La pelicula " + movie.title + " ha sido creada");
+        } else {
+            alert("La pelicula " + movie.title + " no ha podido ser creada. Comprueba que el titulo no este ya en la coleccion de peliculas en /movies");
+        }
+
 
     } catch (error) {
         alert(error)
@@ -24,11 +53,8 @@ export const deleteFavorite = async (title) => {
         const method = {
             method: 'DELETE'
         }
-        console.log("Este es el parametro product:", title)
         const BASE_URL = 'http://localhost:3000/movies/deleteMovie?title=' + title
         const response = await fetch(BASE_URL, method)
-
-        console.log(response)
         if (response.status === 200) {
             alert("La pelicula " + title + " ha sido eliminada");
         } else {
@@ -42,33 +68,22 @@ export const deleteFavorite = async (title) => {
 
 }
 
-export const updateMovie = async (data) => {
+export const updateMovie = async (movie) => {
     try {
         const options = {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(movie)
         }
-
-        console.log("options");
-        console.log(options);
-        console.log("BODY:");
-        console.log(options.body)
-
         const BASE_URL = 'http://localhost:3000/movies/updateMovie'
-        console.log(BASE_URL)
         const response = await fetch(BASE_URL, options)
-        console.log(response)
         if (response.status === 201) {
-            alert("La pelicula " + data.title + " ha sido actualizada");
+            alert("La pelicula " + movie.title + " ha sido actualizada");
         } else {
-            alert("La pelicula " + data.title + " no ha podido ser actualizada. Comprueba que hayas escrito bien el titulo.");
+            alert("La pelicula " + movie.title + " no ha podido ser actualizada. Comprueba que hayas escrito bien el titulo.");
         }
-        // let result = await response.json();
-        // console.log(response)
-        // return result
 
     } catch (error) {
         alert(error)

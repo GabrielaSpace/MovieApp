@@ -2,9 +2,7 @@ require('dotenv').config();
 const {SECRET, BASE_URL, CLIENT_ID, ISSUER} = process.env
 
 const express = require('express');
-const request = require('request');//¿Que ez ezto?
 const morgan = require('morgan');
-const mongoose = require("mongoose");
 const path = require('path');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
@@ -27,19 +25,16 @@ const adminRoutes = require('./routes/moviesAdminRoutes');
 const homeRoutes = require('./routes/homeRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
 const searchRoutes = require('./routes/searchRoutes');
-const createMovieRoutes = require('./routes/createMovieRoutes');
-// const updateMovieRoutes = require('./routes/updateMovieRoutes');
 const favMoviesRoutes = require('./routes/favMoviesRoutes');
-// const config = require('./utils/auth')
 
 const app = express();
 const port = 3000;
 
-// Template engine
+// TEMPLATE ENGINE
 app.set('view engine', 'pug');
 app.set('views', __dirname + '/views');
 
-// Middlewares
+// MIDDLEWARES
 app.use(express.json()); // Habilitar tipo de dato a recibir
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '/public')));
@@ -50,21 +45,18 @@ app.use(auth(config));
 const check = require('./middleware/checkAuth')
 
 
-// Rutas users
-app.get('/', (req, res) => {
-    let response = req.oidc.isAuthenticated()
-    console.log(response)
-    let userData = req.oidc.user
-    console.log(userData)
-    res.render('home', { isAuthenticated: req.oidc.isAuthenticated() })
-})
+//RUTAS:
 
-app.use('/movies', adminRoutes)
-app.use('/dashboard', check.isAuth, dashboardRoutes)
-app.use('/search', check.isAuth, searchRoutes)
-app.use('/createmovie', check.isAuth, createMovieRoutes)
+//Ruta home para logearse o crear usuario/admin:
+app.use('/', homeRoutes);
+//Rutas del dashboard para ir hacia lado usuario o lado administrador:
+app.use('/dashboard', check.isAuth, dashboardRoutes);
+//Rutas para usuario:
+app.use('/search', check.isAuth, searchRoutes);
+//Rutas para administrador:
+app.use('/movies', check.isAuth, adminRoutes);
+
 app.use('/favmovies', check.isAuth, favMoviesRoutes)
-// app.use('/updatemovie', check.isAuth, updateMovieRoutes)
 
 app.listen(port, () => {
     console.log(`server running on http://localhost:${port}`)

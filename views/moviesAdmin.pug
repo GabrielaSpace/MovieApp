@@ -10,7 +10,7 @@ html(lang="en")
     body 
         main
             h3 What do you want?
-            a(href="./createMovie") Add New Movie
+            a(href="../movies/createMovie") Add New Movie
             
             section
                 each item, index in allMovies 
@@ -26,7 +26,7 @@ html(lang="en")
                         //- p Ratings: #{allMovies.ratings} 
                         p Language : #{allMovies[index].language}
                         button(class ="delete" id="delete"+index) Delete
-                        a(href="./movies/updateMovie") Update 
+                        a(href="../movies/updateMovie") Update 
                     
 
                         
