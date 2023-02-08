@@ -23,12 +23,11 @@ html(lang="en")
                     p Actors : #{param.Actors}
                     //- p Ratings: #{param.Ratings}
                     p Language : #{param.Language}
-                    
-                    if critics
-                        each itemm, i in critics 
+                    if critics 
+                        each item , i in critics 
                             p Critics: #{critics[i].Critics}
                             p Punctuation: #{critics[i].Punctuation}
-                        
+
                     button(id='fav' type="button") Add to Favorites
 
             p(id="userId" hidden=true) #{userId}        

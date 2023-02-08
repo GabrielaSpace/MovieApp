@@ -12,29 +12,21 @@ html(lang="en")
             h3 What do you want?
 
             section
+            if favMoviesApi
                 each film, i in favMoviesApi 
                     article 
-                        h1 Title: #{favMoviesApi[i].title}
+                        h1(id="title"+i) Title: #{favMoviesApi[i].title}
                         img(src=favMoviesApi[i].img)
                         p Year: #{favMoviesApi[i].year}
                         p Director: #{favMoviesApi[i].director}
                         p Genre: #{favMoviesApi[i].genre}
                         p Runtime: #{favMoviesApi[i].runtime}
-                        button Remove
-            section
-                each film, i in favMongoMovies
-                    article 
-                        h1 Title: #{favMongoMovies[i].title}
-                        img(src=favMongoMovies[i].img)
-                        p Year: #{favMongoMovies[i].year}
-                        p Director: #{favMongoMovies[i].director}
-                        p Genre: #{favMongoMovies[i].genre}
-                        p Runtime: #{favMongoMovies[i].runtime}
-                        button Remove            
+                        button(id='delete'+i class="delete" type="button") Remove
+            p(id="userId" hidden=true) #{userId}       
                         
 
 
         include ./footer.pug
 
-        script(type="module" src="/scripts.js")
+        script(type="module" src="/favmovies.js")
 

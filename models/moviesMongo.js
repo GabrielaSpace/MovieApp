@@ -71,15 +71,3 @@ const movieSchema = mongoose.Schema(objectSchema);
 const Movie = mongoose.model('Movie', movieSchema);
 
 module.exports = Movie;
-
-
-/*
-h1 Title: #{param.Title}
-p Year: #{param.Year}
-p Director: #{param.Director}
-p Genre: #{param.Genre}
-p Runtime: #{param.Runtime}
-p Plot : #{param.Plot}
-p Actors : #{param.Actors}
-p Ratings: #{param.Ratings}
-p Language : #{param.Language} */

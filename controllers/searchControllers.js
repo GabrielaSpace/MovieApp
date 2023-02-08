@@ -1,3 +1,5 @@
+//search controllers
+
 /**
  * @author Javier Fuertes, Gabriela García y Pablo Mateos 
  * @exports search
@@ -65,6 +67,12 @@ const getSearchForTitleInMongo = async (req, res) => {
         console.log(critics)
         let userData = req.oidc.user
         let userId = userData.sub
+        if (userId.startsWith('auth0|')) {
+            console.log(userId.slice(userId.indexOf('|') + 1))
+            userId = userId.slice(userId.indexOf('|') + 1).trim()
+
+        }
+
         res.status(200).render("searchInMongoForTitle", { param, critics: critics, userId })
 
     } else {
@@ -91,12 +99,18 @@ const getSearchForTitle = async (req, res) => {
     console.log(param)
     const title = req.params.title
     if (param.Response !== 'False') {
-        //const critics = await startScraping(title)
-        //console.log("ENTRE EN SEARCH SEARCH TITLE")
-        // console.log(critics)
+        const critics = await startScraping(title)
+        console.log("ENTRE EN SEARCH SEARCH TITLE")
+        console.log(critics)
         let userData = req.oidc.user
         let userId = userData.sub
-        res.status(200).render("searchTitle", { param, /*critics: critics,*/ userId })
+        if (userId.startsWith('auth0|')) {
+            console.log(userId.slice(userId.indexOf('|') + 1))
+            userId = userId.slice(userId.indexOf('|') + 1).trim()
+
+        }
+        res.status(200).render("searchTitle", { param, critics: critics, userId })
+
     } else {
         console.log("ENTRE EN EL ELSE")
         res.render("noMovie")

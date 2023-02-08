@@ -1,5 +1,5 @@
 const express = require('express');
-// Rutas de productos
+
 const moviesAdminControllers = require("../controllers/moviesMongoController");
 const adminRouter = express.Router();
 
