@@ -14,9 +14,21 @@ const config = {
 
 app.use(auth(config))
 
+/**
+ * @author Javier Fuertes, Gabriela García y Pablo Mateos 
+ * @exports createMovie
+ * @namespace Middlewares
+ */
+
 
 const authRoutes = express.Router();
+/**
+ * Description: This function is used to verify if the user is authenticated.
+ * @memberof Middlewares
+ * @method  isAuth
+ * @function
 
+ */
 
 
 

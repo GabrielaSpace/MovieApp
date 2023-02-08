@@ -13,7 +13,7 @@ require('./utils/pg_pool');
 const { auth } = require('express-openid-connect');
 
 
-const config = {
+const Config = {
     authRequired: false,
     auth0Logout: true,
     secret: SECRET,
@@ -21,6 +21,13 @@ const config = {
     clientID: CLIENT_ID,
     issuerBaseURL: ISSUER
 };
+//swagger
+const swaggerUi = require('swagger-ui-express');//Requiere libreria de Swagger (La UI)
+const swaggerDocument = require('./swagger.json'); //Requiere ruta relativa del json que contiene la documentación de la API
+
+//jsdoc
+//const jsdoc = require('express-jsdoc-swagger');
+
 
 //Exportacion de las rutas
 const adminRoutes = require('./routes/moviesAdminRoutes');
@@ -30,7 +37,7 @@ const searchRoutes = require('./routes/searchRoutes');
 const createMovieRoutes = require('./routes/createMovieRoutes');
 const updateMovieRoutes = require('./routes/updateMovieRoutes');
 const favMoviesRoutes = require('./routes/favMoviesRoutes');
-// const config = require('./utils/auth')
+const config = require('./utils/auth')
 
 const app = express();
 const port = 3000;
@@ -47,6 +54,7 @@ app.use(morgan('combined'));
 app.use(cors());
 app.use(cookieParser());
 app.use(auth(config));
+app.use('/api-docs-swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));//Endpoint que servirá la documentación en el navegador, se le pasa la variable que apunta al .json que contiene la documentación
 const check = require('./middleware/checkAuth')
 
 
