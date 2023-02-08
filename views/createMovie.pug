@@ -9,7 +9,7 @@ html(lang="en")
     include ./header.pug
     body 
         main
-            a(href="./movies") Go back 
+            a(href="./movies" class ="css-button-arrow--red" ) Go back 
             h3 Create new movie
             section
                 fieldset
@@ -35,7 +35,7 @@ html(lang="en")
                         legend Language
                         input(type="text" name ="language" required)
                         br
-                        input(type="submit" value="Create movie" id="createMovie")
+                        input(type="submit" value="Create movie" id="createMovie" class ="css-button-arrow--red" )
          
         include ./footer.pug
         script(type="text/javascript" src="/scripts.js")
