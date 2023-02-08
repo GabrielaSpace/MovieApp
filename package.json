@@ -35,10 +35,11 @@
     "openssl": "^2.0.0",
     "pg": "^8.9.0",
     "pug": "^3.0.2",
-    "puppeteer": "^19.6.3",
     "request": "^2.88.2",
-    "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^4.6.0"
+    "swagger-ui-express": "^4.6.0",
+    "puppeteer-core": "10.1.0",
+    "chrome-aws-lambda": "10.1.0"
+
   },
   "devDependencies": {
     "jsdoc": "^4.0.0",
