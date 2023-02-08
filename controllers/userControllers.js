@@ -18,6 +18,8 @@ const users = require('../models/users_sql')
  */
 const addFavorite = async (req, res) => {
     let fav = req.body;
+    console.log("*******")
+    console.log(req.body)
     const response = await users.addFavorite(fav);
     res.status(201).json({
         msg: response
@@ -39,6 +41,7 @@ const addFavorite = async (req, res) => {
 const getFavorites = async (req, res) => {
     let userData = req.oidc.user
     let userId = userData.sub
+    console.log(userId)
     if (userId.startsWith('auth0|')) {
         console.log(userId.slice(userId.indexOf('|') + 1))
         userId = userId.slice(userId.indexOf('|') + 1)
