@@ -6,7 +6,7 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="stylesheet", href="/styles.css")
-        title #{param.Title}
+        title searchTitle 
         link(rel="stylesheet", href="/styles.css")
     body
         include ./header.pug
@@ -14,25 +14,21 @@ html(lang="en")
             section(class="card")
                     h1(id="title") Title: #{param.Title}
                     img(id="img" src=param.Poster)
-                    //- h1(id="title") Title: #{param.Title}
                     p(id="year") Year: #{param.Year}
                     p(id="director") Director: #{param.Director}
                     p(id="genre") Genre: #{param.Genre}
                     p(id="runtime") Runtime: #{param.Runtime}
                     p Plot : #{param.Plot}
                     p Actors : #{param.Actors}
-                    //- p Ratings: #{param.Ratings}
                     p Language : #{param.Language}
                     if critics 
                         each item , i in critics 
                             p Critics: #{critics[i].Critics}
                             p Punctuation: #{critics[i].Punctuation}
-
                     button(id='fav' type="button" class ="css-button-arrow--red") Add to Favorites
 
             p(id="userId" hidden=true) #{userId}        
 
 
         include ./footer.pug
-
-        script(type="module" src="/searchTitleScripts.js") 
+        script(type="module" src="/scripts.js")
