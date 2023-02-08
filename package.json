@@ -24,6 +24,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "express-jsdoc-swagger": "^1.8.0",
     "express-jwt": "^8.4.0",
     "express-openid-connect": "^2.12.0",
     "jsonwebtoken": "^9.0.0",
@@ -36,6 +37,7 @@
     "pug": "^3.0.2",
     "puppeteer": "^19.6.3",
     "request": "^2.88.2",
+    "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^4.6.0"
   },
   "devDependencies": {
