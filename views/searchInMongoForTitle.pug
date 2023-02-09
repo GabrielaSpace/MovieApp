@@ -5,32 +5,28 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="stylesheet", href="/styles.css")
-        title #{param.Title}
+        title searchTitle
     body
         include ./header.pug
         main
             section(class="card")
                     h1(id="title") Title: #{param.title}
                     img(id="img" src=param.img)
-                    //- h1(id="title") Title: #{param.Title}
                     p(id="year") Year: #{param.year}
                     p(id="director") Director: #{param.director}
                     p(id="genre") Genre: #{param.genre}
                     p(id="runtime") Runtime: #{param.runtime}
                     p Plot : #{param.plot}
                     p Actors : #{param.actors}
-                    //- p Ratings: #{param.Ratings}
-                    p Language : #{param.language} 
+                    p Language : #{param.language}
                     if critics 
                         each item , i in critics 
                             p Critics: #{critics[i].Critics}
                             p Punctuation: #{critics[i].Punctuation}
-                    button(id='fav' type="button" class ="css-button-arrow--red" ) Add to Favorites
-
+                    button(id='fav' type="button" class ="css-button-arrow--red") Add to Favorites
             p(id="userId" hidden=true) #{userId}    
 
 
 
         include ./footer.pug
-
-        script(type="module" src="/searchTitleScripts.js") 
+        script(type="module" src="/scripts.js")

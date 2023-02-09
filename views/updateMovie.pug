@@ -10,7 +10,7 @@ html(lang="en")
     include ./header.pug
     body 
         main
-            a(href="./movies") Go back 
+            a(href="./") Go back 
             h3 Update Movie
             section
                 form(class="updateMovie")
@@ -19,7 +19,7 @@ html(lang="en")
                     legend Title
                     input(type="text" name="title" placeholder="Title")
                     legend Year
-                    input(type="number" name="year" placeholder="Year")
+                    input(type="number" name="year" min = "1902" placeholder="Year")
                     legend Director
                     input(type="text" name="director" placeholder="Director")
                     legend Genre
@@ -35,4 +35,4 @@ html(lang="en")
                     br
                     input(type="submit" id="updateMovie" value="Send" class ="css-button-arrow--red")
         include ./footer.pug
-        script(type="module" src="/updateMovies.js")
+        script(type="module" src="/scripts.js")

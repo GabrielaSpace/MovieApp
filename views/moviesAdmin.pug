@@ -10,7 +10,9 @@ html(lang="en")
     body 
         main
             h3 What do you want?
-            a(href="./createMovie" class='css-button-arrow--red') Add New Movie
+
+            a(href="../movies/createMovie" class='css-button-arrow--red') Add New Movie
+
             
             section(class="cardSection")
                 each item, index in allMovies 
@@ -23,14 +25,13 @@ html(lang="en")
                         p Runtime: #{allMovies[index].runtime}
                         p Plot : #{allMovies[index].plot}
                         p Actors : #{allMovies[index].actors}
-                        //- p Ratings: #{allMovies.ratings} 
                         p Language : #{allMovies[index].language}
-                        button(class ="css-button-arrow--red" id="delete"+index) Delete
-                        a(href="./updateMovie" class="css-button-arrow--red") Update 
+                        button(class ="css-button-arrow--red" class ="delete" id="delete"+index) Delete
+                        a(href="../movies/updateMovie" class="css-button-arrow--red") Update 
                     
 
                         
 
 
-    include ./footer.pug
-    script(type="module" src="/moviesAdminScripts.js")
+        include ./footer.pug
+        script(type="module" src="/scripts.js")
