@@ -1,5 +1,4 @@
-const chrome = require('chrome-aws-lambda');
-const puppeteer = require("puppeteer-core");
+const puppeteer = require('puppeteer')
 
 const extractSensacineData = async (url, browser) => {
     try {
@@ -16,21 +15,14 @@ const extractSensacineData = async (url, browser) => {
     }
 }
 const scrap = async (url) => {
-    const options = {
-        args: [...chrome.args, "--hide-scrollbars", "--disable-web-security"],
-            defaultViewport: chrome.defaultViewport,
-            executablePath: await chrome.executablePath,
-            headless: true,
-            ignoreHTTPSErrors: true,
-        };
     try {
         const scrapedData = []
-        const browser = await puppeteer.launch(options)
+        const browser = await puppeteer.launch({headless: true});
         const page = await browser.newPage();
         await page.goto(url);
         // console.log(`Navigating to ${url}...`);
         const tmpurls = await page.$$eval("div.mc-title > a", data => data.map(a => a.href))
-        const urls = await tmpurls.filter((link, index) => { return tmpurls.indexOf(link) === index })
+        const urls = tmpurls.filter((link, index) => { return tmpurls.indexOf(link) === index })
         // console.log("url capuradas", urls)
         // const urls2 = urls.slice(0, 1);
         // console.log(`${urls.length} links encontrados`);
