@@ -18,7 +18,7 @@ html(lang="en")
                 each item, index in allMovies 
                     article(class="card")
                         h3(id="title"+index )  Title: #{allMovies[index].title}
-                        img(src=allMovies[index].img  class="imgMongo")
+                        img(src=allMovies[index].img  class="imgMongo" class="slit-in-vertical")
                         p Year: #{allMovies[index].year}
                         p Director: #{allMovies[index].director}
                         p Genre: #{allMovies[index].genre}

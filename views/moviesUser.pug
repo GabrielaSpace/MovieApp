@@ -16,7 +16,7 @@ html(lang="en")
                 each film, i in favMoviesApi 
                     article 
                         h1(id="title"+i) Title: #{favMoviesApi[i].title}
-                        img(src=favMoviesApi[i].img)
+                        img(src=favMoviesApi[i].img class="slit-in-vertical")
                         p Year: #{favMoviesApi[i].year}
                         p Director: #{favMoviesApi[i].director}
                         p Genre: #{favMoviesApi[i].genre}
