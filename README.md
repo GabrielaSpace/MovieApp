@@ -50,14 +50,20 @@ To install and run this project in your local environment, follow these steps:
  - Movie search engine
 
 		http://localhost:3000/search
+		
+- Favorites view of the app
+
+		http://localhost:3000/favmovies
 
  - Movie detail view of the app
-
-		http://localhost:3000/search/:title
+		
+		http://localhost:3000/search/local/:title (Fetch Mongo)
+		http://localhost:3000/search/:title (Fecth Api)
+		
 		
  - My movies view of the app
 
-		http://localhost:3000//movies
+		http://localhost:3000/movies
 
  - Sign up in the application
 
@@ -80,11 +86,11 @@ To install and run this project in your local environment, follow these steps:
 
  -  Create movie 
 
-		http://localhost:3000/createMovie
+		http://localhost:3000/movies/createMovie
 		
  -   Edit movie
 
-	     http://localhost:3000/updateMovie
+	     http://localhost:3000/movies/updateMovie
 
  -   Delete movie
 
@@ -100,10 +106,6 @@ To install and run this project in your local environment, follow these steps:
  - Swagger
 
 		http://localhost:3000/api-docs-swagger
-		
- -  jsDoc
-
-	     http://localhost:3000/api-docs-jsdoc
 
 
 In this project we have used the [OMDB API](https://www.omdbapi.com/) and the pages [FilmAffinity](https://www.filmaffinity.com/es/main.html) and [SensaCine](https://www.sensacine.com/peliculas/criticas-sensacine/) to get the reviews.
