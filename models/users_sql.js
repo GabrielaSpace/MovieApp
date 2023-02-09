@@ -83,10 +83,28 @@ const deleteFavorite = async (userId, title) => {
     return result
 }
 
+const isAdmin = async (email) => {
+    let client, result;
+    try {
+        client = await pool.connect();
+        const data = await client.query(queries.isAdmin, [email]);
+        result = data.rowCount;
+        console.log(result);
+    }
+    catch (err) {
+        console.log(err);
+        throw err;
+    } finally {
+        client.release()
+    }
+    return result
+}
+
 const users = {
     addFavorite,
     getFavorites,
-    deleteFavorite
+    deleteFavorite,
+    isAdmin
 }
 
 module.exports = users;

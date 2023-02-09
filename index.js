@@ -50,7 +50,8 @@ app.use(cors());
 app.use(cookieParser());
 app.use(auth(Config));
 app.use('/api-docs-swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));//Endpoint que servirá la documentación en el navegador, se le pasa la variable que apunta al .json que contiene la documentación
-const check = require('./middleware/checkAuth')
+const check = require('./middleware/checkAuth');
+const roles = require('./middleware/checkAdmin');
 
 
 //RUTAS:
@@ -58,7 +59,7 @@ const check = require('./middleware/checkAuth')
 //Ruta home para logearse o crear usuario/admin:
 app.use('/', homeRoutes);
 //Rutas del dashboard para ir hacia lado usuario o lado administrador:
-app.use('/dashboard', check.isAuth, dashboardRoutes);
+app.use('/dashboard', check.isAuth, roles.isAdmin, dashboardRoutes);
 //Rutas para usuario:
 app.use('/search', check.isAuth, searchRoutes);
 //Rutas para administrador:
