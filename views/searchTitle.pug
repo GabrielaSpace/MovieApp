@@ -11,6 +11,7 @@ html(lang="en")
     body
         include ./header.pug
         main
+            a(href="../FavMovies" class ="css-button-arrow--red" ) Go back
             section(class="card")
                     h1(id="title") Title: #{param.Title}
                     img(id="img" src=param.Poster)

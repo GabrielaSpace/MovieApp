@@ -1,6 +1,8 @@
 console.log("SCRIPT LINKADO");
 
 //despliegue del menu 'hamburguesa'
+
+
 let burger = document.querySelector(".burger_menu");
 
 burger.addEventListener("click", () => {
@@ -11,6 +13,7 @@ burger.addEventListener("click", () => {
     links.style.display = "block";
   }
 });
+
 
 //LLAMADAS A RUTAS DE ADMIN
 
@@ -192,7 +195,6 @@ if (document.title === "singup") {
 
 //Evento para capturar los datos y llamar a la funcion para actualizar pelicula a lista de mongo a traves de admin:
 if (document.title === "updateMovie") {
-  console.log("hola")
 
   document.getElementById("updateMovie").addEventListener("click", async (e) => {
     console.log("Validacion arrancando");
