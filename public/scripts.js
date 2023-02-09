@@ -50,6 +50,7 @@ const deleteFavorite = async (title) => {
     }
     const BASE_URL = 'http://localhost:3000/movies/deleteMovie?title=' + title
     const response = await fetch(BASE_URL, method)
+    // const recharged = await fetch('http://localhost:3000/movies')
     if (response.status === 200) {
       alert("La pelicula " + title + " ha sido eliminada");
     } else {

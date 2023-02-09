@@ -1,138 +1,124 @@
 :root {
-    --darkRed: #7e130d;
-  }
-  
-  * {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  }
-  
-  html {
-    min-height: 100vh;
-  }
-  
-  html, body {
-    margin: 0px;
-    background-image: url(https://p4.wallpaperbetter.com/wallpaper/843/804/988/batman-wallpaper-preview.jpg)
-  }
-  main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0px;
-    color: whitesmoke;
-    background-color: rgba(0, 0, 0, 0.192);
-    min-height: 75vh;
-  }
-  
-  header {
-    position: sticky;
-    top: 0;
-    padding: 15px;
-    text-align: center;
-    background-color: var(--darkRed);
-    color: #fff;
-  }
-  
-  footer {
-    margin: 0px;
-    padding: 5px;
-    background-color: var(--darkRed);
-    text-align: center;
-    position: relative;
-    width: 100%;
-    bottom: 0px;
-    color: #fff;
-  }
-
-
-#links_menu {
-    display: none;
+  --darkRed: #7E130D;
 }
-
-.burger_menu{
-    max-width: 50px;
+* {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-
-.cardSection{
-  background-color:transparent;
-    padding: 10px;
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    justify-content: center;
+html {
+  min-height: 100vh;
 }
-.card{
-  background-color: rgba(26, 23, 23, 0.788);
-  padding: 15px;
-  margin: 15px;
+html, body {
+  margin: 0px;
+  background-image: url(https://p4.wallpaperbetter.com/wallpaper/843/804/988/batman-wallpaper-preview.jpg)
+}
+main {
   display: flex;
-  flex-flow: column wrap;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px;
+  color: whitesmoke;
+  background-color: rgba(0, 0, 0, 0.192);
+  min-height: 75vh;
+}
+header {
+  position: sticky;
+  top: 0;
+  padding: 15px;
+  text-align: center;
+  background-color: var(--darkRed);
+  color: #fff;
+  z-index: 9999;
+}
+footer {
+  margin: 0px;
+  padding: 5px;
+  background-color: var(--darkRed);
+  text-align: center;
+  position: relative;
+  width: 100%;
+  bottom: 0px;
+  color: #fff;
+}
+#links_menu {
+  display: none;
+}
+.burger_menu{
+  max-width: 50px;
+  z-index: 9999;
+}
+.cardSection{
+background-color:transparent;
+  padding: 10px;
+  display: flex;
+  flex-flow: row wrap;
   align-items: center;
   justify-content: center;
-  max-width: 380px;
-
-  border: 1px solid white;
 }
-
+.card{
+background-color: rgba(26, 23, 23, 0.788);
+padding: 15px;
+margin: 15px;
+display: flex;
+flex-flow: column wrap;
+align-items: center;
+justify-content: center;
+max-width: 380px;
+border: 1px solid white;
+}
 .css-button-arrow--red {
-  min-width: 130px;
-  height: 40px;
-  color: #fff;
-  padding: 5px 10px;
-  margin: 5px 5px;
-  font-size: medium;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-  outline: none;
-  overflow: hidden;
-  border-radius: 5px;
-  border: none;
-  background-color: #ef233c;
-  text-decoration: none;
-  text-align: center;
-  line-height: 40px;
+min-width: 130px;
+height: 40px;
+color: #fff;
+padding: 5px 10px;
+margin: 5px 5px;
+font-size: medium;
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s ease;
+position: relative;
+display: inline-block;
+outline: none;
+overflow: hidden;
+box-sizing: border-box;
+border-radius: 5px;
+border: none;
+background-color: #EF233C;
+text-decoration: none;
+text-align: center;
+line-height: 40px;
 }
 .css-button-arrow--red:hover {
-  border-radius: 5px;
-  padding-right: 24px;
-  padding-left:8px;
+border-radius: 5px;
+padding-right: 24px;
+padding-left:8px;
 }
 .css-button-arrow--red:hover:after {
-  opacity: 1;
-  right: 10px;
+opacity: 1;
+right: 10px;
 }
 .css-button-arrow--red:after {
-  content: "\00BB";
-  position: absolute;
-  opacity: 0;
-  font-size: 20px;
-  line-height: 40px;
-  top: 0;
-  right: -20px;
-  transition: 0.4s;
+content: "\00BB";
+position: absolute;
+opacity: 0;
+font-size: 20px;
+line-height: 40px;
+top: 0;
+right: -20px;
+transition: 0.4s;
 }
-
-
 .login, .logout{
-  cursor: pointer;
-  background-color: #ef233c;
-  text-decoration: none;
-  color: #FCF8F3;
-  font-weight: bolder;
-  font-size: 15px;
-  padding: 15px;
-  border-radius: 5px;
-  border: #b97c72 1px solid;
-
-
-} 
-
+cursor: pointer;
+background-color: #EF233C;
+text-decoration: none;
+color: #FCF8F3;
+font-weight: bolder;
+font-size: 15px;
+padding: 15px;
+border-radius: 5px;
+border: #B97C72 1px solid;
+}
 .imgMongo{
-  width: 320px;
-  height: 360px;
-
+width: 320px;
+height: 360px;
 }
 
