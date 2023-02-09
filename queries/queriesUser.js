@@ -21,7 +21,12 @@ const queries = {
     deleteFavorite:`
     DELETE
     FROM favorites AS e
-    WHERE e.id = $1 AND e.title = $2`
-
+    WHERE e.id = $1 AND e.title = $2;
+    `,
+    isAdmin:`
+    SELECT *
+    FROM users
+    WHERE email = $1 AND admin = true;
+    `
 }
 module.exports = queries;
