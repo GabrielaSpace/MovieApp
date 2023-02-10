@@ -2,17 +2,19 @@ console.log("SCRIPT LINKADO");
 
 //despliegue del menu 'hamburguesa'
 
+if (document.title !== "Movies" && documentç
+.title !== "updateMovie") {
+  let burger = document.querySelector(".burger_menu");
 
-let burger = document.querySelector(".burger_menu");
-
-burger.addEventListener("click", () => {
-  let links = document.getElementById("links_menu");
-  if (links.style.display === "block") {
-    links.style.display = "none";
-  } else {
-    links.style.display = "block";
-  }
-});
+  burger.addEventListener("click", () => {
+    let links = document.getElementById("links_menu");
+    if (links.style.display === "block") {
+      links.style.display = "none";
+    } else {
+      links.style.display = "block";
+    }
+  });
+}
 
 
 //LLAMADAS A RUTAS DE ADMIN
