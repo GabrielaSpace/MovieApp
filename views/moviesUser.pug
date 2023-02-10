@@ -16,12 +16,12 @@ html(lang="en")
                 each film, i in favMoviesApi 
                     article 
                         h1(id="title"+i) Title: #{favMoviesApi[i].title}
-                        img(src=favMoviesApi[i].img class="slit-in-vertical")
+                        img(src=favMoviesApi[i].img)
                         p Year: #{favMoviesApi[i].year}
                         p Director: #{favMoviesApi[i].director}
                         p Genre: #{favMoviesApi[i].genre}
                         p Runtime: #{favMoviesApi[i].runtime}
-                        button(id='delete'+i class="delete" type="button") Remove
+                        button(id='delete'+i class="delete" type="button" class ="css-button-arrow--red") Remove
             p(id="userId" hidden=true) #{userId}       
                         
 

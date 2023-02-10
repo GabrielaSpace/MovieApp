@@ -1,16 +1,21 @@
 console.log("SCRIPT LINKADO");
 
 //despliegue del menu 'hamburguesa'
-let burger = document.querySelector(".burger_menu");
 
-burger.addEventListener("click", () => {
-  let links = document.getElementById("links_menu");
-  if (links.style.display === "block") {
-    links.style.display = "none";
-  } else {
-    links.style.display = "block";
-  }
-});
+if (document.title !== "Movies" && document
+.title !== "updateMovie") {
+  let burger = document.querySelector(".burger_menu");
+
+  burger.addEventListener("click", () => {
+    let links = document.getElementById("links_menu");
+    if (links.style.display === "block") {
+      links.style.display = "none";
+    } else {
+      links.style.display = "block";
+    }
+  });
+}
+
 
 //LLAMADAS A RUTAS DE ADMIN
 
@@ -47,6 +52,7 @@ const deleteFavorite = async (title) => {
     }
     const BASE_URL = 'http://localhost:3000/movies/deleteMovie?title=' + title
     const response = await fetch(BASE_URL, method)
+    // const recharged = await fetch('http://localhost:3000/movies')
     if (response.status === 200) {
       alert("La pelicula " + title + " ha sido eliminada");
     } else {
@@ -192,7 +198,6 @@ if (document.title === "singup") {
 
 //Evento para capturar los datos y llamar a la funcion para actualizar pelicula a lista de mongo a traves de admin:
 if (document.title === "updateMovie") {
-  console.log("hola")
 
   document.getElementById("updateMovie").addEventListener("click", async (e) => {
     console.log("Validacion arrancando");

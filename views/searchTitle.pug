@@ -11,6 +11,7 @@ html(lang="en")
     body
         include ./header.pug
         main
+            a(href="../FavMovies" class ="css-button-arrow--red" ) Go to look your favorites
             section(class="card")
                     h1(id="title") Title: #{param.Title}
                     img(id="img" src=param.Poster)
@@ -26,7 +27,6 @@ html(lang="en")
                             p Critics: #{critics[i].Critics}
                             p Punctuation: #{critics[i].Punctuation}
                     button(id='fav' type="button" class ="css-button-arrow--red") Add to Favorites
-
             p(id="userId" hidden=true) #{userId}        
 
 
