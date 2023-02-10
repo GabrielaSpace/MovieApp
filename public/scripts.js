@@ -2,7 +2,7 @@ console.log("SCRIPT LINKADO");
 
 //despliegue del menu 'hamburguesa'
 
-if (document.title !== "Movies" && documentç
+if (document.title !== "Movies" && document
 .title !== "updateMovie") {
   let burger = document.querySelector(".burger_menu");
 

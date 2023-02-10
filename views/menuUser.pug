@@ -1,4 +1,10 @@
 nav(class="topnav")
-
+    a(href="#" class="burger_button" id="burger_button")
+        img(src="views/burger.png" class="burger_menu")
+    
+    div(id="links_menu")
+        each item in [['../dashboard', 'Dashboard'], ['../search', 'Search'], ['../movies','Movies'], ['../logout' , 'Logout']]
+           button  
+                a(href=  item[0])= item[1]
 
     
