@@ -13,7 +13,13 @@ const getHome = (req, res) => {
     console.log(response)
     let userData = req.oidc.user
     console.log(userData)
-    res.render('home', { isAuthenticated: req.oidc.isAuthenticated() })
+    if (userData !== undefined){
+    let userEmail = userData.email
+    res.render('home', { isAuthenticated: req.oidc.isAuthenticated(), email: userEmail })
+    } else {
+        res.render('home', { isAuthenticated: req.oidc.isAuthenticated()});
+    }
+
 }
 
 module.exports = {
