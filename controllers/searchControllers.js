@@ -140,6 +140,4 @@ module.exports = {
     postFilmForm,
     getSearchForTitleInMongo,
     startScraping
-
-
 }
