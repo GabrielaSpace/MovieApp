@@ -1,0 +1,32 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/styles.css")
+        title Favorites
+    include ./header.pug
+    body
+        main
+            h3 What do you want?
+
+            section
+            if favMoviesApi
+                each film, i in favMoviesApi 
+                    article 
+                        h1(id="title"+i) Title: #{favMoviesApi[i].title}
+                        img(src=favMoviesApi[i].img)
+                        p Year: #{favMoviesApi[i].year}
+                        p Director: #{favMoviesApi[i].director}
+                        p Genre: #{favMoviesApi[i].genre}
+                        p Runtime: #{favMoviesApi[i].runtime}
+                        button(id='delete'+i class="delete" type="button" class ="css-button-arrow--red") Remove
+            p(id="userId" hidden=true) #{userId}       
+                        
+
+
+        include ./footer.pug
+
+        script(type="module" src="/scripts.js")
+

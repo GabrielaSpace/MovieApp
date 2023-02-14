@@ -1,0 +1,38 @@
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/styles.css")
+        title updateMovie 
+    include ./header.pug
+    body 
+        main
+            a(href="../Movies" class ="css-button-arrow--red" ) Go back 
+            h3 Update Movie
+            section
+                form(class="updateMovie")
+                    legend Poster(url)
+                    input(type="text" name="img" placeholder="Poster (url)")
+                    legend Title
+                    input(type="text" name="title" placeholder="Title")
+                    legend Year
+                    input(type="number" name="year" min = "1902" placeholder="Year")
+                    legend Director
+                    input(type="text" name="director" placeholder="Director")
+                    legend Genre
+                    input(type="text" name="genre" placeholder="Genre")
+                    legend Runtime
+                    input(type="text" name="runtime" placeholder="Runtime")
+                    legend Plot
+                    input(type="text" name="plot" placeholder="Plot")
+                    legend Actors
+                    input(type="text" name="actors" placeholder="Actors")
+                    legend Language
+                    input(type="text" name ="language" placeholder="Language")
+                    br
+                    input(type="submit" id="updateMovie" value="Send" class ="css-button-arrow--red")
+        include ./footer.pug
+        script(type="module" src="/scripts.js")

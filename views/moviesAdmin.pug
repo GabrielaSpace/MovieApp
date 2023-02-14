@@ -1,0 +1,36 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/styles.css")
+        title Movies
+    include ./headerAdmin.pug
+    body 
+        main
+            h3 What do you want?
+
+            a(href="../movies/createMovie" class='css-button-arrow--red') Add New Movie
+            section(class="cardSection")
+                each item, index in allMovies 
+                    article(class="card")
+                        h3(id="title"+index )  Title: #{allMovies[index].title}
+                        img(src=allMovies[index].img  class="imgMongo")
+                        p Year: #{allMovies[index].year}
+                        p Director: #{allMovies[index].director}
+                        p Genre: #{allMovies[index].genre}
+                        p Runtime: #{allMovies[index].runtime}
+                        p Plot : #{allMovies[index].plot}
+                        p Actors : #{allMovies[index].actors}
+                        p Language : #{allMovies[index].language}
+                        button(class ="css-button-arrow--red" class ="delete" id="delete"+index) Delete
+                        a(href="../movies/updateMovie" class="css-button-arrow--red") Update
+            //- button( href="../movies" class ="css-button-arrow--red" ) Recharge
+                    
+
+                        
+
+
+        include ./footer.pug
+        script(type="module" src="/scripts.js")

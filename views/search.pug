@@ -1,0 +1,39 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/styles.css")
+        title Search
+    body 
+        include ./header.pug
+        main
+            h3 Search User
+
+            
+            form(action="/search" method="post" target="_blank" id="form1")
+                label(for="fname") TITLE: 
+                input(type="text" id="fname" name="title")
+                |
+                |
+                input(type="submit" value="SEARCH" class='css-button-arrow--red')
+
+
+            if movies
+                section
+                    each film, index in movies 
+                        img(src=film[index] .Poster)
+                        h1 Title: #{film[index].Title}
+                        p Year: #{film[index].Year}
+                        p Director: #{film[index].Director}
+                        p Genre: #{film[index].Genre}
+                        p Runtime: #{film[index].Runtime}
+                        p Plot : #{film[index].Plot}
+                        p Actors : #{film[index].Actors}
+                        p Ratings: #{film[index].Ratings} 
+                        p Language : #{film[index].Language}
+                        button(class ="css-button-arrow--red"  id=`addFav${index}`) Add to favorites 
+            
+        include ./footer.pug
+        script(type="module" src="/scripts.js")

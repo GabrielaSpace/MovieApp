@@ -1,0 +1,29 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/styles.css")
+        title Home
+    body
+        include ./header.pug
+        main
+            h3 Welcome
+            section
+                if !isAuthenticated
+                     
+                    a(class='login' href='/login') Log In / Sign Up
+                else 
+                     
+                    a(class='logout' href="/logout") Log Out
+
+
+            if isAuthenticated
+                p User logged as #{email}
+            else
+                p No user
+
+
+        include ./footer.pug
+        script(type="module" src="/scripts.js")

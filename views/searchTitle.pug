@@ -1,0 +1,34 @@
+//Render de la descripcion especifica de la pelicula seleccionada en search.pug ==(evento de click)==> .post('./search') ==(resredirect)==> /search/:title
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/styles.css")
+        title searchTitle
+        link(rel="stylesheet", href="/styles.css")
+    body
+        include ./header.pug
+        main
+            a(href="../FavMovies" class ="css-button-arrow--red" ) Go to look your favorites
+            section(class="card")
+                    h1(id="title") Title: #{param.Title}
+                    img(id="img" src=param.Poster)
+                    p(id="year") Year: #{param.Year}
+                    p(id="director") Director: #{param.Director}
+                    p(id="genre") Genre: #{param.Genre}
+                    p(id="runtime") Runtime: #{param.Runtime}
+                    p Plot : #{param.Plot}
+                    p Actors : #{param.Actors}
+                    p Language : #{param.Language}
+                    if critics 
+                        each item , i in critics 
+                            p Critics: #{critics[i].Critics}
+                            p Punctuation: #{critics[i].Punctuation}
+                    button(id='fav' type="button" class ="css-button-arrow--red") Add to Favorites
+            p(id="userId" hidden=true) #{userId}        
+
+
+        include ./footer.pug
+        script(type="module" src="/scripts.js")
