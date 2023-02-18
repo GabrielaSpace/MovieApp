@@ -60,15 +60,12 @@ const getSearchForTitleInMongo = async (req, res) => {
     const title = req.params.title
     let param = await Movies.find({ title }, { _id: 0, __v: 0 });
     param = param[0]
-    console.log(param)
     if (param !== undefined) {
         const critics = await startScraping(title)
         console.log("ENTRE EN SEARCH SEARCH MONGO")
-        console.log(critics)
         let userData = req.oidc.user
         let userId = userData.sub
         if (userId.startsWith('auth0|')) {
-            console.log(userId.slice(userId.indexOf('|') + 1))
             userId = userId.slice(userId.indexOf('|') + 1).trim()
 
         }
@@ -101,11 +98,9 @@ const getSearchForTitle = async (req, res) => {
     if (param.Response !== 'False') {
         const critics = await startScraping(title)
         console.log("ENTRE EN SEARCH SEARCH TITLE")
-        console.log(critics)
         let userData = req.oidc.user
         let userId = userData.sub
         if (userId.startsWith('auth0|')) {
-            console.log(userId.slice(userId.indexOf('|') + 1))
             userId = userId.slice(userId.indexOf('|') + 1).trim()
 
         }
@@ -128,7 +123,7 @@ const getSearchForTitle = async (req, res) => {
  */
 const postFilmForm = async (req, res) => {
 
-    const title = "/search/local/" + req.body.title.toLowerCase()
+    const title = "/search/local/" + req.body.title
     res.redirect(title)
 }
 
