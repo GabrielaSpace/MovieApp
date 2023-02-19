@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer')
 
-const extractSensacineData = async (url, browser) => {
+const extractfilmaffinityData = async (url, browser) => {
     try {
         const filmaffinityData = {}
         const page = await browser.newPage()
@@ -23,7 +23,7 @@ const scrap = async (url) => {
         const tmpurls = await page.$$eval("div.mc-title > a", data => data.map(a => a.href))
         const urls = tmpurls.filter((link, index) => { return tmpurls.indexOf(link) === index })
         for (i in urls) {
-            const filmaffinity = await extractSensacineData(urls[i], browser)
+            const filmaffinity = await extractfilmaffinityData(urls[i], browser)
             if(filmaffinity.Title) {
             scrapedData.push(filmaffinity)
             }
