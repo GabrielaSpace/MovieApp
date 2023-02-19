@@ -35,11 +35,8 @@ const getSearch = (req, res) => {
 
 const startScraping = async (title) => {
     try {
-        // ---Descomenta las 2 siguientes líneas para hacer scraping---
-        const products = await scraper.scrap("https://www.filmaffinity.com/en/search.php?stype=title&stext=" + title);
-        // console.log(products)
-        return products /*.json({ Critics: products[0].Critics, Puntuacion: products[0].Punctuation });*/
-        // res.status(200).json({"mensaje":"Aquí irán los productos"}); // ---Comenta esta línea---
+        const movies = await scraper.scrap("https://www.filmaffinity.com/en/search.php?stype=title&stext=" + title);
+        return movies 
     } catch (error) {
         console.log("Error Scraping")
     }
@@ -57,30 +54,34 @@ const startScraping = async (title) => {
  */
 
 const getSearchForTitleInMongo = async (req, res) => {
-    const title = req.params.title
-    let param = await Movies.find({ title }, { _id: 0, __v: 0 });
-    param = param[0]
-    console.log(param)
-    if (param !== undefined) {
-        const critics = await startScraping(title)
-        console.log("ENTRE EN SEARCH SEARCH MONGO")
-        console.log(critics)
-        let userData = req.oidc.user
-        let userId = userData.sub
-        if (userId.startsWith('auth0|')) {
-            console.log(userId.slice(userId.indexOf('|') + 1))
-            userId = userId.slice(userId.indexOf('|') + 1).trim()
+    try {
+        const title = req.params.title;
+        let param = await Movies.find({ title }, { _id: 0, __v: 0 });
+        param = param[0];
+        console.log(param);
+        if (param !== undefined) {
+            const critics = await startScraping(title);
+            console.log("ENTRE EN SEARCH SEARCH MONGO");
+            console.log(critics);
+            let userData = req.oidc.user;
+            let userId = userData.sub;
+            if (userId.startsWith('auth0|')) {
+                console.log(userId.slice(userId.indexOf('|') + 1));
+                userId = userId.slice(userId.indexOf('|') + 1).trim();
 
+            }
+
+            res.status(200).render("searchInMongoForTitle", { param, critics: critics, userId });
+
+        } else {
+            const title = "/search/" + req.params.title;
+            res.redirect(title);
         }
-
-        res.status(200).render("searchInMongoForTitle", { param, critics: critics, userId })
-
-    } else {
-        const title = "/search/" + req.params.title
-        res.redirect(title)
+    } catch (error) {
+        res.status(500).send({ error: "An error occurred while searching in MongoDB: " + error.message });
     }
+};
 
-}
 /**
  * Description: This function gets all the movies in the database.
  * @memberof searchControllers
@@ -92,30 +93,33 @@ const getSearchForTitleInMongo = async (req, res) => {
  * @throws {Error} message with the error during the search process.
  */
 const getSearchForTitle = async (req, res) => {
+    try {
+        const resp = await fetch(`http://www.omdbapi.com/?t=${req.params.title}&apikey=` + API_KEY);
+        let param = await resp.json();
+        console.log(param);
+        const title = req.params.title;
+        if (param.Response !== 'False') {
+            const critics = await startScraping(title);
+            console.log("ENTRE EN SEARCH SEARCH TITLE");
+            console.log(critics);
+            let userData = req.oidc.user;
+            let userId = userData.sub;
+            if (userId.startsWith('auth0|')) {
+                console.log(userId.slice(userId.indexOf('|') + 1));
+                userId = userId.slice(userId.indexOf('|') + 1).trim();
 
+            }
+            res.status(200).render("searchTitle", { param, critics: critics, userId });
 
-    const resp = await fetch(`http://www.omdbapi.com/?t=${req.params.title}&apikey=` + API_KEY);
-    let param = await resp.json();
-    console.log(param)
-    const title = req.params.title
-    if (param.Response !== 'False') {
-        const critics = await startScraping(title)
-        console.log("ENTRE EN SEARCH SEARCH TITLE")
-        console.log(critics)
-        let userData = req.oidc.user
-        let userId = userData.sub
-        if (userId.startsWith('auth0|')) {
-            console.log(userId.slice(userId.indexOf('|') + 1))
-            userId = userId.slice(userId.indexOf('|') + 1).trim()
-
+        } else {
+            console.log("ENTRE EN EL ELSE");
+            res.render("noMovie");
         }
-        res.status(200).render("searchTitle", { param, critics: critics, userId })
-
-    } else {
-        console.log("ENTRE EN EL ELSE")
-        res.render("noMovie")
+    } catch (error) {
+        res.status(500).send({ error: "An error occurred while searching in OMDB API: " + error.message });
     }
-}
+};
+
 /**
  * Description: This function gets all the movies in the database.
  * @memberof searchControllers
@@ -140,6 +144,4 @@ module.exports = {
     postFilmForm,
     getSearchForTitleInMongo,
     startScraping
-
-
 }

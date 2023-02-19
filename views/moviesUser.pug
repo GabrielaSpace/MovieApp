@@ -11,16 +11,16 @@ html(lang="en")
         main
             h3 What do you want?
 
-            section
+            section(class="cardSection")
             if favMoviesApi
                 each film, i in favMoviesApi 
-                    article 
+                    article(class='card') 
                         h1(id="title"+i) Title: #{favMoviesApi[i].title}
-                        img(src=favMoviesApi[i].img)
-                        p Year: #{favMoviesApi[i].year}
-                        p Director: #{favMoviesApi[i].director}
-                        p Genre: #{favMoviesApi[i].genre}
-                        p Runtime: #{favMoviesApi[i].runtime}
+                        img(src=favMoviesApi[i].img class="imgFav")
+                        p #{favMoviesApi[i].year}
+                        p #{favMoviesApi[i].director}
+                        p #{favMoviesApi[i].genre}
+                        p #{favMoviesApi[i].runtime}
                         button(id='delete'+i class="delete" type="button" class ="css-button-arrow--red") Remove
             p(id="userId" hidden=true) #{userId}       
                         
