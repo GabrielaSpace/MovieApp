@@ -26,7 +26,7 @@ const queries = {
     isAdmin:`
     SELECT *
     FROM users
-    WHERE email = $1 AND admin = true;
+    WHERE email = $1 AND admin = 'true';
     `
 }
 module.exports = queries;

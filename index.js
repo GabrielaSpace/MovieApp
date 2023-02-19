@@ -10,7 +10,6 @@ require('./utils/mongoBase');
 require('./utils/pg_pool');
 const { auth } = require('express-openid-connect');
 
-
 const Config = {
     authRequired: false,
     auth0Logout: true,
@@ -19,6 +18,7 @@ const Config = {
     clientID: CLIENT_ID,
     issuerBaseURL: ISSUER
 };
+
 //swagger
 const swaggerUi = require('swagger-ui-express');//Requiere libreria de Swagger (La UI)
 const swaggerDocument = require('./swagger.json'); //Requiere ruta relativa del json que contiene la documentación de la API
