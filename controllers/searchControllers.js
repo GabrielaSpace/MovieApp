@@ -35,11 +35,8 @@ const getSearch = (req, res) => {
 
 const startScraping = async (title) => {
     try {
-        // ---Descomenta las 2 siguientes líneas para hacer scraping---
         const movies = await scraper.scrap("https://www.filmaffinity.com/en/search.php?stype=title&stext=" + title);
-        // console.log(movies)
-        return movies /*.json({ Critics: movies[0].Critics, Puntuacion: movies[0].Punctuation });*/
-        // res.status(200).json({"mensaje":"Aquí irán las peliculas"}); // ---Comenta esta línea---
+        return movies 
     } catch (error) {
         console.log("Error Scraping")
     }
