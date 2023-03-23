@@ -21,7 +21,7 @@ if (document.title !== "Movies" && document
 
 //Ruta para crear pelicula en mongo:
 const createMovie = async (movie) => {
-  try {
+ 
     const options = {
       method: 'POST',
       headers: {
@@ -39,9 +39,6 @@ const createMovie = async (movie) => {
     }
 
 
-  } catch (error) {
-    alert(error)
-  }
 }
 
 //Ruta para eliminar pelicula de mongo:

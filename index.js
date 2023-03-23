@@ -10,7 +10,6 @@ require('./utils/mongoBase');
 require('./utils/pg_pool');
 const { auth } = require('express-openid-connect');
 
-
 const Config = {
     authRequired: false,
     auth0Logout: true,
@@ -19,6 +18,7 @@ const Config = {
     clientID: CLIENT_ID,
     issuerBaseURL: ISSUER
 };
+
 //swagger
 const swaggerUi = require('swagger-ui-express');//Requiere libreria de Swagger (La UI)
 const swaggerDocument = require('./swagger.json'); //Requiere ruta relativa del json que contiene la documentación de la API
@@ -65,7 +65,7 @@ app.use('/search', check.isAuth, searchRoutes);
 //Rutas para administrador:
 app.use('/movies', check.isAuth, adminRoutes);
 
-app.use('/favmovies', check.isAuth, favMoviesRoutes);
+app.use('/favmovies', check.isAuth, roles.isAdmin, favMoviesRoutes);
 
 app.listen(port, () => {
     console.log(`server running on http://localhost:${port}`)
