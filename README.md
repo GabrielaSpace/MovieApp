@@ -127,16 +127,12 @@ Here are some views of our app :sparkles:
 
 
 
-## contributions
-
-This project is open to contributions. If you would like to collaborate, please submit a pull request. Thanks for getting here. :heartpulse::wink: 
 
 ## This project was done by:
 
 [Javier Fuertes](https://github.com/ZManak)
 
 [Gabriela García](https://github.com/GabrielaSpace)
-
 
 [Pablo Mateos](https://github.com/PabloMatMar)
 
