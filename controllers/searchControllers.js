@@ -54,18 +54,7 @@ const startScraping = async (title) => {
  */
 
 const getSearchForTitleInMongo = async (req, res) => {
-<<<<<<< HEAD
-    const title = req.params.title
-    let param = await Movies.find({ title }, { _id: 0, __v: 0 });
-    param = param[0]
-    if (param !== undefined) {
-        const critics = await startScraping(title)
-        console.log("ENTRE EN SEARCH SEARCH MONGO")
-        let userData = req.oidc.user
-        let userId = userData.sub
-        if (userId.startsWith('auth0|')) {
-            userId = userId.slice(userId.indexOf('|') + 1).trim()
-=======
+
     try {
         const title = req.params.title;
         let param = await Movies.find({ title }, { _id: 0, __v: 0 });
@@ -80,7 +69,6 @@ const getSearchForTitleInMongo = async (req, res) => {
             if (userId.startsWith('auth0|')) {
                 console.log(userId.slice(userId.indexOf('|') + 1));
                 userId = userId.slice(userId.indexOf('|') + 1).trim();
->>>>>>> ad584ef41105430ae15c4ae9ee83600f513d63d8
 
             }
 
@@ -124,24 +112,10 @@ const getSearchForTitle = async (req, res) => {
             }
             res.status(200).render("searchTitle", { param, critics: critics, userId });
 
-<<<<<<< HEAD
-    const resp = await fetch(`http://www.omdbapi.com/?t=${req.params.title}&apikey=` + API_KEY);
-    let param = await resp.json();
-    console.log(param)
-    const title = req.params.title
-    if (param.Response !== 'False') {
-        const critics = await startScraping(title)
-        console.log("ENTRE EN SEARCH SEARCH TITLE")
-        let userData = req.oidc.user
-        let userId = userData.sub
-        if (userId.startsWith('auth0|')) {
-            userId = userId.slice(userId.indexOf('|') + 1).trim()
-
-=======
         } else {
             console.log("ENTRE EN EL ELSE");
             res.render("noMovie");
->>>>>>> ad584ef41105430ae15c4ae9ee83600f513d63d8
+
         }
     } catch (error) {
         res.status(500).send({ error: "An error occurred while searching in OMDB API: " + error.message });
