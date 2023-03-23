@@ -9,7 +9,7 @@ html(lang="en")
     body
         include ./header.pug
         main
-            a(href="../FavMovies" class ="css-button-arrow--red" ) Go back
+            a(href="../" class ="css-button-arrow--red" ) Go back
             section(class="card")
                     h1(id="title") Title: #{param.title}
                     img(id="img" src=param.img)
@@ -25,7 +25,9 @@ html(lang="en")
                             p Critics: #{critics[i].Critics}
                             p Punctuation: #{critics[i].Punctuation}
                     button(id='fav' type="button" class ="css-button-arrow--red") Add to Favorites
-            p(id="userId" hidden=true) #{userId}    
+            p(id="userId" hidden=true) #{userId} 
+
+            a(href="http://localhost:3000/favmovies" class ="css-button-arrow--red") Look your favorites   
 
 
 

@@ -54,6 +54,7 @@ const startScraping = async (title) => {
  */
 
 const getSearchForTitleInMongo = async (req, res) => {
+
     try {
         const title = req.params.title;
         let param = await Movies.find({ title }, { _id: 0, __v: 0 });
@@ -114,6 +115,7 @@ const getSearchForTitle = async (req, res) => {
         } else {
             console.log("ENTRE EN EL ELSE");
             res.render("noMovie");
+
         }
     } catch (error) {
         res.status(500).send({ error: "An error occurred while searching in OMDB API: " + error.message });
@@ -132,7 +134,7 @@ const getSearchForTitle = async (req, res) => {
  */
 const postFilmForm = async (req, res) => {
 
-    const title = "/search/local/" + req.body.title.toLowerCase()
+    const title = "/search/local/" + req.body.title
     res.redirect(title)
 }
 

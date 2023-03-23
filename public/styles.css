@@ -55,6 +55,12 @@ fieldset {
   border: none;
   color: whitesmoke;
 }
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
 
 #links_menu {
   display: none;

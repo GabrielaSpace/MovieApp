@@ -64,7 +64,7 @@ app.use('/dashboard', check.isAuth, roles.isAdmin, dashboardRoutes);
 app.use('/search', check.isAuth, searchRoutes);
 //Rutas para administrador:
 app.use('/movies', check.isAuth, adminRoutes);
-
+//Rutas para ver las peliculas favoritas de un usuario:
 app.use('/favmovies', check.isAuth, roles.isAdmin, favMoviesRoutes);
 
 app.listen(port, () => {
