@@ -1,3 +1,17 @@
+# This project was done by:
+
+[Javier Fuertes](https://github.com/ZManak)
+
+[Gabriela García](https://github.com/GabrielaSpace)
+
+[Pablo Mateos](https://github.com/PabloMatMar)
+
+
+## Owners Participation Graph
+
+![Owners Participation Graph](./public/assets/contributors.png)
+
+
 ## MovieAPP :movie_camera::performing_arts:	:clapper::ticket:
  
  *Movie Search and Management Web Application*: 
