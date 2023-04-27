@@ -1,16 +1,9 @@
-# This project was done by:
 
-[Javier Fuertes](https://github.com/ZManak)
+## [MovieApp](https://movie-app-mongodb.onrender.com/) :movie_camera::performing_arts:	:clapper::ticket: 
 
-[Gabriela García](https://github.com/GabrielaSpace)
-
-[Pablo Mateos](https://github.com/PabloMatMar)
-
-
-## MovieAPP :movie_camera::performing_arts:	:clapper::ticket:
  
  *Movie Search and Management Web Application*: 
-   This project consists of developing a movie search and management web application with two different user roles: User and Administrator.   The application will allow users to search and view information about the movies, and the Administrator to manage the movies and the information associated with them.
+   This project was done by [Javier Fuertes](https://github.com/ZManak), [Gabriela García](https://github.com/GabrielaSpace) and [Pablo Mateos](https://github.com/PabloMatMar), and consists of developing a movie search and management web application with two different user roles: User and Administrator.   The application will allow users to search and view information about the movies, and the Administrator to manage the movies and the information associated with them.
 
 **Features and Endpoints:** 
 
@@ -119,7 +112,7 @@ To install and run this project in your local environment, follow these steps:
 
 In this project we have used the [OMDB API](https://www.omdbapi.com/) and the pages [FilmAffinity](https://www.filmaffinity.com/es/main.html) and [SensaCine](https://www.sensacine.com/peliculas/criticas-sensacine/) to get the reviews.
 
-We also invite you to visit our website [MovieApp](https://movie-app-zmanak.vercel.app/) and so you can interact with the application.
+We also invite you to visit our website [MovieApp](https://movie-app-mongodb.onrender.com/) and so you can interact with the application.
 
 Here are some views of our app :sparkles:
 
