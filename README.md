@@ -130,13 +130,6 @@ Here are some views of our app :sparkles:
 
 
 
-## This project was done by:
-
-[Javier Fuertes](https://github.com/ZManak)
-
-[Gabriela García](https://github.com/GabrielaSpace)
-
-[Pablo Mateos](https://github.com/PabloMatMar)
 
  
 
